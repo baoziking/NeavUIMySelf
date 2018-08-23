@@ -7,7 +7,7 @@ nMainbar.Config = {
     button = {
         showVehicleKeybinds = true,
         showKeybinds = true,
-        showMacroNames = false,
+        showMacroNames = true,
         buttonOutOfRange = false,
 
         watchbarFontsize = 13,

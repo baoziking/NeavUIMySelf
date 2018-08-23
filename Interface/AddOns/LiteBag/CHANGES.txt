@@ -1,0 +1,17 @@
+tag aecbff6423805e22f61090b486922a3f8086a2ad 8.0.4
+Author:	Mike "Xodiv" Battersby <mib@post.com>
+Date:	Thu Aug 23 08:35:14 2018 +1000
+
+Released LiteBag 8.0.4
+
+New:
+
+Bug fixes:
+ - Fix bug when you delete an equipment set.
+
+commit bc2f792ae93bffd3b14d7f88e4ef25f5e48e4560
+Author: Mike "Xodiv" Battersby <mib@post.com>
+Date:   Thu Aug 23 08:30:15 2018 +1000
+
+    Fix error with equipsets if you delete one.
+

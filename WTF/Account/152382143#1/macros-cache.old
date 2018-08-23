@@ -1,0 +1,13 @@
+VER 3 0000000000000002 "play" "INV_MISC_QUESTIONMARK"
+#show
+/cast 魔法食人魔玩偶
+/cast 重拳先生的铜罗盘
+/cast 伊克赞的诅咒之羽
+/cast 月牙的爪子
+/cast 钢铁海盗帽
+/cast 血鬃符咒
+/cast 鬣蜥人伪装
+END
+VER 3 0000000000000001 "WQL" "1495827"
+/wql
+END
