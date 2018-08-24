@@ -11,7 +11,7 @@ nRaidDB = {
 	["anchorToControls"] = true,
 	["frameHeight"] = 46,
 	["showRoleIcons"] = true,
-	["indicatorSize"] = 7,
+	["texture"] = "Interface\\AddOns\\oUF_NeavRaid\\media\\statusbarTexture",
 	["horizontalPowerBars"] = false,
 	["horizontalHealthBars"] = false,
 	["fontSize"] = 12,
@@ -21,5 +21,5 @@ nRaidDB = {
 	["orientation"] = "VERTICAL",
 	["frameScale"] = 1.2,
 	["frameWidth"] = 48,
-	["texture"] = "Interface\\AddOns\\oUF_NeavRaid\\media\\statusbarTexture",
+	["indicatorSize"] = 7,
 }
