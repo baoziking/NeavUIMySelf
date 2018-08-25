@@ -9,7 +9,7 @@ nTooltip.Config = {
         "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -39, 82
     },
 
-    showOnMouseover = false,
+    showOnMouseover = true,
     hideInCombat = false,                       -- Hide unit frame tooltips during combat
 
     reactionBorderColor = false,
@@ -18,7 +18,7 @@ nTooltip.Config = {
     abbrevRealmNames = false,
     showPlayerTitles = false,
     showUnitRole = true,
-    showPVPIcons = false,                       -- Show pvp icons instead of just a prefix
+    showPVPIcons = true,                       -- Show pvp icons instead of just a prefix
     showMouseoverTarget = true,
     showSpecializationIcon = true,
 

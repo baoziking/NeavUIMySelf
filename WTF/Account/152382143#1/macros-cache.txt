@@ -1,14 +1,8 @@
-VER 3 0000000000000007 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cancelaura 剑刃风暴 
-/cast [@arena2]风暴之锤
-/focus
-END
 VER 3 0000000000000008 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cancelaura 剑刃风暴 
 /cast [@arena3]风暴之锤
-/focus
+/focus arena3
 END
 VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
@@ -19,12 +13,18 @@ VER 3 0000000000000006 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cancelaura 剑刃风暴 
 /cast [@arena1]风暴之锤
-/focus
+/focus arena1
 END
 VER 3 0000000000000003 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cancelaura 剑刃风暴 
 /cast 英勇飞跃
+END
+VER 3 0000000000000007 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast [@arena2]风暴之锤
+/focus arena2
 END
 VER 3 0000000000000002 "play" "INV_MISC_QUESTIONMARK"
 #show

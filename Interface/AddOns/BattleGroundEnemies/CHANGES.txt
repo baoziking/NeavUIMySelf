@@ -1,0 +1,32 @@
+lightweight tag fe71572180f60fb40311111164408fbeb9111f77 v3.1.9.4
+Author:	GitHub <noreply@github.com>
+Date:	Tue Aug 7 18:16:31 2018 +0200
+
+commit fe71572180f60fb40311111164408fbeb9111f77
+Author: bullsei <bullsei@users.noreply.github.com>
+Date:   Tue Aug 7 18:16:31 2018 +0200
+
+    Update CHANGELOG.md
+
+commit b61b929a56e6824c338db86f2343389a6f410f4e
+Author: bullsei <bullsei@users.noreply.github.com>
+Date:   Sat Jul 21 15:49:03 2018 +0200
+
+    Update .pkgmeta
+    
+    Enable nolib
+
+commit 0ddc5306f78fe82887655671518a3cf7cb971a30
+Author: bullsei <bullsei@users.noreply.github.com>
+Date:   Sat Jul 21 15:45:32 2018 +0200
+
+    Update Main.lua
+    
+    Forgot to change the mapID of Kotmugu there
+
+commit a980d3e79a685f233bd764071c8937e64f3366b4
+Author: bullsei <bullsei@users.noreply.github.com>
+Date:   Wed Jul 18 20:43:55 2018 +0200
+
+    Update CHANGELOG.md
+

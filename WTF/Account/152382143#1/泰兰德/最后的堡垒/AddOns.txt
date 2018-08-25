@@ -1,1 +1,2 @@
 oUF_NeavRaid: enabled
+Immersion: disabled
