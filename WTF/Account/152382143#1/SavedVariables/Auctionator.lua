@@ -2,13 +2,13 @@
 AUCTIONATOR_SAVEDVARS = {
 	["_50000"] = 500,
 	["_2000"] = 100,
-	["_200000"] = 1000,
-	["_10000"] = 200,
-	["_1000000"] = 2500,
-	["_5000000"] = 10000,
-	["STARTING_DISCOUNT"] = 5,
-	["_500"] = 5,
 	["LOG_DE_DATA_X"] = true,
+	["_500"] = 5,
+	["_1000000"] = 2500,
+	["_200000"] = 1000,
+	["STARTING_DISCOUNT"] = 5,
+	["_5000000"] = 10000,
+	["_10000"] = 200,
 }
 AUCTIONATOR_PRICING_HISTORY = {
 }
@@ -30,8 +30,13 @@ AUCTIONATOR_LAST_SCAN_TIME = nil
 AUCTIONATOR_TOONS = {
 	["Juanjuan"] = {
 		["firstSeen"] = 1535117632,
-		["guid"] = "Player-826-03727C16",
 		["firstVersion"] = "5.0.4",
+		["guid"] = "Player-826-03727C16",
+	},
+	["猪猪胖"] = {
+		["firstSeen"] = 1536382030,
+		["guid"] = "Player-826-0293226C",
+		["firstVersion"] = "5.0.5",
 	},
 }
 AUCTIONATOR_STACKING_PREFS = {

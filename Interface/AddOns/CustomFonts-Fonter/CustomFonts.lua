@@ -20,7 +20,7 @@ else
 
 if GetLocale() == "zhCN" then
 CustomFonts = {
-[""] = "Interface\\Addons\\Fonter\\Fonts\\CH\\.ttf",
+[""] = "Interface\\Addons\\Fonter\\Fonts\\CH\\ARIALN.ttf",
 }
 
 else

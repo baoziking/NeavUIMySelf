@@ -24,9 +24,7 @@ IPMDB = {
 				["isZoneSupport"] = false,
 				["locPrefix"] = "GarrMissionLocation-Darkshore",
 				["followers"] = {
-					"0x000000000773B592", -- [1]
-					"0x0000000007705959", -- [2]
-					"0x0000000007709FA7", -- [3]
+					"0x0000000007709FA7", -- [1]
 				},
 				["inProgress"] = true,
 				["overmaxRewards"] = {
@@ -38,21 +36,21 @@ IPMDB = {
 					}, -- [1]
 				},
 				["hasBonusEffect"] = true,
-				["missionEndTime"] = 1536387626,
+				["missionEndTime"] = 1536435674,
 				["isMaxLevel"] = true,
-				["name"] = "深水陷阱",
+				["name"] = "从泰达希尔撤离",
 				["canStart"] = false,
 				["typeAtlas"] = "BfAMission-Icon-Normal",
-				["successChance"] = 200,
+				["successChance"] = 100,
 				["followerTypeID"] = 22,
 				["offeredGarrMissionTextureID"] = 0,
 				["durationSeconds"] = 14400,
 				["completed"] = false,
-				["missionID"] = 1893,
+				["missionID"] = 1882,
 				["duration"] = "4小时",
 				["offerTimeRemaining"] = "0秒",
 				["charText"] = "|cffc69b6dJuanjuan|r-泰兰德",
-				["timeLeft"] = "4小时",
+				["timeLeft"] = "3小时59分钟",
 				["iLevel"] = 800,
 				["mapPosY"] = 0,
 				["type"] = "",
@@ -81,7 +79,7 @@ IPMDB = {
 							1062, -- [1]
 							1091, -- [2]
 						},
-						["xp"] = 0,
+						["xp"] = 200,
 						["className"] = "独狼",
 						["classSpec"] = 188,
 						["isMaxLevel"] = true,
@@ -91,6 +89,107 @@ IPMDB = {
 						["levelXP"] = 1500,
 						["isCollected"] = true,
 						["garrFollowerID"] = 1069,
+					},
+				},
+				["timeLeftSeconds"] = 14395,
+				["overmaxSucceeded"] = false,
+				["basecost"] = 20,
+				["level"] = 120,
+				["numFollowers"] = 3,
+				["requiredSuccessChance"] = 0,
+				["areaID"] = 21,
+				["rewards"] = {
+					{
+						["title"] = "货币奖励",
+						["quantity"] = 147,
+						["icon"] = 2065624,
+						["currencyID"] = 1553,
+					}, -- [1]
+				},
+				["costCurrencyTypesID"] = 1560,
+				["location"] = "洛达内尔",
+				["isRare"] = false,
+				["mapPosX"] = 0,
+				["requiredChampionCount"] = 1,
+			}, -- [1]
+			{
+				["description"] = "",
+				["cost"] = 20,
+				["isZoneSupport"] = false,
+				["locPrefix"] = "GarrMissionLocation-SilverpineForest",
+				["followers"] = {
+					"0x000000000773B592", -- [1]
+					"0x0000000007705959", -- [2]
+					"0x00000000074463C6", -- [3]
+				},
+				["inProgress"] = true,
+				["overmaxRewards"] = {
+					{
+						["title"] = "货币奖励",
+						["quantity"] = 100,
+						["icon"] = 2032596,
+						["currencyID"] = 1594,
+					}, -- [1]
+				},
+				["hasBonusEffect"] = true,
+				["missionEndTime"] = 1536435678,
+				["isMaxLevel"] = true,
+				["name"] = "影牙瘟疫",
+				["canStart"] = false,
+				["typeAtlas"] = "BfAMission-Icon-Normal",
+				["successChance"] = 170,
+				["followerTypeID"] = 22,
+				["offeredGarrMissionTextureID"] = 0,
+				["durationSeconds"] = 14400,
+				["completed"] = false,
+				["missionID"] = 1888,
+				["duration"] = "4小时",
+				["offerTimeRemaining"] = "0秒",
+				["charText"] = "|cffc69b6dJuanjuan|r-泰兰德",
+				["timeLeft"] = "3小时59分钟",
+				["iLevel"] = 800,
+				["mapPosY"] = 0,
+				["type"] = "",
+				["followerInfo"] = {
+					["0x00000000074463C6"] = {
+						["displayHeight"] = 0.5,
+						["followerTypeID"] = 22,
+						["iLevel"] = 800,
+						["scale"] = 0.699999988079071,
+						["classAtlas"] = "GarrMission_ClassIcon-Shaman-Enhancement",
+						["isTroop"] = false,
+						["displayIDs"] = {
+							{
+								["followerPageScale"] = 1.29999995231628,
+								["showWeapon"] = true,
+								["id"] = 32681,
+							}, -- [1]
+							{
+								["followerPageScale"] = 0.800000011920929,
+								["showWeapon"] = true,
+								["id"] = 87495,
+							}, -- [2]
+						},
+						["displayScale"] = 1,
+						["status"] = "正在执行任务",
+						["level"] = 120,
+						["quality"] = 2,
+						["portraitIconID"] = 2026469,
+						["isFavorite"] = false,
+						["abilities"] = {
+							1062, -- [1]
+							1131, -- [2]
+						},
+						["xp"] = 865,
+						["className"] = "鹰巢山大领主",
+						["classSpec"] = 187,
+						["isMaxLevel"] = true,
+						["name"] = "弗斯塔德·蛮锤",
+						["followerID"] = "0x00000000074463C6",
+						["height"] = 1.10000002384186,
+						["levelXP"] = 1500,
+						["isCollected"] = true,
+						["garrFollowerID"] = 1065,
 					},
 					["0x0000000007705959"] = {
 						["displayHeight"] = 0.5,
@@ -116,7 +215,7 @@ IPMDB = {
 							1043, -- [1]
 							1096, -- [2]
 						},
-						["xp"] = 100,
+						["xp"] = 300,
 						["className"] = "魔导师",
 						["classSpec"] = 189,
 						["isMaxLevel"] = true,
@@ -151,7 +250,7 @@ IPMDB = {
 							1042, -- [1]
 							1098, -- [2]
 						},
-						["xp"] = 100,
+						["xp"] = 300,
 						["className"] = "秘密部队技师",
 						["classSpec"] = 190,
 						["isMaxLevel"] = true,
@@ -163,7 +262,7 @@ IPMDB = {
 						["garrFollowerID"] = 1068,
 					},
 				},
-				["timeLeftSeconds"] = 14400,
+				["timeLeftSeconds"] = 14399,
 				["overmaxSucceeded"] = false,
 				["basecost"] = 20,
 				["level"] = 120,
@@ -173,17 +272,17 @@ IPMDB = {
 				["rewards"] = {
 					{
 						["title"] = "货币奖励",
-						["quantity"] = 142,
-						["icon"] = 2065624,
-						["currencyID"] = 1553,
+						["quantity"] = 75,
+						["icon"] = 2032596,
+						["currencyID"] = 1594,
 					}, -- [1]
 				},
 				["costCurrencyTypesID"] = 1560,
-				["location"] = "佐拉姆加前哨站",
+				["location"] = "影牙城堡",
 				["isRare"] = false,
 				["mapPosX"] = 0,
 				["requiredChampionCount"] = 1,
-			}, -- [1]
+			}, -- [2]
 			{
 				["description"] = "",
 				["cost"] = 150,
@@ -371,7 +470,7 @@ IPMDB = {
 				["isRare"] = false,
 				["mapPosX"] = 0,
 				["requiredChampionCount"] = 1,
-			}, -- [2]
+			}, -- [3]
 		},
 	},
 	["ignores"] = {

@@ -32,10 +32,12 @@ MADB = {
 						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
 						"TOPLEFT", -- [3]
-						-3, -- [4]
-						-104.000007629395, -- [5]
+						0, -- [4]
+						-84.0000076293945, -- [5]
 					},
 					["name"] = "PartyMemberFrame2",
+					["unit"] = "party2",
+					["hidden"] = true,
 					["pos"] = {
 						"TOPLEFT", -- [1]
 						"PartyMemberFrame1PetFrame", -- [2]
@@ -43,18 +45,18 @@ MADB = {
 						-23, -- [4]
 						-9.99993896484375, -- [5]
 					},
-					["hidden"] = true,
-					["unit"] = "party2",
 				},
 				["PartyMemberFrame4"] = {
 					["orgPos"] = {
 						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
 						"TOPLEFT", -- [3]
-						-9, -- [4]
-						-270.000030517578, -- [5]
+						0, -- [4]
+						-210, -- [5]
 					},
 					["name"] = "PartyMemberFrame4",
+					["unit"] = "party4",
+					["hidden"] = true,
 					["pos"] = {
 						"TOPLEFT", -- [1]
 						"PartyMemberFrame3PetFrame", -- [2]
@@ -62,8 +64,6 @@ MADB = {
 						-23, -- [4]
 						-10.0000610351563, -- [5]
 					},
-					["hidden"] = true,
-					["unit"] = "party4",
 				},
 				["PartyMember2DebuffsMover"] = {
 					["orgPos"] = {
@@ -144,6 +144,8 @@ MADB = {
 						-21.0000019073486, -- [5]
 					},
 					["name"] = "PartyMemberFrame1",
+					["unit"] = "party1",
+					["hidden"] = true,
 					["pos"] = {
 						"TOPLEFT", -- [1]
 						"CompactRaidFrameManager", -- [2]
@@ -151,8 +153,6 @@ MADB = {
 						0, -- [4]
 						-20.0001220703125, -- [5]
 					},
-					["hidden"] = true,
-					["unit"] = "party1",
 				},
 				["PartyMember3DebuffsMover"] = {
 					["orgPos"] = {
@@ -177,10 +177,12 @@ MADB = {
 						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
 						"TOPLEFT", -- [3]
-						-6, -- [4]
-						-187.000015258789, -- [5]
+						0, -- [4]
+						-147.000015258789, -- [5]
 					},
 					["name"] = "PartyMemberFrame3",
+					["unit"] = "party3",
+					["hidden"] = true,
 					["pos"] = {
 						"TOPLEFT", -- [1]
 						"PartyMemberFrame2PetFrame", -- [2]
@@ -188,15 +190,13 @@ MADB = {
 						-23, -- [4]
 						-10.0000610351563, -- [5]
 					},
-					["hidden"] = true,
-					["unit"] = "party3",
 				},
 			},
 		},
 	},
-	["tooltips"] = true,
-	["squareMM"] = false,
-	["noMMMW"] = false,
-	["playSound"] = false,
 	["closeGUIOnEscape"] = false,
+	["squareMM"] = false,
+	["playSound"] = false,
+	["noMMMW"] = false,
+	["tooltips"] = true,
 }

@@ -16,14 +16,6 @@ Bagnon_Sets = {
 	},
 	["inscribeColor"] = {
 	},
-	["leatherColor"] = {
-	},
-	["tackleColor"] = {
-	},
-	["herbColor"] = {
-	},
-	["normalColor"] = {
-	},
 	["global"] = {
 		["inventory"] = {
 			["rules"] = {
@@ -61,19 +53,19 @@ Bagnon_Sets = {
 				0, -- [2]
 				0, -- [3]
 			},
-			["brokerObject"] = "TellMeWhen",
 			["hiddenRules"] = {
 			},
-			["bagFrame"] = false,
+			["alpha"] = 1,
+			["scale"] = 1.11,
 			["y"] = 108.757217407227,
 			["x"] = -72.6401834326127,
-			["bagBreak"] = false,
+			["itemScale"] = 1.08,
 			["borderColor"] = {
 			},
 			["point"] = "BOTTOMRIGHT",
-			["itemScale"] = 1.08,
-			["scale"] = 1.11,
-			["alpha"] = 1,
+			["bagBreak"] = false,
+			["bagFrame"] = false,
+			["brokerObject"] = "TellMeWhen",
 		},
 		["vault"] = {
 			["rules"] = {
@@ -177,11 +169,19 @@ Bagnon_Sets = {
 			},
 			["color"] = {
 			},
-			["borderColor"] = {
-			},
+			["x"] = 95,
 			["hiddenRules"] = {
 			},
-			["x"] = 95,
+			["borderColor"] = {
+			},
 		},
+	},
+	["normalColor"] = {
+	},
+	["herbColor"] = {
+	},
+	["tackleColor"] = {
+	},
+	["leatherColor"] = {
 	},
 }

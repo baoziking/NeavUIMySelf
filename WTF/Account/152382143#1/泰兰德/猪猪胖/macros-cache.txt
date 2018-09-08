@@ -1,0 +1,94 @@
+VER 3 0100000000000015 "冰爆" "INV_MISC_QUESTIONMARK"
+#showtooltips 操控时间
+/use 10 
+/use 13 
+/use 14
+/cast 淹没 
+/cast 狂暴 
+/cast 血性狂怒 
+/cast 生命之血 
+/cast 气定神闲 
+/cast 奥术强化
+/cast 操控时间 
+/cast 魔法增效
+END
+VER 3 0100000000000023 "寒冰" "INV_MISC_QUESTIONMARK"
+#show 寒冰宝珠
+/use 13
+/cast 寒冰宝珠
+END
+VER 3 010000000000001F "框11" "INV_MISC_QUESTIONMARK"
+/stopcasting
+/cancelAura 寒冰屏障
+/cast [target=arena1]深度冻结
+/focus arena1
+END
+VER 3 0100000000000024 "框1羊" "INV_MISC_QUESTIONMARK"
+/cancelAura 寒冰屏障
+/cast [target=arena1]变形术
+END
+VER 3 0100000000000020 "框22" "INV_MISC_QUESTIONMARK"
+/stopcasting
+/cancelAura 寒冰屏障
+/cast [target=arena2]深度冻结
+/focus arena2
+END
+VER 3 0100000000000021 "框33" "INV_MISC_QUESTIONMARK"
+/stopcasting
+/cancelAura 寒冰屏障
+/cast [target=arena3]深度冻结
+/focus arena3
+END
+VER 3 010000000000001D "框4" "INV_MISC_QUESTIONMARK"
+/cancelAura 寒冰屏障
+/cast [target=arena4]法术反制
+/focuse arena4
+END
+VER 3 0100000000000022 "框44" "INV_MISC_QUESTIONMARK"
+/stopcasting
+/cancelAura 寒冰屏障
+/cast [target=arena4]深度冻结
+END
+VER 3 010000000000001E "框5" "INV_MISC_QUESTIONMARK"
+/cancelAura 寒冰屏障
+/cast [target=arena5]法术反制
+/focuse arena5
+END
+VER 3 0100000000000014 "检查" "INV_MISC_QUESTIONMARK"
+/tar 矮小
+/tar 不安
+/tar 无用
+/tar 纠缠 
+/tar 苏里
+/tar 幸运的小艺
+/tar 沼泽蹒跚者
+/tar 大块头齐奇
+/tar 珍藏版手提包
+/tar 珍藏版易拉罐
+/tar 血色福音传道者
+/tar 血色学者
+END
+VER 3 010000000000000B "清除" "INV_Misc_QuestionMark"
+/cleartarget
+END
+VER 3 0100000000000017 "火爆" "INV_MISC_QUESTIONMARK"
+#showtooltips 操控时间
+/use 10 
+/use 13 
+/use 14 
+/cast 狂暴 
+/cast 血性狂怒 
+/cast 生命之血 
+/cast 冰冷血脉 
+/cast 操控时间 
+END
+VER 3 0100000000000016 "焦点偷" "INV_MISC_QUESTIONMARK"
+#showtooltip 法术吸取
+/stopcasting
+/cast [target=mouseover,harm,exists] 法术吸取;[target=focus,harm,exists]法术吸取;
+END
+VER 3 010000000000000A "移动水" "Ability_Mount_FrostyFlyingCarpet"
+/petstopcasting
+/petmoveto
+/petpassive
+END

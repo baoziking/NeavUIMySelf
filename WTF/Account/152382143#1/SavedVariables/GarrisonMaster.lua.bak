@@ -25,11 +25,11 @@ IPMDB = {
 				["description"] = "",
 				["cost"] = 20,
 				["isZoneSupport"] = false,
-				["locPrefix"] = "GarrMissionLocation-Ashenvale",
+				["locPrefix"] = "GarrMissionLocation-Darkshore",
 				["followers"] = {
 					"0x0000000007705959", -- [1]
-					"0x000000000773B592", -- [2]
-					"0x00000000074463C6", -- [3]
+					"0x0000000007709FA7", -- [2]
+					"0x000000000773B592", -- [3]
 				},
 				["inProgress"] = true,
 				["overmaxRewards"] = {
@@ -41,64 +41,59 @@ IPMDB = {
 					}, -- [1]
 				},
 				["hasBonusEffect"] = true,
-				["missionEndTime"] = 1536315203,
+				["missionEndTime"] = 1536387626,
 				["isMaxLevel"] = true,
-				["name"] = "灰谷道路",
+				["name"] = "深水陷阱",
 				["canStart"] = false,
 				["typeAtlas"] = "BfAMission-Icon-Normal",
-				["successChance"] = 100,
+				["successChance"] = 200,
 				["followerTypeID"] = 22,
 				["offeredGarrMissionTextureID"] = 0,
 				["durationSeconds"] = 14400,
 				["completed"] = false,
-				["missionID"] = 1887,
+				["missionID"] = 1893,
 				["duration"] = "4小时",
 				["offerTimeRemaining"] = "0秒",
 				["charText"] = "|cffc69b6dJuanjuan|r-泰兰德",
-				["timeLeft"] = "4小时",
+				["timeLeft"] = "0秒",
 				["iLevel"] = 800,
 				["mapPosY"] = 0,
 				["type"] = "",
 				["followerInfo"] = {
-					["0x00000000074463C6"] = {
+					["0x0000000007709FA7"] = {
 						["displayHeight"] = 0.5,
 						["followerTypeID"] = 22,
 						["iLevel"] = 800,
 						["scale"] = 0.699999988079071,
-						["classAtlas"] = "GarrMission_ClassIcon-Shaman-Enhancement",
+						["classAtlas"] = "GarrMission_ClassIcon-Hunter-Survival",
 						["isTroop"] = false,
 						["displayIDs"] = {
 							{
-								["followerPageScale"] = 1.29999995231628,
+								["followerPageScale"] = 1,
 								["showWeapon"] = true,
-								["id"] = 32681,
+								["id"] = 33239,
 							}, -- [1]
-							{
-								["followerPageScale"] = 0.800000011920929,
-								["showWeapon"] = true,
-								["id"] = 87495,
-							}, -- [2]
 						},
 						["displayScale"] = 1,
 						["status"] = "正在执行任务",
 						["level"] = 120,
 						["quality"] = 2,
-						["portraitIconID"] = 2026469,
+						["portraitIconID"] = 2026470,
 						["isFavorite"] = false,
 						["abilities"] = {
 							1062, -- [1]
-							1131, -- [2]
+							1091, -- [2]
 						},
-						["xp"] = 765,
-						["className"] = "鹰巢山大领主",
-						["classSpec"] = 187,
+						["xp"] = 0,
+						["className"] = "独狼",
+						["classSpec"] = 188,
 						["isMaxLevel"] = true,
-						["name"] = "弗斯塔德·蛮锤",
-						["followerID"] = "0x00000000074463C6",
-						["height"] = 1.10000002384186,
+						["name"] = "约翰·J·基沙恩",
+						["followerID"] = "0x0000000007709FA7",
+						["height"] = 1,
 						["levelXP"] = 1500,
 						["isCollected"] = true,
-						["garrFollowerID"] = 1065,
+						["garrFollowerID"] = 1069,
 					},
 					["0x000000000773B592"] = {
 						["displayHeight"] = 0.5,
@@ -124,7 +119,7 @@ IPMDB = {
 							1042, -- [1]
 							1098, -- [2]
 						},
-						["xp"] = 0,
+						["xp"] = 100,
 						["className"] = "秘密部队技师",
 						["classSpec"] = 190,
 						["isMaxLevel"] = true,
@@ -159,7 +154,7 @@ IPMDB = {
 							1043, -- [1]
 							1096, -- [2]
 						},
-						["xp"] = 0,
+						["xp"] = 100,
 						["className"] = "魔导师",
 						["classSpec"] = 189,
 						["isMaxLevel"] = true,
@@ -171,7 +166,7 @@ IPMDB = {
 						["garrFollowerID"] = 1072,
 					},
 				},
-				["timeLeftSeconds"] = 14400,
+				["timeLeftSeconds"] = 0,
 				["overmaxSucceeded"] = false,
 				["basecost"] = 20,
 				["level"] = 120,
@@ -181,13 +176,13 @@ IPMDB = {
 				["rewards"] = {
 					{
 						["title"] = "货币奖励",
-						["quantity"] = 167,
+						["quantity"] = 142,
 						["icon"] = 2065624,
 						["currencyID"] = 1553,
 					}, -- [1]
 				},
 				["costCurrencyTypesID"] = 1560,
-				["location"] = "梅伊瑟娜岗哨",
+				["location"] = "佐拉姆加前哨站",
 				["isRare"] = false,
 				["mapPosX"] = 0,
 				["requiredChampionCount"] = 1,

@@ -72,3 +72,4 @@ DBM-Brawlers: enabled
 DBM-DMF: enabled
 DBM-DefaultSkin: enabled
 TMW_Script_Tools: enabled
+nChat: disabled
