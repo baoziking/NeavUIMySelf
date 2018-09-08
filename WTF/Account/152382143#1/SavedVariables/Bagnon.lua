@@ -61,6 +61,7 @@ Bagnon_Sets = {
 				0, -- [2]
 				0, -- [3]
 			},
+			["brokerObject"] = "TellMeWhen",
 			["hiddenRules"] = {
 			},
 			["bagFrame"] = false,

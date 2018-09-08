@@ -1,4 +1,4 @@
-
+﻿
 local AddonName, HubData = ...;
 local LocalVars = TidyPlatesContHubDefaults
 
@@ -15,19 +15,20 @@ local CreateComboPointWidget = WidgetLib.CreateComboPointWidget
 local CreateTotemIconWidget = WidgetLib.CreateTotemIconWidget
 local CreateAbsorbWidget = WidgetLib.CreateAbsorbWidget
 local CreateQuestWidget = WidgetLib.CreateQuestWidget
+local CreateThreatPercentageWidget = WidgetLib.CreateThreatPercentageWidget
 
-TidyPlatesContHubDefaults.WidgetsRangeMode = 1
+TidyPlatesContHubDefaults.WidgetRangeMode = 1
 TidyPlatesContHubMenus.RangeModes = {
-				{ text = "9码"} ,
-				{ text = "15码" } ,
-				{ text = "28码" } ,
-				{ text = "40码" } ,
+				{ text = "9 码"} ,
+				{ text = "15 码" } ,
+				{ text = "28 码" } ,
+				{ text = "40 码" } ,
 			}
 
 TidyPlatesContHubDefaults.WidgetAbsorbMode = 1
 TidyPlatesContHubMenus.AbsorbModes = {
-				{ text = "Blizz模式"} ,
-				{ text = "覆盖模式" } ,
+				{ text = "Blizzlike"} ,
+				{ text = "Overlay" } ,
 			}
 
 TidyPlatesContHubDefaults.WidgetAbsorbUnits = 1
@@ -36,17 +37,17 @@ TidyPlatesContHubMenus.AbsorbUnits = {
 				{ text = "所有单位" } ,
 			}
 
-TidyPlatesContHubDefaults.WidgetsDebuffStyle = 1
+TidyPlatesContHubDefaults.WidgetDebuffStyle = 1
 TidyPlatesContHubMenus.DebuffStyles = {
 				{ text = "宽松",  } ,
-				{ text = "紧凑(重载UI生效)",  } ,
+				{ text = "紧凑(可能需要重载UI)",  } ,
 			}
 
-TidyPlatesContHubDefaults.WidgetsComboPointsStyle = 2
+TidyPlatesContHubDefaults.WidgetComboPointsStyle = 2
 TidyPlatesContHubMenus.ComboPointsStyles = {
-				{ text = "Blizz风格",  } ,
-				{ text = "TidyPlates风格",  } ,
-				{ text = "TidyPlates传统风格",  } ,
+				{ text = "Blizzlike",  } ,
+				{ text = "TidyPlates",  } ,
+				{ text = "TidyPlatesTraditional",  } ,
 			}
 
 ------------------------------------------------------------------------------
@@ -97,7 +98,16 @@ local AURA_TARGET_HOSTILE = 1
 local AURA_TARGET_FRIENDLY = 2
 
 local AURA_TYPE = { "Buff", "Curse", "Disease", "Magic", "Poison", "Debuff", }
-local AURA_TYPE_COLORS = { nil, {1,0,1}, {.5, .2, 0}, {0,.4,1}, {0,1,0}, nil, }
+-- local AURA_TYPE_COLORS = { nil, {1,0,1}, {.5, .2, 0}, {0,.4,1}, {0,1,0}, nil, }
+local AURA_TYPE_COLORS = {
+	["Buff"] = nil,
+	["诅咒"] = {1,0,1},
+	["疾病"] = {.5, .2, 0},
+	["魔法"] = {0,.4,1},
+	["中毒"] = {0,1,0},
+	["Debuff"] = nil,
+}
+
 
 
 
@@ -105,8 +115,8 @@ local function GetPrefixPriority(aura)
 	local spellid = tostring(aura.spellid)
 	local name = aura.name
 	-- Lookup using the Prefix & Priority Lists
-	local prefix = LocalVars.WidgetsDebuffLookup[spellid] or LocalVars.WidgetsDebuffLookup[name]
-	local priority = LocalVars.WidgetsDebuffPriority[spellid] or LocalVars.WidgetsDebuffPriority[name]
+	local prefix = LocalVars.WidgetDebuffLookup[spellid] or LocalVars.WidgetDebuffLookup[name]
+	local priority = LocalVars.WidgetDebuffPriority[spellid] or LocalVars.WidgetDebuffPriority[name]
 
 	return prefix, priority
 end
@@ -145,12 +155,11 @@ local function SmartFilterMode(aura)
 	local ShowThisAura = false
 	local AuraPriority = 20
 
-
 	-- My own Buffs and Debuffs
 	if (aura.caster == "player" or aura.caster == "pet") and aura.duration and aura.duration < 150 then
-		if LocalVars.WidgetsMyBuff and aura.effect == "HELPFUL" then
+		if LocalVars.WidgetMyBuff and aura.effect == "HELPFUL" then
 			ShowThisAura = true
-		elseif LocalVars.WidgetsMyDebuff and aura.effect == "HARMFUL" then
+		elseif LocalVars.WidgetMyDebuff and aura.effect == "HARMFUL" then
 			ShowThisAura = true
 		end
 	end
@@ -180,19 +189,19 @@ end
 
 local DispelTypeHandlers = {
 	-- Curse
-	["Curse"] = function()
+	["诅咒"] = function()
 		return LocalVars.WidgetAuraTrackCurse
 	end,
 	-- Disease
-	["Disease"] = function()
+	["疾病"] = function()
 		return LocalVars.WidgetAuraTrackDisease
 	end,
 	-- Magic
-	["Magic"] = function()
+	["魔法"] = function()
 		return LocalVars.WidgetAuraTrackMagic
 	end,
 	-- Poison
-	["Poison"] = function()
+	["中毒"] = function()
 		return LocalVars.WidgetAuraTrackPoison
 	end,
 	}
@@ -205,10 +214,22 @@ local function TrackDispelType(dispelType)
 end
 
 local function DebuffFilter(aura)
-	if LocalVars.WidgetAuraTrackDispelFriendly and aura.reaction == AURA_TARGET_FRIENDLY then
-		if aura.effect == "HARMFUL" and TrackDispelType(aura.type) then
-		local r, g, b = GetAuraColor(aura)
-		return true, 10, r, g, b end
+	-- Purgeable Buff
+	if LocalVars.WidgetBuffPurgeable and aura.effect == "HELPFUL" and aura.type == "魔法" and aura.reaction == 1 then
+		local color = LocalVars.ColorBuffPurgeable
+		return true, 10, color.r, color.g, color.b, color.a
+	end
+	-- Sootheable Enrage Buff
+	if LocalVars.WidgetBuffEnrage and aura.effect == "HELPFUL" and aura.type == "" and aura.reaction == 1 then
+		local color = LocalVars.ColorBuffEnrage
+		return true, 10, color.r, color.g, color.b, color.a
+	end
+	-- Dispellable Debuff
+	if (LocalVars.WidgetAuraTrackDispelFriendly and aura.reaction == AURA_TARGET_FRIENDLY) then
+		if (aura.effect == "HARMFUL" and TrackDispelType(aura.type)) then
+			local r, g, b = GetAuraColor(aura)
+			return true, 10, r, g, b, a
+		end
 	end
 
 	return SmartFilterMode(aura)
@@ -252,12 +273,13 @@ end
 local function OnInitializeWidgets(extended, configTable)
 
 	local EnableClassWidget = (LocalVars.ClassEnemyIcon or LocalVars.ClassPartyIcon)
-	local EnableTotemWidget = LocalVars.WidgetsTotemIcon
-	local EnableComboWidget = LocalVars.WidgetsComboPoints
-	local EnableThreatWidget = LocalVars.WidgetsThreatIndicator
-	local EnableAuraWidget = LocalVars.WidgetsDebuff
+	local EnableTotemWidget = LocalVars.WidgetTotemIcon
+	local EnableComboWidget = LocalVars.WidgetComboPoints
+	local EnableThreatWidget = LocalVars.WidgetThreatIndicator
+	local EnableAuraWidget = LocalVars.WidgetDebuff
 	local EnableAbsorbWidget = LocalVars.WidgetAbsorbIndicator
 	local EnableQuestWidget = LocalVars.WidgetQuestIcon
+	local EnableThreatPercentageWidget = LocalVars.WidgetThreatPercentage
 
 	InitWidget( "ClassWidgetHub", extended, configTable.ClassIcon, CreateClassWidget, EnableClassWidget)
 	InitWidget( "TotemWidgetHub", extended, configTable.TotemIcon, CreateTotemIconWidget, EnableTotemWidget)
@@ -265,6 +287,7 @@ local function OnInitializeWidgets(extended, configTable)
 	InitWidget( "ThreatWidgetHub", extended, configTable.ThreatLineWidget, CreateThreatLineWidget, EnableThreatWidget)
 	InitWidget( "AbsorbWidgetHub", extended, configTable.AbsorbWidget, CreateAbsorbWidget, EnableAbsorbWidget)
 	InitWidget( "QuestWidgetHub", extended, configTable.QuestWidget, CreateQuestWidget, EnableQuestWidget)
+	InitWidget( "ThreatPercentageWidgetHub", extended, configTable.ThreatPercentageWidget, CreateThreatPercentageWidget, EnableThreatPercentageWidget)
 
 	if EnableComboWidget and configTable.DebuffWidgetPlus then
 		InitWidget( "AuraWidgetHub", extended, configTable.DebuffWidgetPlus, CreateAuraWidget, EnableAuraWidget)
@@ -277,20 +300,23 @@ end
 local function OnContextUpdateDelegate(extended, unit)
 	local widgets = extended.widgets
 
-	if LocalVars.WidgetsComboPoints and widgets.ComboWidgetHub then
+	if LocalVars.WidgetComboPoints and widgets.ComboWidgetHub then
 		widgets.ComboWidgetHub:UpdateContext(unit) end
 
-	if LocalVars.WidgetsThreatIndicator and widgets.ThreatWidgetHub then
+	if LocalVars.WidgetThreatIndicator and widgets.ThreatWidgetHub then
 		widgets.ThreatWidgetHub:UpdateContext(unit) end		-- Tug-O-Threat
 
-	if LocalVars.WidgetsDebuff and widgets.AuraWidgetHub then
+	if LocalVars.WidgetDebuff and widgets.AuraWidgetHub then
 		widgets.AuraWidgetHub:UpdateContext(unit) end
 
-	if LocalVars.WidgetsDebuff and widgets.AuraWidget then
+	if LocalVars.WidgetDebuff and widgets.AuraWidget then
 		widgets.AuraWidget:UpdateContext(unit) end
 	
 	if LocalVars.WidgetAbsorbIndicator and widgets.AbsorbWidgetHub then
 		widgets.AbsorbWidgetHub:UpdateContext(unit) end
+
+	if LocalVars.WidgetThreatPercentage and widgets.ThreatPercentageWidgetHub then
+		widgets.ThreatPercentageWidgetHub:UpdateContext(unit) end
 end
 
 local function OnUpdateDelegate(extended, unit)
@@ -304,7 +330,7 @@ local function OnUpdateDelegate(extended, unit)
 		widgets.QuestWidgetHub:Update(unit)
 	end
 
-	if LocalVars.WidgetsTotemIcon and widgets.TotemWidgetHub then
+	if LocalVars.WidgetTotemIcon and widgets.TotemWidgetHub then
 		widgets.TotemWidgetHub:Update(unit)
 	end
 end
@@ -318,7 +344,7 @@ local function OnVariableChange(vars)
 
 	LocalVars = vars
 
-	if LocalVars.WidgetsDebuff then
+	if LocalVars.WidgetDebuff then
 		TidyPlatesContWidgets:EnableAuraWatcher()
 		TidyPlatesContWidgets.SetAuraFilter(DebuffFilter)
 	else TidyPlatesContWidgets:DisableAuraWatcher() end
@@ -327,8 +353,8 @@ local function OnVariableChange(vars)
 		TidyPlatesContWidgets.SetAbsorbType(LocalVars.WidgetAbsorbMode, LocalVars.WidgetAbsorbUnits)
 	end
 
-	if LocalVars.WidgetsComboPoints then
-		TidyPlatesContWidgets.SetComboPointsStyle(LocalVars.WidgetsComboPointsStyle);
+	if LocalVars.WidgetComboPoints then
+		TidyPlatesContWidgets.SetComboPointsStyle(LocalVars.WidgetComboPointsStyle);
 	end
 end
 HubData.RegisterCallback(OnVariableChange)

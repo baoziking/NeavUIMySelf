@@ -1,4 +1,4 @@
--------------------------------------------------------------------------------
+﻿-------------------------------------------------------------------------------
 -- Tidy Plates Continued: Roth 1.0.1 - 7.1 - Nov/18/2016.
 -------------------------------------------------------------------------------
 
@@ -12,6 +12,7 @@ local VerticalAdjustment = 12
 
 local NonLatinLocales = { ["koKR"] = true, ["zhCN"] = true, ["zhTW"] = true, }
 if NonLatinLocales[GetLocale()] == true then font = STANDARD_TEXT_FONT end
+if NonLatinLocales[GetLocale()] == true then fontroboto = STANDARD_TEXT_FONT end
 
 
 local Theme = {}
@@ -249,6 +250,7 @@ WidgetConfig.RangeWidget = { anchor = "BOTTOM", x = 0 ,y = 0 }
 WidgetConfig.DebuffWidget = { anchor = "TOP" , x = 17 ,y = 20 }
 WidgetConfig.AbsorbWidget =	{ anchor="CENTER", x = 5 , y = 5, w = 105, h = 12}
 WidgetConfig.QuestWidget = { anchor = "LEFT" , x = 4,y = 5 }
+WidgetConfig.ThreatPercentageWidget = { anchor = "RIGHT" , x = 8,y = VerticalAdjustment - 18 }
 --if (UnitClassBase("player") == "Druid") or (UnitClassBase("player") == "Rogue") then
 	--WidgetConfig.DebuffWidgetPlus = { anchor = "CENTER" , x = 15 ,y = VerticalAdjustment + 24 }
 --end

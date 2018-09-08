@@ -1,0 +1,10 @@
+lightweight tag 7f722703770098112cce87cf71f57d10636e76d1 v1.1.0
+Author:	Ketho <sghs17@outlook.com>
+Date:	Fri Jul 27 21:32:38 2018 +0200
+
+commit 7f722703770098112cce87cf71f57d10636e76d1
+Author: Ketho <sghs17@outlook.com>
+Date:   Fri Jul 27 21:32:38 2018 +0200
+
+    Bump TOC
+

@@ -6,11 +6,10 @@
  local LSM = LibStub("LibSharedMedia-3.0")
  local self, GSA, PlaySoundFile = GladiatorlosSA, GladiatorlosSA, PlaySoundFile
  local GSA_TEXT = "|cff69CCF0GladiatorlosSA2|r (|cffFFF569/gsa|r)"
- local GSA_VERSION = "|cffFF7D0A vB2 |r(|cFF00FF968.0 Battle for Azeroth [BETA]|r)"
+ local GSA_VERSION = "|cffFF7D0A v1.16 |r(|cFF00FF967.2.0 Legion|r)"
  local GSA_AUTHOR = " "
  local gsadb
  local soundz,sourcetype,sourceuid,desttype,destuid = {},{},{},{},{}
- local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 
  local LSM_GSA_SOUNDFILES = {
 	["GSA-Demo"] = "Interface\\AddOns\\GladiatorlosSA2\\Voice_Custom\\Will-Demo.ogg",
@@ -73,7 +72,7 @@
 		arena = true,
 		battleground = true,
 		disablelargebg = false,
-		field = false,
+		field = true,
 		path = GSA_LOCALEPATH[GetLocale()] or "GladiatorlosSA2\\Voice_enUS",
 		path_male = GSA_LOCALEPATH[GetLocale()] or "GladiatorlosSA2\\Voice_enUS",
 		path_neutral = GSA_LOCALEPATH[GetLocale()] or "GladiatorlosSA2\\Voice_enUS",
@@ -96,23 +95,36 @@
 		drinking = false,
 		class = false,
 		interruptedfriendly = true,
-		
+
 		purge = false,
 		spellSteal = false,
 		diceRoll = false,
+		quakingPalm = false,
+		warStomp = false,
+		arcaneTorrent = false,
+		bloodLust = false,
+		cauterize = false,
+		purgatory = false,
+		cheatDeath = false,
 		implosion = false,
+		waterElemental = false,
 		littleMoon = false,
 		middleMoon = false,
 		explosiveKeg = false,
+		gouge = false,
 		cure = false,
 		dispel = false,
 		rapture = false,
+		voidForm = false,
+		voidFormDown = false,
 		unstableAffliction = false,
+		dreadstalkers = false,
 		PredatorSwiftness = false,
 		eyeBeam = false,
 		
 		success = false,
 		
+		soulEffigy = false,
 		chaosBolt = false,
 		apocalypse = false,
 		karmaDown = false,
@@ -135,8 +147,6 @@
 		mageShield = false,
 		strikeOfTheWindlord = false,
 		
-		--PH sounds are disabled until they match the rest of the voice pack, however that ends up being.
-		--Remember to rename the sound files.
 		_PHgreaterFade = false,
 		_PHgreaterFadeDown = false,
 		_PHfaerieSwarm = false,
@@ -150,73 +160,8 @@
 		_PHthalkiel = false,
 		_PHashamanesFrenzy = false,
 		
-		--The following defaults were changed in 1.16.3.
-		vampiricBlood = false,
-		tombstone = false,
-		tombstoneDown = false,
-		runetap = false,
-		dash = false,
-		cenarionWard = false,
-		BristlingFur = false,
-		mastersCall = false,
-		cheetah = false, 
-		mendingBandage = false,
-		manaTea = false,
-		zenMeditation = false,
-		zenMeditationDown = false,
-		lightAegis = false, 
-		ardentDefender = false,
-		defenderDown = false,
-		ancientKings = false,
-		kingsDown = false,
-		archangelHealing = false,
-		archangelDamage = false,
-		sprint = false,
-		spiritLink = false, 
-		spiritLinkDown = false,
-		sacrificialPact = false,
-		shieldWall = false,
-		shieldWallDown = false,
 		
-		bigHeal = false,		
-		shackleUndead = false,
-		cataclysm = false,
-		
-		battleStandard = false,
-		gorefiendGrasp = false,
-		defile = false,
-		chillStreak = false,
-		sindragosaFury = false,
-		manaBreak = false,
-		displacerBeast = false,
-		renewal = false,
-		wildCharge = false,
-		Exhilaration = false,
-		murderOfCrows = false, 
-		snakeHunter = false,
-		presenceOfMind = false,
-		CometStorm = false,
-		Meteor = false,
-		iceFloes = false, 
-		invokeOx = false, 
-		pony = false,
-		shadowfiend = false,
-		desperatePrayer = false, 
-		mindbender = false,
-		holySerenity = false, 
-		cannonballBarrage = false,
-		exsanguinate = false,
-		stormElemental = false,
-		fireElemental = false,
-		earthElemental = false,
-		windRushTotem = false,
-		LiquidMagma = false,
-		protectionTotem = false,
-		commandingShout = false,
-		dragonRoar = false,
-		Ravager = false,
-		demoShout = false,
-		
+		genderVoice = false,
 		custom = {},
 	}	
  }
@@ -287,7 +232,7 @@
 		type = 'execute',
 		func = function() 
 		self:OnOptionCreate() 
-			bliz_options.args.load.disabled = true
+			bliz_options.args.load.disabled = true 
 			GameTooltip:Hide() 
 			--fix for in 5.3 BLZOptionsFrame can't refresh on load
 			InterfaceOptionsFrame:Hide() 
@@ -325,7 +270,7 @@
 -- play sound by file name
  function GSA:PlaySound(fileName, extend, genderZ)
 	local gender_path = self:GetGenderPath(genderZ)
-	PlaySoundFile("Interface\\Addons\\" ..gender_path.. "\\"..fileName .. "." .. (extend or "ogg"), gsadb.output_menu)
+	PlaySoundFile("Interface\\Addons\\GladiatorlosSA_zhCN\\Voice_zhCN\\"..fileName .. "." .. (extend or "ogg"), gsadb.output_menu)
  end
 
  function GladiatorlosSA:ArenaClass(id)
@@ -393,8 +338,7 @@
 --	local _,flaggedPvP = UnitIsPVP("player")
 --	if ((flaggedPvP == "1") and gsadb.onlyflagged and currentZoneType == "none") then
 --	end
-	local timestamp,event,hideCaster,sourceGUID,sourceName,sourceFlags,sourceFlags2,destGUID,destName,destFlags,destFlags2,spellID = CombatLogGetCurrentEventInfo()
-	--select ( 1 , ... );
+	local timestamp,event,hideCaster,sourceGUID,sourceName,sourceFlags,sourceFlags2,destGUID,destName,destFlags,destFlags2,spellID,spellName= select ( 1 , ... );
 	if not GSA_EVENT[event] then return end
 
 	--	print(sourceName,sourceGUID,destName,destGUID,destFlags,"|cffFF7D0A" .. event.. "|r",spellName,"|cffFF7D0A" .. spellID.. "|r")
@@ -464,10 +408,6 @@
 			self:PlaySpell("auraRemoved", spellID, sourceGUID, destGUID)
 	elseif (event == "SPELL_CAST_START" and sourcetype[COMBATLOG_FILTER_HOSTILE_PLAYERS] and (not gsadb.conlyTF or sourceuid.target or sourceuid.focus) and not gsadb.castStart) then
 			--if (MapID == 40 or InstanceMapID == 4710) and gsadb.disablelargebg then return end
-				--if spellID == 2060 or spellID == 82326 or spellID == 77472 or spellID == 5185 or spellID == 116670 or spellID == 194509 or spellID == 152118 then
-				--	if currentZoneType == "arena" then
-				--		self:PlaySpell("castStart", spellID, sourceGUID, destGUID)
-				--else return end
 			self:PlaySpell("castStart", spellID, sourceGUID, destGUID)
 	elseif (event == "SPELL_CAST_SUCCESS" and sourcetype[COMBATLOG_FILTER_HOSTILE_PLAYERS] and (not gsadb.sonlyTF or sourceuid.target or sourceuid.focus) and not gsadb.castSuccess) then
 			--if (MapID == 40 or InstanceMapID == 4710) and gsadb.disablelargebg then return end
@@ -544,24 +484,22 @@
  end
 
 -- play drinking in arena
- --local DRINK_SPELL, REFRESHMENT_SPELL, FOOD_SPELL = GetSpellInfo(104270), GetSpellInfo(167152), GetSpellInfo(5006), GetSpellInfo(138292)
+ local DRINK_SPELL, REFRESHMENT_SPELL, FOOD_SPELL = GetSpellInfo(104270), GetSpellInfo(167152), GetSpellInfo(5006), GetSpellInfo(138292)
  function GladiatorlosSA:UNIT_AURA(event,uid)
- --
- --	local _,currentZoneType = IsInInstance()
---
---	if uid:find("arena") and gsadb.drinking then
---	-- if gsadb.drinking then
---		if (UnitAura(uid,DRINK_SPELL) or UnitAura(uid,REFRESHMENT_SPELL) or UnitAura(uid,FOOD_SPELL)) and currentZoneType == "arena" then
---
---			local genderZ
---			if gsadb.genderVoice then
---				genderZ = UnitSex(uid)
---			end
---
---			if self:Throttle(tostring(104270) .. uid, 4) then return end
---			self:PlaySound("drinking",extend,genderZ)
---		end
---	end
+
+	if uid:find("arena") and gsadb.drinking then
+	-- if gsadb.drinking then
+		if UnitAura(uid,DRINK_SPELL) or UnitAura(uid,REFRESHMENT_SPELL) or UnitAura(uid,FOOD_SPELL) then
+
+			local genderZ
+			if gsadb.genderVoice then
+				genderZ = UnitSex(uid)
+			end
+
+			if self:Throttle(tostring(104270) .. uid, 4) then return end
+			self:PlaySound("drinking",extend,genderZ)
+		end
+	end
  end
 
  function GladiatorlosSA:Throttle(key,throttle)

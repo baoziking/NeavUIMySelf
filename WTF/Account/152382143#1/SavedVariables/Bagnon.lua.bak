@@ -56,15 +56,16 @@ Bagnon_Sets = {
 			["hiddenRules"] = {
 			},
 			["alpha"] = 1,
+			["scale"] = 1.11,
 			["y"] = 108.757217407227,
 			["x"] = -72.6401834326127,
-			["scale"] = 1.11,
+			["itemScale"] = 1.08,
 			["borderColor"] = {
 			},
-			["itemScale"] = 1.08,
 			["point"] = "BOTTOMRIGHT",
 			["bagBreak"] = false,
 			["bagFrame"] = false,
+			["brokerObject"] = "TellMeWhen",
 		},
 		["vault"] = {
 			["rules"] = {

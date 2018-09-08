@@ -1,5 +1,9 @@
 
 SkadaDB = {
+	["namespaces"] = {
+		["LibDualSpec-1.0"] = {
+		},
+	},
 	["profileKeys"] = {
 		["Juanjuan - 泰兰德"] = "Default",
 	},
@@ -19,7 +23,7 @@ SkadaDB = {
 				["1.6.7"] = true,
 			},
 			["modeclicks"] = {
-				["伤害"] = 1,
+				["伤害"] = 3,
 			},
 		},
 	},

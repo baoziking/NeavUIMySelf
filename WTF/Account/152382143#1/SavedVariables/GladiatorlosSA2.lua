@@ -6,6 +6,8 @@ GladiatorlosSADB = {
 	["profiles"] = {
 		["Default"] = {
 			["battleground"] = false,
+			["field"] = false,
+			["path"] = "GladiatorlosSA_zhCN\\Voice_zhCN",
 		},
 	},
 }

@@ -32,8 +32,8 @@ MADB = {
 						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
 						"TOPLEFT", -- [3]
-						18, -- [4]
-						-223.000015258789, -- [5]
+						-3, -- [4]
+						-104.000007629395, -- [5]
 					},
 					["name"] = "PartyMemberFrame2",
 					["pos"] = {
@@ -48,11 +48,11 @@ MADB = {
 				},
 				["PartyMemberFrame4"] = {
 					["orgPos"] = {
-						"LEFT", -- [1]
+						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
-						"LEFT", -- [3]
-						18, -- [4]
-						223.999984741211, -- [5]
+						"TOPLEFT", -- [3]
+						-9, -- [4]
+						-270.000030517578, -- [5]
 					},
 					["name"] = "PartyMemberFrame4",
 					["pos"] = {
@@ -118,13 +118,30 @@ MADB = {
 						220.000030517578, -- [5]
 					},
 				},
+				["ChatEditBoxesLengthMover"] = {
+					["orgPos"] = {
+						"TOPLEFT", -- [1]
+						"ChatFrame1", -- [2]
+						"BOTTOMLEFT", -- [3]
+						-5, -- [4]
+						-2, -- [5]
+					},
+					["name"] = "ChatEditBoxesLengthMover",
+					["pos"] = {
+						"TOPLEFT", -- [1]
+						"ChatFrame1", -- [2]
+						"BOTTOMLEFT", -- [3]
+						-4.9999885559082, -- [4]
+						-2.00000381469727, -- [5]
+					},
+				},
 				["PartyMemberFrame1"] = {
 					["orgPos"] = {
 						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
 						"TOPLEFT", -- [3]
-						18, -- [4]
-						-160, -- [5]
+						0, -- [4]
+						-21.0000019073486, -- [5]
 					},
 					["name"] = "PartyMemberFrame1",
 					["pos"] = {
@@ -136,23 +153,6 @@ MADB = {
 					},
 					["hidden"] = true,
 					["unit"] = "party1",
-				},
-				["ObjectiveTrackerFrameMover"] = {
-					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-10, -- [4]
-						0, -- [5]
-					},
-					["name"] = "ObjectiveTrackerFrameMover",
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-83.3322626865299, -- [4]
-						-32.4999923294238, -- [5]
-					},
 				},
 				["PartyMember3DebuffsMover"] = {
 					["orgPos"] = {
@@ -172,32 +172,13 @@ MADB = {
 						-32.0000610351563, -- [5]
 					},
 				},
-				["ObjectiveTrackerFrameScaleMover"] = {
-					["orgPos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-10, -- [4]
-						0, -- [5]
-					},
-					["name"] = "ObjectiveTrackerFrameScaleMover",
-					["scale"] = 1.39006087932181,
-					["orgScale"] = 1,
-					["pos"] = {
-						"TOPRIGHT", -- [1]
-						"MinimapCluster", -- [2]
-						"BOTTOMRIGHT", -- [3]
-						-416.6631728106, -- [4]
-						137.284333089698, -- [5]
-					},
-				},
 				["PartyMemberFrame3"] = {
 					["orgPos"] = {
 						"TOPLEFT", -- [1]
 						"UIParent", -- [2]
 						"TOPLEFT", -- [3]
-						18, -- [4]
-						-286, -- [5]
+						-6, -- [4]
+						-187.000015258789, -- [5]
 					},
 					["name"] = "PartyMemberFrame3",
 					["pos"] = {

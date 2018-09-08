@@ -1,4 +1,4 @@
-
+﻿
 ------------------------------------------------------------------------------------
 -- Tidy Plates Hub
 ------------------------------------------------------------------------------------
@@ -44,7 +44,8 @@ local function IsOffTanked(unit)
 	local unitid = unit.unitid
 	if unitid then
 		local targetOf = unitid.."target"
-		local targetIsTank = UnitIsUnit(targetOf, "pet") or ("TANK" ==  UnitGroupRolesAssigned(targetOf))
+		local statueName = GetSpellInfo(163177) -- Get name of Ox Statue for different localizations
+		local targetIsTank = UnitIsUnit(targetOf, "pet") or UnitName(targetOf) == statueName or ("TANK" ==  UnitGroupRolesAssigned(targetOf))
 
 		--if LocalVars.EnableOffTankHighlight and IsEnemyTanked(unit) then
 		if LocalVars.EnableOffTankHighlight and targetIsTank then
@@ -60,9 +61,9 @@ local function DummyFunction() return end
 -- Define the Menu for Threat Modes
 TidyPlatesContHubDefaults.ThreatWarningMode = "Auto"
 TidyPlatesContHubMenus.ThreatWarningModes = {
-					{ text = "自动(交换颜色)", value = "Auto",} ,
-					{ text = "坦克", value = "Tank",} ,
-					{ text = "输出或治疗", value = "DPS",} ,
+					{ text = "自动选择（随专精变色）", value = "Auto",} ,
+					{ text = "坦克", value = "坦克",} ,
+					{ text = "伤害输出/治疗者", value = "DPS",} ,
 					}
 
 local NormalGrey = {r = .65, g = .65, b = .65, a = .4}
@@ -86,7 +87,7 @@ local PaleBlue = {r = 0, g = 130/255, b = 225/255,}
 local PaleBlueText = {r = 194/255, g = 253/255, b = 1,}
 local DarkRed = {r = .9, g = 0.08, b = .08,}
 
-local RaidClassColors = RAID_CLASS_COLORS
+local RaidClassColors = CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS
 
 ------------------------------------------------------------------------------------
 
@@ -141,7 +142,7 @@ local function CallbackUpdate()
 end
 
 local function EnableWatchers()
-	if LocalVars.WidgetsDebuffStyle == 2 then TidyPlatesContWidgets.UseSquareDebuffIcon() else TidyPlatesContWidgets.UseWideDebuffIcon()end
+	if LocalVars.WidgetDebuffStyle == 2 then TidyPlatesContWidgets.UseSquareDebuffIcon() else TidyPlatesContWidgets.UseWideDebuffIcon()end
 	--TidyPlatesContUtility:EnableGroupWatcher()
 	TidyPlatesContUtility:EnableHealerTrack()
 	--TidyPlatesContWidgets:EnableTankWatch()
@@ -154,7 +155,7 @@ local CreateVariableSet = TidyPlatesContHubRapidPanel.CreateVariableSet
 
 local function UseVariables(profileName)
 
-	local suffix = profileName or "Damage"
+	local suffix = profileName or "伤害输出"
 	if suffix then
 
 		if CurrentProfileName ~= suffix then 	-- Stop repeat loading

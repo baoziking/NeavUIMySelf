@@ -1,7 +1,8 @@
-## Interface: 80000
+﻿## Interface: 80000
 ## Title: Tidy Plates Continued: Roth
-## Notes: Vanilla-Style Plates.
+## Notes: 香草式姓名板 .
 ## Author: Reinhart
+## 汉化: 不见的Z光刀-NGA
 ## Dependencies: TidyPlatesContinued, TidyPlatesContinuedHub
 
 TidyPlatesContinued_Roth.lua

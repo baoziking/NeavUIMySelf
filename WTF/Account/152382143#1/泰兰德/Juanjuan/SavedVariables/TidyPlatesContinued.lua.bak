@@ -2,8 +2,8 @@
 TidyPlatesContOptions = {
 	["PrimaryProfile"] = "Damage",
 	["SecondSpecProfile"] = "Damage",
-	["FriendlyAutomation"] = "不自动",
-	["EnemyAutomation"] = "不自动",
+	["FriendlyAutomation"] = "不使用自动化",
+	["EnemyAutomation"] = "不使用自动化",
 	["FourthSpecProfile"] = "Damage",
 	["ThirdSpecProfile"] = "Tank",
 	["DisableCastBars"] = false,

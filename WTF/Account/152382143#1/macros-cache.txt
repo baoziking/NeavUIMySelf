@@ -1,14 +1,3 @@
-VER 3 0000000000000008 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cancelaura 剑刃风暴 
-/cast [@arena3]风暴之锤
-/focus arena3
-END
-VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
-#showtooltip
-/cancelaura 剑刃风暴 
-/cast [@focus]断筋
-END
 VER 3 0000000000000006 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cancelaura 剑刃风暴 
@@ -25,6 +14,38 @@ VER 3 0000000000000007 " " "INV_MISC_QUESTIONMARK"
 /cancelaura 剑刃风暴 
 /cast [@arena2]风暴之锤
 /focus arena2
+END
+VER 3 0000000000000009 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast 法术反射(PvP天赋)
+/cast 战旗(PvP天赋)
+END
+VER 3 0000000000000008 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast [@arena3]风暴之锤
+/focus arena3
+END
+VER 3 000000000000000B " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/use [nocombat,outdoors,flyable]熊猫人风筝; [nocombat,outdoors,noflyable]拳手的健壮穆山兽
+END
+VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast [@focus]断筋
+END
+VER 3 000000000000000A " P2" "INV_MISC_QUESTIONMARK"
+/cast 战旗(PvP天赋)
+/cast 法术反射(PvP天赋)
+END
+VER 3 000000000000000D "fp3" "INV_MISC_QUESTIONMARK"
+/cast [@focus]缴械(PvP天赋)
+/cast [@focus]决斗(PvP天赋)
+END
+VER 3 000000000000000C "p3" "INV_MISC_QUESTIONMARK"
+/cast 缴械(PvP天赋)
+/cast 决斗(PvP天赋)
 END
 VER 3 0000000000000002 "play" "INV_MISC_QUESTIONMARK"
 #show

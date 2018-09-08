@@ -1,0 +1,4 @@
+
+PocketPlotPCDB = {
+	["charSpec"] = false,
+}

@@ -5,14 +5,9 @@ VER 3 0100000000000001 " " "INV_MISC_QUESTIONMARK"
 /cast 冲锋
 END
 VER 3 0100000000000002 " " "INV_MISC_QUESTIONMARK"
-#showtooltip [talent:2/1]震荡波;[talent:2/2]风暴之锤
-/cast [@focus] 风暴之锤
-END
-VER 3 0100000000000007 " " "INV_MISC_QUESTIONMARK"
-#showtooltip 战吼
-/cast 战吼
-/cast 打磨利刃
-/use 14
+#showtooltip 
+/cancelaura 剑刃风暴
+/cast [@focus]风暴之锤
 END
 VER 3 0100000000000003 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
@@ -36,14 +31,12 @@ VER 3 0100000000000005 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /stopattack
 /cancelaura 剑刃风暴
-/cancelaura 保护之手
 /cast 拳击
 END
 VER 3 0100000000000006 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /stopattack
 /cancelaura 剑刃风暴
-/cancelaura 保护之手
 /cast [@focus]拳击
 END
 VER 3 0100000000000009 " " "INV_MISC_QUESTIONMARK"
@@ -52,7 +45,7 @@ VER 3 0100000000000009 " " "INV_MISC_QUESTIONMARK"
 /cast 风暴之锤
 END
 VER 3 0100000000000010 " " "INV_MISC_QUESTIONMARK"
-#showtooltip 
+#showtooltip 致死打击
 /cast 打磨利刃
 /cast 致死打击
 END
@@ -84,8 +77,19 @@ END
 VER 3 010000000000000A " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [talent:6/2] 天神下凡; [talent:6/3] 致命平静;
+/cast 打磨利刃
 END
 VER 3 0100000000000012 " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cast [talent:3/2] 旋风斩; 猛击
+END
+VER 3 0100000000000013 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast 缴械(PvP天赋)
+END
+VER 3 0100000000000014 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast [@focus]缴械(PvP天赋)
 END

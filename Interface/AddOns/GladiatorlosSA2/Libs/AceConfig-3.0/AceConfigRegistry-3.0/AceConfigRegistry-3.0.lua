@@ -8,15 +8,15 @@
 -- :IterateOptionsTables() (and :GetOptionsTable() if only given one argument) return a function reference that the requesting config handling addon must call with valid "uiType", "uiName".
 -- @class file
 -- @name AceConfigRegistry-3.0
--- @release $Id: AceConfigRegistry-3.0.lua 1169 2018-02-27 16:18:28Z nevcairiel $
-local CallbackHandler = LibStub("CallbackHandler-1.0")
-
-local MAJOR, MINOR = "AceConfigRegistry-3.0", 18
+-- @release $Id: AceConfigRegistry-3.0.lua 1105 2013-12-08 22:11:58Z nevcairiel $
+local MAJOR, MINOR = "AceConfigRegistry-3.0", 15
 local AceConfigRegistry = LibStub:NewLibrary(MAJOR, MINOR)
 
 if not AceConfigRegistry then return end
 
 AceConfigRegistry.tables = AceConfigRegistry.tables or {}
+
+local CallbackHandler = LibStub:GetLibrary("CallbackHandler-1.0")
 
 if not AceConfigRegistry.callbacks then
 	AceConfigRegistry.callbacks = CallbackHandler:New(AceConfigRegistry)
@@ -57,7 +57,6 @@ local istable={["table"]=true,   _="table"}
 local ismethodtable={["table"]=true,["string"]=true,["function"]=true,   _="methodname, funcref or table"}
 local optstring={["nil"]=true,["string"]=true, _="string"}
 local optstringfunc={["nil"]=true,["string"]=true,["function"]=true, _="string or funcref"}
-local optstringnumberfunc={["nil"]=true,["string"]=true,["number"]=true,["function"]=true, _="string, number or funcref"}
 local optnumber={["nil"]=true,["number"]=true, _="number"}
 local optmethod={["nil"]=true,["string"]=true,["function"]=true, _="methodname or funcref"}
 local optmethodfalse={["nil"]=true,["string"]=true,["function"]=true,["boolean"]={[false]=true},  _="methodname, funcref or false"}
@@ -67,7 +66,6 @@ local optmethodbool={["nil"]=true,["string"]=true,["function"]=true,["boolean"]=
 local opttable={["nil"]=true,["table"]=true,  _="table"}
 local optbool={["nil"]=true,["boolean"]=true,  _="boolean"}
 local optboolnumber={["nil"]=true,["boolean"]=true,["number"]=true,  _="boolean or number"}
-local optstringnumber={["nil"]=true,["string"]=true,["number"]=true, _="string or number"}
 
 local basekeys={
 	type=isstring,
@@ -84,20 +82,20 @@ local basekeys={
 		dialogHidden=optmethodbool,
 		dropdownHidden=optmethodbool,
 	cmdHidden=optmethodbool,
-	icon=optstringnumberfunc,
+	icon=optstringfunc,
 	iconCoords=optmethodtable,
 	handler=opttable,
 	get=optmethodfalse,
 	set=optmethodfalse,
 	func=optmethodfalse,
 	arg={["*"]=true},
-	width=optstringnumber,
+	width=optstring,
 }
 
 local typedkeys={
 	header={},
 	description={
-		image=optstringnumberfunc,
+		image=optstringfunc,
 		imageCoords=optmethodtable,
 		imageHeight=optnumber,
 		imageWidth=optnumber,
@@ -114,7 +112,7 @@ local typedkeys={
 		childGroups=optstring,
 	},
 	execute={
-		image=optstringnumberfunc,
+		image=optstringfunc,
 		imageCoords=optmethodtable,
 		imageHeight=optnumber,
 		imageWidth=optnumber,
@@ -129,7 +127,7 @@ local typedkeys={
 	},
 	toggle={
 		tristate=optbool,
-		image=optstringnumberfunc,
+		image=optstringfunc,
 		imageCoords=optmethodtable,
 	},
 	tristate={

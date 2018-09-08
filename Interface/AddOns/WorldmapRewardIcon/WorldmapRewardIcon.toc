@@ -1,0 +1,12 @@
+## Interface: 80000
+## Title:|cff0080ffWorldmapRewardIcon|r
+## Author: y368413
+## Notes: 大地图世界任务直接显示奖励内容详情
+## Version: 0.3
+
+## X-Support: 8.0.1
+## X-Repple: 2 UI
+## X-StatsVersion: 180830
+## X-Credits: ykiigor
+
+WorldmapRewardIcon.lua

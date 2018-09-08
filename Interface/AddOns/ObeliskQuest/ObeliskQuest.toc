@@ -1,0 +1,18 @@
+## Interface: 80000
+## Title: |cFFDDCF99Obelisk|r Quest
+## Author: Malakahh
+## Notes: Upgraded questing UI
+## Version: 1.3
+
+## SavedVariables: OQ
+
+libs\ObeliskFramework\ObeliskInclude.xml
+options.lua
+zoneNameSubstitutions.lua
+rewards.lua
+zoneTracking.lua
+zoneAbandon.lua
+objectiveTrackerMenu.lua
+objectiveTrackerMoveResize.lua
+nameplates.lua
+acceptAllQuestsBtn.lua

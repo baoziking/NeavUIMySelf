@@ -22,6 +22,7 @@ local UpdateWidget
 local TargetOfGroupMembers = {}
 local DebuffColumns = 3
 local DebuffLimit = 6
+local AuraLimit = 9
 local inArena = false
 local useWideIcons = true
 
@@ -136,7 +137,7 @@ local function UpdateWidgetTime(frame, expiration)
 end
 
 
-local function UpdateIcon(frame, texture, duration, expiration, stacks, r, g, b)
+local function UpdateIcon(frame, texture, duration, expiration, stacks, r, g, b, a)
 	if frame and texture and expiration then
 		-- Icon
 		frame.Icon:SetTexture(texture)
@@ -147,7 +148,7 @@ local function UpdateIcon(frame, texture, duration, expiration, stacks, r, g, b)
 
 		-- Highlight Coloring
 		if r then
-			frame.BorderHighlight:SetVertexColor(r, g or 1, b or 1)
+			frame.BorderHighlight:SetVertexColor(r, g or 1, b or 1, a or 1)
 			frame.BorderHighlight:Show()
 			frame.Border:Hide()
 		else frame.BorderHighlight:Hide(); frame.Border:Show()	end
@@ -156,6 +157,8 @@ local function UpdateIcon(frame, texture, duration, expiration, stacks, r, g, b)
 		if duration and duration > 0 and expiration and expiration > 0 then
 			SetCooldown(frame.Cooldown, expiration-duration, duration+.25)
 			--frame.Cooldown:SetCooldown(expiration-duration, duration+.25)
+		else
+			SetCooldown(frame.Cooldown, 0, 0)	-- Clear Cooldown
 		end
 		--]]
 
@@ -224,14 +227,14 @@ local function UpdateIconGrid(frame, unitid)
 			-- Auras are evaluated by an external function
 			-- Pre-filtering before the icon grid is populated
 			if aura.name then
-				local show, priority, r, g, b = AuraFilterFunction(aura)
+				local show, priority, r, g, b, a = AuraFilterFunction(aura)
 				--print(aura.name, show, priority)
 				--show = true
 				-- Store Order/Priority
 				if show then
 
 					aura.priority = priority or 10
-					aura.r, aura.g, aura.b = r, g, b
+					aura.r, aura.g, aura.b, aura.a = r, g, b, a
 
 					storedAuraCount = storedAuraCount + 1
 					storedAuras[storedAuraCount] = aura
@@ -252,27 +255,78 @@ local function UpdateIconGrid(frame, unitid)
 		-- Display Auras
 		------------------------------------------------------------------------------------------------------
 		local AuraSlotCount = 1
+		local AuraSlots = {}
+		local BuffAuras = {}
+		local DebuffAuras = {}
+		local DebuffCount = 0
+		-- if storedAuraCount > 0 then
+		-- 	frame:Show()
+		-- 	sort(storedAuras, AuraSortFunction)
+
+		-- 	for index = 1, storedAuraCount do
+		-- 		if AuraSlotCount > DebuffLimit then break end
+		-- 		local aura = storedAuras[index]
+		-- 		if aura.spellid and aura.expiration then
+
+		-- 			-- Call function to display the aura
+		-- 			UpdateIcon(AuraIconFrames[AuraSlotCount], aura.texture, aura.duration, aura.expiration, aura.stacks, aura.r, aura.g, aura.b)
+
+		-- 			AuraSlotCount = AuraSlotCount + 1
+		-- 			frame.currentAuraCount = index
+		-- 		end
+		-- 	end
+
+		-- end
+
+		-- -- Clear Extra Slots
+		-- for AuraSlotEmpty = AuraSlotCount, DebuffLimit do UpdateIcon(AuraIconFrames[AuraSlotEmpty]) end
+
 		if storedAuraCount > 0 then
 			frame:Show()
 			sort(storedAuras, AuraSortFunction)
 
-			for index = 1,  storedAuraCount do
-				if AuraSlotCount > DebuffLimit then break end
+			for index = 1, storedAuraCount do
+				if AuraSlotCount > AuraLimit then break end
 				local aura = storedAuras[index]
 				if aura.spellid and aura.expiration then
 
-					-- Call function to display the aura
-					UpdateIcon(AuraIconFrames[AuraSlotCount], aura.texture, aura.duration, aura.expiration, aura.stacks, aura.r, aura.g, aura.b)
+					-- Sort buffs and debuffs
+					if aura.effect == "HELPFUL" then 
+						table.insert(BuffAuras, aura)
+					elseif AuraSlotCount <= DebuffLimit then
+						table.insert(DebuffAuras, aura)
+					end
 
 					AuraSlotCount = AuraSlotCount + 1
 					frame.currentAuraCount = index
 				end
 			end
 
+			DebuffCount = table.getn(DebuffAuras)
+
+			-- Loop through debuffs and call function to display them
+			for k, aura in ipairs(DebuffAuras) do
+				UpdateIcon(AuraIconFrames[k], aura.texture, aura.duration, aura.expiration, aura.stacks, aura.r, aura.g, aura.b, aura.a)
+				AuraSlots[k] = true
+			end
+
+			-- Loop through buffs and call function to display them
+			local rowOffset = DebuffColumns * (math.floor((DebuffCount-1)/DebuffColumns)+2)
+			for k, aura in ipairs(BuffAuras) do
+				local index = rowOffset+1-k
+				-- Make sure we aren't overwriting any debuffs and that we're not trying to apply buffs to slots that don't exist
+				if index > DebuffCount and index > 0 then
+						UpdateIcon(AuraIconFrames[index], aura.texture, aura.duration, aura.expiration, aura.stacks, aura.r, aura.g, aura.b, aura.a)
+						AuraSlots[index] = true
+				end
+			end
+
 		end
 
 		-- Clear Extra Slots
-		for AuraSlotEmpty = AuraSlotCount, DebuffLimit do UpdateIcon(AuraIconFrames[AuraSlotEmpty]) end
+		for AuraSlotEmpty = 1, AuraLimit do
+			if AuraSlots[AuraSlotEmpty] ~= true then UpdateIcon(AuraIconFrames[AuraSlotEmpty]) end
+		end
 
 end
 
@@ -438,26 +492,42 @@ local function UpdateIconConfig(frame)
 
 	if iconTable then
 		-- Create Icons
-		for index = 1, DebuffLimit do
+		for index = 1, AuraLimit do
 			local icon = iconTable[index] or CreateAuraIcon(frame)
 			iconTable[index] = icon
 			-- Apply Style
 			if useWideIcons then TransformWideAura(icon) else TransformSquareAura(icon) end
 		end
 
-		-- Set Anchors
-		iconTable[1]:ClearAllPoints()
-		iconTable[1]:SetPoint("LEFT", frame)
-		for index = 2, DebuffColumns do
-		  iconTable[index]:ClearAllPoints()
-		  iconTable[index]:SetPoint("LEFT", iconTable[index-1], "RIGHT", 5, 0)
-		end
+		-- -- Set Anchors
+		-- iconTable[1]:ClearAllPoints()
+		-- iconTable[1]:SetPoint("LEFT", frame)
+		-- for index = 2, DebuffColumns do
+		--   iconTable[index]:ClearAllPoints()
+		--   iconTable[index]:SetPoint("LEFT", iconTable[index-1], "RIGHT", 5, 0)
+		-- end
 
-		iconTable[DebuffColumns+1]:ClearAllPoints()
-		iconTable[DebuffColumns+1]:SetPoint("BOTTOMLEFT", iconTable[1], "TOPLEFT", 0, 8)
-		for index = (DebuffColumns+2), DebuffLimit do
-		  iconTable[index]:ClearAllPoints()
-		  iconTable[index]:SetPoint("LEFT", iconTable[index-1], "RIGHT", 5, 0)
+		-- iconTable[DebuffColumns+1]:ClearAllPoints()
+		-- iconTable[DebuffColumns+1]:SetPoint("BOTTOMLEFT", iconTable[1], "TOPLEFT", 0, 8)
+		-- for index = (DebuffColumns+2), AuraLimit do
+		--   iconTable[index]:ClearAllPoints()
+		--   iconTable[index]:SetPoint("LEFT", iconTable[index-1], "RIGHT", 5, 0)
+		-- end
+
+		-- Set Anchors
+		local anchorIndex = 1
+		for row = 1, AuraLimit/DebuffColumns do
+			iconTable[anchorIndex]:ClearAllPoints()
+			if row == 1 then
+				iconTable[anchorIndex]:SetPoint("LEFT", frame)
+			else
+				iconTable[anchorIndex]:SetPoint("BOTTOMLEFT", iconTable[anchorIndex-DebuffColumns], "TOPLEFT", 0, 8)
+			end
+			for index = anchorIndex + 1, DebuffColumns * row do
+			  iconTable[index]:ClearAllPoints()
+			  iconTable[index]:SetPoint("LEFT", iconTable[index-1], "RIGHT", 5, 0)
+			end
+			anchorIndex = anchorIndex + DebuffColumns -- Set next anchor index
 		end
 	end
 end
@@ -495,6 +565,7 @@ local function UseSquareDebuffIcon()
 	useWideIcons = false
 	DebuffColumns = 5
 	DebuffLimit = DebuffColumns * 2
+	AuraLimit = DebuffColumns * 3	-- Extra row for buffs
 	TidyPlatesCont:ForceUpdate()
 end
 
@@ -502,6 +573,7 @@ local function UseWideDebuffIcon()
 	useWideIcons = true
 	DebuffColumns = 3
 	DebuffLimit = DebuffColumns * 2
+	AuraLimit = DebuffColumns * 3	-- Extra row for buffs
 	TidyPlatesCont:ForceUpdate()
 end
 

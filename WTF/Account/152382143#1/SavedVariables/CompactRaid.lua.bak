@@ -1,0 +1,78 @@
+
+CompactRaidDB = {
+	["keepgroupstogether"] = 1,
+	["showtooltip"] = 1,
+	["nameColor"] = "1.0,1.0,1.0",
+	["clickDownMode"] = 1,
+	["modules"] = {
+		["Artwork"] = {
+			["statusbar"] = "Interface\\TargetingFrame\\UI-StatusBar",
+			["background"] = "Interface\\DialogFrame\\UI-DialogBox-Background",
+			["border"] = "Interface\\Tooltips\\UI-Tooltip-Border",
+			["font"] = "Fonts\\ARKai_T.ttf",
+		},
+		["RaidDebuff"] = {
+			["scale"] = 100,
+			["userLevels"] = {
+			},
+			["selTier"] = 8,
+			["customDebuffs"] = {
+			},
+			["xoffset"] = 0,
+			["selBoss"] = 2168,
+			["selInstance"] = 1031,
+			["yoffset"] = 0,
+		},
+	},
+	["powerColor"] = "0.0,0.0,1.0",
+	["groupSwapNoNotify"] = 1,
+	["showToolboxes"] = 1,
+	["outrangeAlpha"] = 40,
+	["showRoleIcon"] = 1,
+	["showDebuffs"] = 1,
+	["nameWidthLimit"] = 100,
+	["showDispels"] = 1,
+	["version"] = 5.06,
+	["showbarbkgnd"] = 1,
+	["height"] = 80,
+	["showPrivIcons"] = 1,
+	["nameYOffset"] = 0,
+	["tooltipPosition"] = 1,
+	["scale"] = 70,
+	["showBuffs"] = 1,
+	["spacing"] = 1,
+	["showRaidIcon"] = 1,
+	["containerBorderSize"] = 5,
+	["healthtextmode"] = 3,
+	["invertColor"] = 1,
+	["raidFilter"] = "CLASS",
+	["nameFontOutline"] = 1,
+	["containerAlpha"] = 75,
+	["width"] = 80,
+	["profiles"] = {
+		["Juanjuan - 泰兰德"] = {
+			["modules"] = {
+				["ClickSets"] = {
+					["talent1"] = {
+						["1"] = "action:target",
+						["2"] = "action:togglemenu",
+					},
+				},
+				["CornerIndicators"] = {
+					["talent1"] = {
+					},
+				},
+			},
+			["showPartyPets"] = 1,
+			["version"] = 5.06,
+			["showFriendlyNpc"] = 1,
+		},
+	},
+	["showDirectionArrow"] = 1,
+	["powerBarHeight"] = 1,
+	["nameHeight"] = 18,
+	["nameXOffset"] = 0,
+	["unitBkColor"] = "0.0,0.0,0.0",
+	["onlyDispellable"] = 1,
+	["healthColor"] = "0.0,1.0,0.0",
+}

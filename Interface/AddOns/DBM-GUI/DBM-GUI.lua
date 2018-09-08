@@ -43,7 +43,7 @@
 --
 
 
-local revision =("$Revision: 17708 $"):sub(12, -3)
+local revision =("$Revision: 17750 $"):sub(12, -3)
 local FrameTitle = "DBM_GUI_Option_"	-- all GUI frames get automatically a name FrameTitle..ID
 
 local PanelPrototype = {}
@@ -3072,6 +3072,22 @@ local function CreateOptionsMenu()
 		end)
 		VictorySoundDropdown3:SetPoint("TOPLEFT", DungeonMusicDropDown, "TOPLEFT", 0, -45)
 		
+		local TurtleDropDown = eventSoundsGeneralArea:CreateDropdown(L.EventTurtleMusic, useCombined and DBM.Music or DBM.BattleMusic, "DBM", "EventSoundTurle", function(value)
+			DBM.Options.EventSoundTurle = value
+			if value ~= "Random" then
+				if not DBM.Options.tempMusicSetting then
+					DBM.Options.tempMusicSetting = tonumber(GetCVar("Sound_EnableMusic"))
+					if DBM.Options.tempMusicSetting == 0 then
+						SetCVar("Sound_EnableMusic", 1)
+					else
+						DBM.Options.tempMusicSetting = nil--Don't actually need it
+					end
+				end
+				PlayMusic(value)
+			end
+		end)
+		TurtleDropDown:SetPoint("TOPLEFT", MusicDropDown, "TOPLEFT", 0, -45)
+		
 		local eventSoundsExtrasArea	= eventSoundsPanel:CreateArea(L.Area_EventSoundsExtras, nil, 52, true)
 		local combineMusic			= eventSoundsExtrasArea:CreateCheckButton(L.EventMusicCombined, true, nil, "EventSoundMusicCombined")
 		
@@ -3113,7 +3129,7 @@ local function CreateOptionsMenu()
 		local spamSpecArea = spamPanel:CreateArea(L.Area_SpecFilter, nil, 140, true)
 		spamSpecArea:CreateCheckButton(L.FilterTankSpec, true, nil, "FilterTankSpec")
 		spamSpecArea:CreateCheckButton(L.FilterDispels, true, nil, "FilterDispel")
-		spamSpecArea:CreateCheckButton(L.FilterTrashWarnings, true, nil, "FilterTrashWarnings")
+		spamSpecArea:CreateCheckButton(L.FilterTrashWarnings, true, nil, "FilterTrashWarnings2")
 		local FilterInterruptNote = spamSpecArea:CreateCheckButton(L.FilterInterruptNoteName, true, nil, "FilterInterruptNoteName")
 		
 		local interruptOptions = {

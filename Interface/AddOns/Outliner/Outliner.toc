@@ -1,0 +1,10 @@
+## Interface: 40300
+## Version: r2
+## Title: Outliner
+## Notes: Outlines the chat font
+## Author: Nessaja
+## X-WoWBox-Ver: 1
+## X-WoWBox-ID: 2278
+
+Outliner.lua
+

@@ -1,10 +1,8 @@
-## Interface: 80000
+﻿## Interface: 80000
 ## Title: Tidy Plates Continued Hub
-## Notes: Provides a common configuration panel for supported themes.
-## Title-zhCN: |cffFF6060[战斗]|r Tidy Plates Continued设置
-## Notes-zhCN: Tidy Plates Continued Hub |n提供一个设置界面给所支持的主题使用。
+## Notes: 为支持的主题提供一个通用的设置。 
 ## Author: Daniel/Binbwen
-## 简体汉化：啊呀拐倒
+## 汉化: 不见的Z光刀-NGA
 ## Dependencies: TidyPlatesContinued, TidyPlatesContinuedWidgets
 ## OptionalDeps: TidyPlatesContHubDE, TidyPlatesContHubES, TidyPlatesContHubMX, TidyPlatesContHubFR, TidyPlatesContHubKR, TidyPlatesContHubRU, TidyPlatesContHubCN, TidyPlatesContHubTW
 ## SavedVariables: TidyPlatesContHubCache, TidyPlatesContHubGlobal

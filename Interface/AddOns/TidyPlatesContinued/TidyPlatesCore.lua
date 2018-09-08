@@ -1060,7 +1060,7 @@ do
 
 
 	-- SetObjectShadow:
-	local function SetObjectShadow(object, shadow)                --字体阴影设置
+	local function SetObjectShadow(object, shadow)
 		if shadow then
 			object:SetShadowColor(0,0,0, 1)
 			object:SetShadowOffset(1, -1)
@@ -1072,7 +1072,7 @@ do
 		if objectstyle then
 			SetObjectFont(object, objectstyle.typeface, objectstyle.size, objectstyle.flags)
 			SetObjectJustify(object, objectstyle.align or "CENTER", objectstyle.vertical or "BOTTOM")
-			SetObjectShadow(object, objectstyle.shadow)                           --是否启用字体阴影
+			SetObjectShadow(object, objectstyle.shadow)
 		end
 	end
 

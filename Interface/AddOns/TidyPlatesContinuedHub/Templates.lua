@@ -1,4 +1,4 @@
-local font = TidyPlatesContHubLocalizedFont or "Interface\\Addons\\TidyPlatesContinued\\Media\\DefaultFont.ttf"
+﻿local font = TidyPlatesContHubLocalizedFont or "Interface\\Addons\\TidyPlatesContinued\\Media\\DefaultFont.ttf"
 local divider = "Interface\\Addons\\TidyPlatesContinuedHub\\shared\\ThinBlackLine"
 
 local PanelHelpers = TidyPlatesContUtility.PanelHelpers 		-- PanelTools
@@ -47,7 +47,7 @@ local function CreateQuickSlider(name, label, ... ) --, neighborFrame, xOffset, 
 		local columnFrame = ...
 		local frame = PanelHelpers:CreateSliderFrame(name, columnFrame, label, .5, 0, 1, .1)
 		frame:SetWidth(250)
-		--frame.Label:SetFont("FONTS/ARIALN.TTF", 14)
+		--frame.Label:SetFont("FONTS/ARKai_T.TTF", 14)
 		-- Margins	-- Bottom/Left are negative
 		frame.Margins = { Left = 12, Right = 8, Top = 20, Bottom = 13,}
 		QuickSetPoints(frame, ...)
@@ -63,7 +63,7 @@ local function CreateQuickSlider(name, label, ... ) --, neighborFrame, xOffset, 
 	local function CreateQuickCheckbutton(name, label, ...)
 		local columnFrame = ...
 		local frame = PanelHelpers:CreateCheckButton(name, columnFrame, label)
-		--frame.Label:SetFont("FONTS/ARIALN.TTF", 14)
+		--frame.Label:SetFont("FONTS/ARKai_T.TTF", 14)
 		-- Margins	-- Bottom/Left are supposed to be negative
 		frame.Margins = { Left = 2, Right = 100, Top = 0, Bottom = 0,}
 		QuickSetPoints(frame, ...)
@@ -112,7 +112,7 @@ local function CreateQuickSlider(name, label, ... ) --, neighborFrame, xOffset, 
 		EditBox:SetMultiLine(true)
 
 		EditBox:SetFrameLevel(frame:GetFrameLevel()-1)
-		EditBox:SetFont("Fonts\\FRIZQT__.TTF", 11, "NONE")
+		EditBox:SetFont("Fonts\\ARHei.TTF", 11, "NONE")
 		EditBox:SetText("Empty")
 		EditBox:SetAutoFocus(false)
 		EditBox:SetTextInsets(9, 6, 2, 2)
@@ -236,8 +236,8 @@ local function CreateQuickSlider(name, label, ... ) --, neighborFrame, xOffset, 
 		frame:SetWidth(500)
 		frame.Text = frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 		--frame.Text = frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
-		-- frame.Text:SetFont("Fonts\\FRIZQT__.TTF", 18 )
-		-- frame.Text:SetFont("Fonts\\ARIALN.TTF", 18 )
+		-- frame.Text:SetFont("Fonts\\ARHei.TTF", 18 )
+		-- frame.Text:SetFont("Fonts\\ARkai_T.TTF", 18 )
 		--frame.Text:SetFont(font, 22 )
 		--frame.Text:SetTextColor(1, .7, 0)
 		--frame.Text:SetTextColor(55/255, 173/255, 255/255)
@@ -380,7 +380,7 @@ local yellow, blue, red, orange = "|cffffff00", "|cFF5599EE", "|cFFFF1100", "|cF
 local function PasteSettings(panel)
 	local cacheName, LocalVars
 
-	print(blue.."设置检索")
+	print(blue.."设置已还原。")
 
 	cacheName = "SavedTemplate"
 
@@ -405,7 +405,7 @@ local function CopySettings(panel)
 --]]
 
 	cacheName = "SavedTemplate"
-	print(blue.."设置保存")
+	print(blue.."设置已保存。")
 
 	-- Get a pointer for the cache set
 	LocalVars = GetCacheSet(cacheName)
@@ -424,8 +424,8 @@ local function ResetSettings(panel)
 	else
 		SetPanelValues(panel, TidyPlatesContHubDefaults)
 		OnPanelItemChange(panel)
-		print(yellow.."重置 "..orange.."Tidy Plates"..yellow.." 默认主题选择")
-		print(yellow.."按住 "..blue.."Shift"..yellow.." 同时点击 "..red.."重新配置"..yellow.." 将清除您的已保存的设置,并重新加载用户界面.")
+		print(yellow.."正在重置"..orange..panel.name..yellow.." Configuration to Default")
+		print(yellow.."按住"..blue.."Shift"..yellow.."后点击"..red.."重置"..yellow.."按钮将清除所有设置、缓存并重载UI。")
 	end
 end
 
@@ -569,17 +569,17 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
 
 	-- Paste
 	local PasteThemeDataButton = CreateFrame("Button", objectName.."PasteThemeDataButton", panel, "TidyPlatesContPanelButtonTemplate")
-	PasteThemeDataButton.tooltipText = "加载保存的模板"
+	PasteThemeDataButton.tooltipText = "读取缓存并覆盖当前的模板。"
 	PasteThemeDataButton:SetPoint("TOPRIGHT", -40, -22)
 	PasteThemeDataButton:SetWidth(110)
 	PasteThemeDataButton:SetScale(.85)
-	PasteThemeDataButton:SetText("载入模板")
+	PasteThemeDataButton:SetText("加载模板")
 
 	PasteThemeDataButton:SetScript("OnClick", function() PasteSettings(panel); end)
 
 	-- Copy
 	local CopyThemeDataButton = CreateFrame("Button", objectName.."CopyThemeDataButton", panel, "TidyPlatesContPanelButtonTemplate")
-	CopyThemeDataButton.tooltipText = "将您的设置保存到当前模板中"
+	CopyThemeDataButton.tooltipText = "复制现有的模板，以便于在其他模板中使用。"
 	---- This feature works between matching panel types (ie. Hub/Damage to Hub/Damage)
 	CopyThemeDataButton:SetPoint("TOPRIGHT", PasteThemeDataButton, "TOPLEFT", -4, 0)
 	CopyThemeDataButton:SetWidth(110)
@@ -590,7 +590,7 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
 
 	-- Reset
 	local ReloadThemeDataButton = CreateFrame("Button", objectName.."ReloadThemeDataButton", panel, "TidyPlatesContPanelButtonTemplate")
-	ReloadThemeDataButton.tooltipText = "重置并还原成默认配置，按住'Shift'也能清除配置并重载UI。"
+	ReloadThemeDataButton.tooltipText = "还原默认设置。按住“Shift”将清除所有设置、缓存并重载UI。"
 	ReloadThemeDataButton:SetPoint("TOPRIGHT", CopyThemeDataButton, "TOPLEFT", -4, 0)
 	ReloadThemeDataButton:SetWidth(60)
 	ReloadThemeDataButton:SetScale(.85)
@@ -606,7 +606,7 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
 	BookmarkButton:SetPoint("TOPRIGHT", ReloadThemeDataButton, "TOPLEFT", -4, 0)
 	BookmarkButton:SetWidth(110)
 	BookmarkButton:SetScale(.85)
-	BookmarkButton:SetText("类别")
+	BookmarkButton:SetText("索引")
 
 
 	local function OnClickBookmark(frame)
@@ -727,7 +727,7 @@ local function CreateInterfacePanel( objectName, panelTitle, parentFrameName)
      		else
 				panel.ScrollFrame:SetPoint("TOP", panel.WarningFrame, "BOTTOM", 0, -8 )     -- Warning
                 panel.WarningFrame:Show()
-                panel.Warnings.Text:SetText("你目前使用着不兼容的主题。")
+                panel.Warnings.Text:SetText("你似乎正在使用不兼容的主题。")
                 panel.Warnings.Text:SetTextColor(1, 1, 1)
                 panel.Warnings.Text:SetFont(font, 18)
 

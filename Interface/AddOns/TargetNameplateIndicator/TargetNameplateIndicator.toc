@@ -1,0 +1,35 @@
+## Title: TargetNameplateIndicator
+## Interface: 80000
+## Notes: Puts a texture on the nameplates of your target, mouseover and focus to make them stand out.
+## Title-zhCN: |cffFF6060[战斗]|r 目标指示箭头
+## Notes-zhCN: Target Nameplate Indicator |n在当前目标血条上方显示箭头，让目标更明显。|n|cffffd200使用方法：|r从Esc>介面>插件>血条-箭头，进行设定。|n|cffFF2D2D特别注意：|rEK血条已经有这个功能，请勿和EK血条同时载入使用。|n可以与威力血条或游戏内建的血条一起搭配使用。
+## Author: Choonster
+## Version: 1.32
+## SavedVariables: TargetNameplateIndicatorDB
+## OptionalDeps: Ace3, LibNameplateRegistry-1.0
+## X-Embeds: Ace3, LibNameplateRegistry-1.0
+
+## X-Curse-Project-ID: 42647
+## X-WoWI-ID: 21391
+
+#@no-lib-strip@
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\AceConsole-3.0\AceConsole-3.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml
+Libs\AceConfig-3.0\AceConfig-3.0.xml
+Libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\AceLocale-3.0\AceLocale-3.0.xml
+
+Libs\LibNameplateRegistry-1.0\LibNameplateRegistry-1.0\LibNameplateRegistry-1.0.xml
+#@end-no-lib-strip@
+
+Locales\enUS.lua
+Locales\zhCN.lua
+
+core.lua
+options.lua
