@@ -1,0 +1,15 @@
+少数游戏，
+超级宝可梦大纷争，还有大家的宝可梦大纷争，马里奥3D大陆等，
+必须用到对应Citra有效的Mii Maker存档文件
+
+请将Mii Maker存档文件“CFL_DB.dat”，
+复制粘贴到以下路径“替换”掉原来的“CFL_DB.dat”
+
+如果模拟器文件夹含有user文件夹
+\<模拟器文件夹>\user\nand\data\00000000000000000000000000000000\
+extdata\00000000\F000000B\user\
+
+如果模拟器文件夹不含有user文件夹
+C:\用户\<你现在windows用户名>\AppData\Roaming\Citra\nand\data
+\00000000000000000000000000000000\extdata\00000000\F000000B\user\
+

@@ -1,0 +1,5 @@
+符文工房4、大家的宝可梦等游戏显示“？？”乱码
+
+把“起航字库”文件夹或者“ACG字库”里面的shared_font.bin
+替换掉以下路径同名文件
+<模拟器文件夹 >\user\sysdata\shared_font.bin
