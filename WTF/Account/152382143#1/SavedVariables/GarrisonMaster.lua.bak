@@ -16,16 +16,13 @@ MasterPlanAG = {
 SV_GarrisonMissionManager = {
 }
 IPMDB = {
-	["enableGarrisonMissions"] = true,
-	["ignores"] = {
-	},
 	["profiles"] = {
 		["Juanjuan-泰兰德"] = {
 			{
 				["description"] = "",
-				["cost"] = 20,
+				["cost"] = 80,
 				["isZoneSupport"] = false,
-				["locPrefix"] = "GarrMissionLocation-Darkshore",
+				["locPrefix"] = "GarrMissionLocation-NorthernBarrens",
 				["followers"] = {
 					"0x0000000007705959", -- [1]
 					"0x0000000007709FA7", -- [2]
@@ -35,27 +32,27 @@ IPMDB = {
 				["overmaxRewards"] = {
 					{
 						["title"] = "货币奖励",
-						["quantity"] = 150,
-						["icon"] = 2065624,
-						["currencyID"] = 1553,
+						["quantity"] = 425,
+						["icon"] = 2032592,
+						["currencyID"] = 1579,
 					}, -- [1]
 				},
 				["hasBonusEffect"] = true,
-				["missionEndTime"] = 1536387626,
+				["missionEndTime"] = 1536600496,
 				["isMaxLevel"] = true,
-				["name"] = "深水陷阱",
+				["name"] = "艾泽拉斯血祸",
 				["canStart"] = false,
 				["typeAtlas"] = "BfAMission-Icon-Normal",
-				["successChance"] = 200,
+				["successChance"] = 145,
 				["followerTypeID"] = 22,
 				["offeredGarrMissionTextureID"] = 0,
-				["durationSeconds"] = 14400,
+				["durationSeconds"] = 28800,
 				["completed"] = false,
-				["missionID"] = 1893,
-				["duration"] = "4小时",
+				["missionID"] = 2078,
+				["duration"] = "8小时",
 				["offerTimeRemaining"] = "0秒",
 				["charText"] = "|cffc69b6dJuanjuan|r-泰兰德",
-				["timeLeft"] = "0秒",
+				["timeLeft"] = "5小时27分钟",
 				["iLevel"] = 800,
 				["mapPosY"] = 0,
 				["type"] = "",
@@ -84,7 +81,7 @@ IPMDB = {
 							1062, -- [1]
 							1091, -- [2]
 						},
-						["xp"] = 0,
+						["xp"] = 810,
 						["className"] = "独狼",
 						["classSpec"] = 188,
 						["isMaxLevel"] = true,
@@ -119,7 +116,7 @@ IPMDB = {
 							1042, -- [1]
 							1098, -- [2]
 						},
-						["xp"] = 100,
+						["xp"] = 980,
 						["className"] = "秘密部队技师",
 						["classSpec"] = 190,
 						["isMaxLevel"] = true,
@@ -154,7 +151,7 @@ IPMDB = {
 							1043, -- [1]
 							1096, -- [2]
 						},
-						["xp"] = 100,
+						["xp"] = 980,
 						["className"] = "魔导师",
 						["classSpec"] = 189,
 						["isMaxLevel"] = true,
@@ -166,9 +163,9 @@ IPMDB = {
 						["garrFollowerID"] = 1072,
 					},
 				},
-				["timeLeftSeconds"] = 0,
+				["timeLeftSeconds"] = 19672,
 				["overmaxSucceeded"] = false,
-				["basecost"] = 20,
+				["basecost"] = 40,
 				["level"] = 120,
 				["numFollowers"] = 3,
 				["requiredSuccessChance"] = 0,
@@ -176,13 +173,13 @@ IPMDB = {
 				["rewards"] = {
 					{
 						["title"] = "货币奖励",
-						["quantity"] = 142,
-						["icon"] = 2065624,
-						["currencyID"] = 1553,
+						["quantity"] = 450,
+						["icon"] = 2032592,
+						["currencyID"] = 1579,
 					}, -- [1]
 				},
 				["costCurrencyTypesID"] = 1560,
-				["location"] = "佐拉姆加前哨站",
+				["location"] = "哀嚎洞穴",
 				["isRare"] = false,
 				["mapPosX"] = 0,
 				["requiredChampionCount"] = 1,
@@ -377,4 +374,7 @@ IPMDB = {
 			}, -- [2]
 		},
 	},
+	["ignores"] = {
+	},
+	["enableGarrisonMissions"] = true,
 }

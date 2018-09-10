@@ -1,8 +1,8 @@
 
 oUF_NeavDB = {
 	["oUF_Neav"] = {
-		["oUF_Neav_Party"] = "LEFTUIParent3792071.762",
 		["oUF_Neav_Focus"] = "CENTERUIParent333261.350",
+		["oUF_Neav_Party"] = "LEFTUIParent3792071.762",
 		["oUF_Neav_Player"] = "CENTERUIParent-170-1921.350",
 		["oUF_Neav_Target"] = "CENTERUIParent170-1921.350",
 	},
@@ -15,8 +15,8 @@ oUF_NeavDB = {
 	},
 	["__INITIAL"] = {
 		["oUF_Neav"] = {
-			["oUF_Neav_Party"] = "TOPLEFTUIParent25-1991.000",
 			["oUF_Neav_Focus"] = "LEFTUIParent3001.193",
+			["oUF_Neav_Party"] = "TOPLEFTUIParent25-1991.000",
 			["oUF_Neav_Player"] = "TOPLEFTUIParent33-2161.193",
 			["oUF_Neav_Target"] = "TOPLEFTUIParent300-2161.193",
 		},

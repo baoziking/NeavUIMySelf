@@ -5,13 +5,13 @@ KalielsTrackerDB = {
 			["collapsed"] = true,
 		},
 	},
-	["profileKeys"] = {
-		["猪猪胖 - 泰兰德"] = "Default",
-		["Juanjuan - 泰兰德"] = "Default",
-	},
 	["global"] = {
 		["helpTutorial"] = 11,
 		["version"] = "3.1.1",
+	},
+	["profileKeys"] = {
+		["猪猪胖 - 泰兰德"] = "Default",
+		["Juanjuan - 泰兰德"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

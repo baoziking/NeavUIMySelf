@@ -6,12 +6,6 @@ CompactRaidDB = {
 	["clickDownMode"] = 1,
 	["showParty"] = 1,
 	["modules"] = {
-		["Artwork"] = {
-			["statusbar"] = "Interface\\TargetingFrame\\UI-StatusBar",
-			["background"] = "Interface\\DialogFrame\\UI-DialogBox-Background",
-			["border"] = "Interface\\Tooltips\\UI-Tooltip-Border",
-			["font"] = "Fonts\\ARKai_T.ttf",
-		},
 		["RaidDebuff"] = {
 			["scale"] = 100,
 			["userLevels"] = {
@@ -23,6 +17,12 @@ CompactRaidDB = {
 			["selBoss"] = 2168,
 			["selInstance"] = 1031,
 			["yoffset"] = 0,
+		},
+		["Artwork"] = {
+			["statusbar"] = "Interface\\TargetingFrame\\UI-StatusBar",
+			["background"] = "Interface\\DialogFrame\\UI-DialogBox-Background",
+			["border"] = "Interface\\Tooltips\\UI-Tooltip-Border",
+			["font"] = "Fonts\\ARKai_T.ttf",
 		},
 	},
 	["powerColor"] = "0.0,0.0,1.0",
@@ -44,24 +44,19 @@ CompactRaidDB = {
 	["spacing"] = 1,
 	["showRaidIcon"] = 1,
 	["containerBorderSize"] = 5,
-	["healthColor"] = "0.0,1.0,0.0",
-	["onlyDispellable"] = 1,
-	["scale"] = 70,
+	["showSolo"] = 1,
+	["healthtextmode"] = 3,
+	["invertColor"] = 1,
 	["raidFilter"] = "CLASS",
 	["nameFontOutline"] = 1,
-	["showSolo"] = 1,
+	["unitBkColor"] = "0.0,0.0,0.0",
 	["width"] = 80,
+	["nameHeight"] = 18,
+	["showDirectionArrow"] = 1,
+	["powerBarHeight"] = 1,
 	["profiles"] = {
 		["猪猪胖 - 泰兰德"] = {
 			["modules"] = {
-				["CornerIndicators"] = {
-					["talent3"] = {
-						["TOPLEFT"] = "[ignoreVehicle]#1#[aura]#缓落术#",
-					},
-					["talent1"] = {
-						["TOPLEFT"] = "[ignoreVehicle]#1#[aura]#缓落术#",
-					},
-				},
 				["ClickSets"] = {
 					["talent3"] = {
 						["alt-1"] = "buildin:缓落术",
@@ -72,6 +67,14 @@ CompactRaidDB = {
 						["alt-1"] = "buildin:缓落术",
 						["1"] = "action:target",
 						["2"] = "action:togglemenu",
+					},
+				},
+				["CornerIndicators"] = {
+					["talent3"] = {
+						["TOPLEFT"] = "[ignoreVehicle]#1#[aura]#缓落术#",
+					},
+					["talent1"] = {
+						["TOPLEFT"] = "[ignoreVehicle]#1#[aura]#缓落术#",
 					},
 				},
 			},
@@ -80,14 +83,14 @@ CompactRaidDB = {
 		},
 		["Juanjuan - 泰兰德"] = {
 			["modules"] = {
+				["CornerIndicators"] = {
+					["talent1"] = {
+					},
+				},
 				["ClickSets"] = {
 					["talent1"] = {
 						["1"] = "action:target",
 						["2"] = "action:togglemenu",
-					},
-				},
-				["CornerIndicators"] = {
-					["talent1"] = {
 					},
 				},
 			},
@@ -96,11 +99,8 @@ CompactRaidDB = {
 			["showFriendlyNpc"] = 1,
 		},
 	},
-	["showDirectionArrow"] = 1,
-	["powerBarHeight"] = 1,
-	["nameHeight"] = 18,
 	["nameXOffset"] = 0,
-	["unitBkColor"] = "0.0,0.0,0.0",
-	["invertColor"] = 1,
-	["healthtextmode"] = 3,
+	["scale"] = 70,
+	["onlyDispellable"] = 1,
+	["healthColor"] = "0.0,1.0,0.0",
 }

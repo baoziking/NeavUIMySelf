@@ -3,7 +3,7 @@
 ## Notes: Enjoys long walks on Darkshore
 ## Author: Binbwen and Friends
 ## 汉化: 不见的Z光刀-NGA
-## Version: 6.21.2a
+## Version: 6.21.4
 ## SavedVariablesPerCharacter: TidyPlatesContOptions
 
 TidyPlatesContinued.xml

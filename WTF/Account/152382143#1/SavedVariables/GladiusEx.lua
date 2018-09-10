@@ -36,19 +36,19 @@ GladiusExDB = {
 					},
 					["y"] = {
 						["arena2"] = 497.27936388494,
-						["arena4"] = 439.039365186705,
-						["anchor_arena"] = 481.599403297914,
-						["arena5"] = 380.79940555097,
-						["arena3"] = 439.039365186705,
 						["arena1"] = 555.519362583174,
+						["anchor_arena"] = 481.599403297914,
+						["arena3"] = 439.039365186705,
+						["arena5"] = 380.79940555097,
+						["arena4"] = 439.039365186705,
 					},
 					["x"] = {
 						["arena2"] = 981.546462435727,
-						["arena4"] = 981.546462435727,
-						["anchor_arena"] = 954.666306786545,
-						["arena5"] = 981.546462435727,
-						["arena3"] = 981.546462435727,
 						["arena1"] = 981.546462435727,
+						["anchor_arena"] = 954.666306786545,
+						["arena3"] = 981.546462435727,
+						["arena5"] = 981.546462435727,
+						["arena4"] = 981.546462435727,
 					},
 				},
 			},
@@ -89,29 +89,29 @@ GladiusExDB = {
 		},
 		["HealthBar"] = {
 		},
-		["party_PetBar"] = {
+		["Clicks"] = {
 		},
-		["PetBar"] = {
+		["Tags"] = {
 		},
 		["party_Cooldowns"] = {
 		},
 		["party_Clicks"] = {
 		},
-		["party_Interrupts"] = {
+		["party_Auras"] = {
 		},
 		["Announcements"] = {
 		},
-		["Alerts"] = {
+		["party_Tags"] = {
 		},
 		["TargetBar"] = {
 		},
-		["party_Tags"] = {
+		["Alerts"] = {
 		},
-		["party_Auras"] = {
+		["party_Interrupts"] = {
 		},
-		["Tags"] = {
+		["PetBar"] = {
 		},
-		["Clicks"] = {
+		["party_PetBar"] = {
 		},
 		["ClassIcon"] = {
 		},
