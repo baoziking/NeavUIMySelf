@@ -1,14 +1,15 @@
 
 GladiatorlosSADB = {
 	["profileKeys"] = {
-		["猪猪胖 - 泰兰德"] = "Default",
-		["Juanjuan - 泰兰德"] = "Default",
+		["橡皮糖糖 - 泰兰德"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
+			["path"] = "GladiatorlosSA2_zhCN\\Voice_zhCN",
 			["battleground"] = false,
-			["field"] = false,
-			["path"] = "GladiatorlosSA_zhCN\\Voice_zhCN",
+			["path_menu"] = "GladiatorlosSA2_zhCN\\Voice_zhCN",
+			["interruptedfriendly"] = false,
+			["drinking"] = true,
 		},
 	},
 }

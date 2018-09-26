@@ -1,8 +1,6 @@
 ## Title: TargetNameplateIndicator
 ## Interface: 80000
 ## Notes: Puts a texture on the nameplates of your target, mouseover and focus to make them stand out.
-## Title-zhCN: |cffFF6060[战斗]|r 目标指示箭头
-## Notes-zhCN: Target Nameplate Indicator |n在当前目标血条上方显示箭头，让目标更明显。|n|cffffd200使用方法：|r从Esc>介面>插件>血条-箭头，进行设定。|n|cffFF2D2D特别注意：|rEK血条已经有这个功能，请勿和EK血条同时载入使用。|n可以与威力血条或游戏内建的血条一起搭配使用。
 ## Author: Choonster
 ## Version: 1.32
 ## SavedVariables: TargetNameplateIndicatorDB
@@ -29,7 +27,15 @@ Libs\LibNameplateRegistry-1.0\LibNameplateRegistry-1.0\LibNameplateRegistry-1.0.
 #@end-no-lib-strip@
 
 Locales\enUS.lua
+Locales\deDE.lua
+Locales\esES.lua
+Locales\esMX.lua
+Locales\frFR.lua
+Locales\koKR.lua
+Locales\ptBR.lua
+Locales\ruRU.lua
 Locales\zhCN.lua
+Locales\zhTW.lua
 
 core.lua
 options.lua

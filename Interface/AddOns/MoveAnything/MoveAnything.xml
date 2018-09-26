@@ -121,7 +121,7 @@
 		</Scripts>
 	</Frame>
 	
-	<Button name="GameMenuButtonMoveAnything" parent="GameMenuFrame" inherits="GameMenuButtonTemplate" text="版面配置">
+	<Button name="GameMenuButtonMoveAnything" parent="GameMenuFrame" inherits="GameMenuButtonTemplate" text="MoveAnything">
 		<Scripts>
 			<OnLoad>
 				if GameMenuFrame_UpdateVisibleButtons then
@@ -491,9 +491,9 @@
 					</OnClick>
 				</Scripts>
 			</CheckButton>
-			<Button name="$parentReset" inherits="UIPanelButtonTemplate" text="重置">
+			<Button name="$parentReset" inherits="UIPanelButtonTemplate" text="Reset">
 				<Size>
-					<AbsDimension x="50" y="20"/>
+					<AbsDimension x="44" y="20"/>
 				</Size>
 				<Anchors>
 					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parentHide">
@@ -548,7 +548,7 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<FontString name="$parentCaption" inherits="GameFontNormal" text="版面配置">
+				<FontString name="$parentCaption" inherits="GameFontNormal" text="MoveAnything">
 					<Anchors>
 						<Anchor point="TOP" relativeTo="$parentFrameHeader">
 							<Offset>
@@ -602,7 +602,7 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self.tooltipText = "關閉這個視窗\n\nCtrl-Shift-Alt-左鍵點擊 重新載入介面"
+						self.tooltipText = "Closes this window\n\nCtrl-Shift-Alt click reloads the interface"
 					</OnLoad>
 					<OnClick>
 						if IsShiftKeyDown() and IsControlKeyDown() and IsAltKeyDown() then
@@ -625,14 +625,14 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self.tooltipText = "顯示選項設定"
+						self.tooltipText = "Toggle options"
 					</OnLoad>
 					<OnClick>
 						if InterfaceOptionsFrame:IsVisible() and MoveAnythingOptions:IsVisible() then
 							HideUIPanel(InterfaceOptionsFrame)
 						else
-							InterfaceOptionsFrame_OpenToCategory("版面配置")
-							InterfaceOptionsFrame_OpenToCategory("版面配置")
+							InterfaceOptionsFrame_OpenToCategory("MoveAnything")
+							InterfaceOptionsFrame_OpenToCategory("MoveAnything")
 						end
 					</OnClick>
 				</Scripts>
@@ -648,7 +648,7 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self.tooltipText = "同步所有版面配置所做的變更"
+						self.tooltipText = "Synchronize elements modified by MoveAnything"
 					</OnLoad>
 					<OnClick>
 						MovAny:SyncAllFrames()
@@ -663,14 +663,14 @@
 				<Anchors>
 					<Anchor point="TOPRIGHT" relativeTo="MAOptionsSync" relativePoint="TOPLEFT">
 						<Offset>
-							<AbsDimension x="-30" y="0"/>
+							<AbsDimension x="-15" y="0"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						_G[self:GetName().."Text"]:SetText("編輯")
-						self.tooltipText = "顯示/隱藏框架編輯器"
+						_G[self:GetName().."Text"]:SetText("FE")
+						self.tooltipText = "Toggle visibility on frame editors"
 					</OnLoad>
 					<OnClick>
 						if IsShiftKeyDown() then
@@ -692,14 +692,14 @@
 				<Anchors>
 					<Anchor point="TOPRIGHT" relativeTo="MAOptionsToggleFrameEditors" relativePoint="TOPLEFT">
 						<Offset>
-							<AbsDimension x="-30" y="0"/>
+							<AbsDimension x="-12" y="0"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						_G[self:GetName().."Text"]:SetText("移動")
-						self.tooltipText = "開啟/關閉所有移動控制項"
+						_G[self:GetName().."Text"]:SetText("M")
+						self.tooltipText = "Toggles all movers"
 					</OnLoad>
 					<OnClick>
 						if IsShiftKeyDown() then
@@ -723,8 +723,8 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						_G[self:GetName().."Text"]:SetText("已調整")
-						self.tooltipText = "只顯示調整過的框架"
+						_G[self:GetName().."Text"]:SetText("MF")
+						self.tooltipText = "Show only modified frames"
 					</OnLoad>
 					<OnClick>
 						MovAny:OnCheckToggleModifiedFramesOnly(self)
@@ -739,14 +739,14 @@
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="MAOptionsToggleModifiedFramesOnly" relativePoint="TOPRIGHT">
 						<Offset>
-							<AbsDimension x="45" y="0"/>
+							<AbsDimension x="25" y="0"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						_G[self:GetName().."Text"]:SetText("展開")
-						self.tooltipText = "展開/收合所有分類"
+						_G[self:GetName().."Text"]:SetText("CE")
+						self.tooltipText = "Toggle all categories"
 					</OnLoad>
 					<OnClick>
 						MovAny:OnCheckToggleCategories(self)
@@ -761,14 +761,14 @@
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="MAOptionsToggleCategories" relativePoint="TOPRIGHT">
 						<Offset>
-							<AbsDimension x="30" y="0"/>
+							<AbsDimension x="60" y="0"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						_G[self:GetName().."Text"]:SetText("工具")
-						self.tooltipText = "開啟/關閉暴雪的框架層級滑鼠提示\n\n 搭配 /move 或 /hide 使用時，尋找框架名稱非常有用的工具。"
+						_G[self:GetName().."Text"]:SetText("FS")
+						self.tooltipText = "Toggle Blizzard's framestack tooltip\n\n A very helpful tool for finding frame names for use with /move or /hide"
 					</OnLoad>
 					<OnClick>
 						UIParentLoadAddOn("Blizzard_DebugTools")
@@ -1044,7 +1044,7 @@
 				</Scripts>
 			</Button>
 			<Button name="$parent_CenterH" inherits="UIPanelButtonTemplate" hidden="false">
-				<Size><AbsDimension x="100" y="24"/></Size>
+				<Size><AbsDimension x="32" y="24"/></Size>
 				<Anchors>
 					<Anchor point="RIGHT" relativeTo="$parent_NudgeLeft" relativePoint="LEFT">
 						<Offset><AbsDimension x="-14" y="12"/></Offset>
@@ -1052,7 +1052,7 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self:SetText("水平置中")
+						self:SetText("C H")
 						self:RegisterForClicks("LeftButtonUp", "RightButtonUp", "MiddleButtonUp")
 					</OnLoad>
 					<OnClick>
@@ -1061,7 +1061,7 @@
 				</Scripts>
 			</Button>
 			<Button name="$parent_CenterV" inherits="UIPanelButtonTemplate" hidden="false">
-				<Size><AbsDimension x="100" y="24"/></Size>
+				<Size><AbsDimension x="32" y="24"/></Size>
 				<Anchors>
 					<Anchor point="TOP" relativeTo="$parent_CenterH" relativePoint="BOTTOM">
 						<Offset><AbsDimension x="0" y="-6"/></Offset>
@@ -1069,7 +1069,7 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self:SetText("垂直置中")
+						self:SetText("C V")
 						self:RegisterForClicks("LeftButtonUp", "RightButtonUp", "MiddleButtonUp")
 					</OnLoad>
 					<OnClick>
@@ -1078,7 +1078,7 @@
 				</Scripts>
 			</Button>
 			<Button name="$parent_Detach" inherits="UIPanelButtonTemplate" hidden="false">
-				<Size><AbsDimension x="48" y="24"/></Size>
+				<Size><AbsDimension x="32" y="24"/></Size>
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parent_NudgeRight" relativePoint="RIGHT">
 						<Offset><AbsDimension x="14" y="12"/></Offset>
@@ -1086,7 +1086,7 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self:SetText("關閉")
+						self:SetText("X")
 						self:RegisterForClicks("LeftButtonUp", "RightButtonUp", "MiddleButtonUp")
 					</OnLoad>
 					<OnClick>
@@ -1109,7 +1109,7 @@
 				</Scripts>
 			</Button>
 			<Button name="$parent_Hide" inherits="UIPanelButtonTemplate" hidden="false">
-				<Size><AbsDimension x="48" y="24"/></Size>
+				<Size><AbsDimension x="32" y="24"/></Size>
 				<Anchors>
 					<Anchor point="TOP" relativeTo="$parent_Detach" relativePoint="BOTTOM">
 						<Offset><AbsDimension x="0" y="-6"/></Offset>
@@ -1117,7 +1117,7 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self:SetText("隱藏")
+						self:SetText("H")
 						self:RegisterForClicks("LeftButtonUp", "RightButtonUp", "MiddleButtonUp")
 					</OnLoad>
 					<OnClick>

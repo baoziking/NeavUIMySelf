@@ -410,7 +410,7 @@ do
 		unitid = PlatesVisible[plate]
 		UpdateReferences(plate)
 
-		UpdateUnitIdentity(unitid)
+		UpdateUnitIdentity(plate, unitid)
 		UpdateUnitContext(plate, unitid)
 		ProcessUnitChanges()
 		OnUpdateCastMidway(plate, unitid)
@@ -497,7 +497,7 @@ do
 	-- UpdateUnitIdentity: Updates Low-volatility Unit Data
 	-- (This is essentially static data)
 	--------------------------------------------------------
-	function UpdateUnitIdentity(unitid)
+	function UpdateUnitIdentity(plate, unitid)
 
 		unit.unitid = unitid
 		unit.name = UnitName(unitid)
@@ -520,6 +520,11 @@ do
 		else
 			unit.class = ""
 			unit.type = "NPC"
+		end
+
+		-- Incase we attempted to grab unit info before the unit has been fully loaded into the world, attempt this again next cycle.
+		if unit.name == UNKNOWNOBJECT then
+			plate.UpdateMe = true
 		end
 	end
 
@@ -1060,7 +1065,7 @@ do
 
 
 	-- SetObjectShadow:
-	local function SetObjectShadow(object, shadow)
+	local function SetObjectShadow(object, shadow)                --字体阴影设置
 		if shadow then
 			object:SetShadowColor(0,0,0, 1)
 			object:SetShadowOffset(1, -1)
@@ -1072,7 +1077,7 @@ do
 		if objectstyle then
 			SetObjectFont(object, objectstyle.typeface, objectstyle.size, objectstyle.flags)
 			SetObjectJustify(object, objectstyle.align or "CENTER", objectstyle.vertical or "BOTTOM")
-			SetObjectShadow(object, objectstyle.shadow)
+			SetObjectShadow(object, objectstyle.shadow)                         --是否启用字体阴影
 		end
 	end
 

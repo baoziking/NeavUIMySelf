@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- 	Leatrix Plus 8.0.11 (22nd August 2018, www.leatrix.com)
+-- 	Leatrix Plus 8.0.12 (19th September 2018, www.leatrix.com)
 ----------------------------------------------------------------------
 
 --	01:Functions	20:Live			50:RunOnce		70:Logout			
@@ -20,7 +20,7 @@
 	local void
 
 --	Version
-	LeaPlusLC["AddonVer"] = "8.0.11"
+	LeaPlusLC["AddonVer"] = "8.0.12"
 	LeaPlusLC["RestartReq"] = nil
 
 --	If client restart is required and has not been done, show warning and quit
@@ -379,6 +379,7 @@
 
 --	Set lock state for configuration buttons
 	function LeaPlusLC:SetDim()
+		LeaPlusLC:LockOption("AutoRepairGear", "AutoRepairBtn", false)			-- Repair automatically
 		LeaPlusLC:LockOption("MailFontChange", "MailTextBtn", true)				-- Resize mail text
 		LeaPlusLC:LockOption("QuestFontChange", "QuestTextBtn", true)			-- Resize quest text
 		LeaPlusLC:LockOption("MinimapMod", "ModMinimapBtn", true)				-- Customise minimap
@@ -1440,27 +1441,53 @@
 					local void, void, void, void, void, npcID = strsplit("-", npcGuid)
 					if npcID then
 						-- Ignore specific NPCs for selecting, accepting and turning-in quests (required if automation has consequences)
-						if npcID == "45400" 	-- Fiona's Caravan (Eastern Plaguelands)
-						or npcID == "18166" 	-- Khadgar (Allegiance to Aldor/Scryer, Shattrath)
-						or npcID == "114719" 	-- Trader Caelen (Obliterum Forge, Dalaran, Broken Isles)
-						or npcID == "6294" 		-- Krom Stoutarm (Heirloom Curator, Ironforge)
+						if npcID == "15192" 	-- Anachronos (Caverns of Time)
+						or npcID == "119388" 	-- Chieftain Hatuun (Krokul Hovel, Krokuun)
 						or npcID == "6566" 		-- Estelle Gendry (Heirloom Curator, Undercity)
+						or npcID == "45400" 	-- Fiona's Caravan (Eastern Plaguelands)
+						or npcID == "18166" 	-- Khadgar (Allegiance to Aldor/Scryer, Shattrath)
+						or npcID == "55402" 	-- Korgol Crushskull (Darkmoon Faire, Pit Master)
+						or npcID == "6294" 		-- Krom Stoutarm (Heirloom Curator, Ironforge)
+						or npcID == "109227" 	-- Meliah Grayfeather (Tradewind Roost, Highmountain)
+						or npcID == "99183" 	-- Renegade Ironworker (Tanaan Jungle, repeatable quest)
+						or npcID == "114719" 	-- Trader Caelen (Obliterum Forge, Dalaran, Broken Isles)
+						-- Seals of Fate
+						or npcID == "111243" 	-- Archmage Lan'dalock (Seal quest, Dalaran)
+						or npcID == "87391" 	-- Fate-Twister Seress (Seal quest, Stormshield)
+						or npcID == "88570"		-- Fate-Twister Tiklal (Seal quest, Horde)
+						or npcID == "142063" 	-- Tezran (Seal quest, Boralus Harbor)
+						-- Wartime Donations (Alliance)
+						or npcID == "142994" 	-- Brandal Darkbeard (Boralus)
+						or npcID == "142995" 	-- Charlane (Boralus)
+						or npcID == "142993" 	-- Chelsea Strand (Boralus)
+						or npcID == "142998" 	-- Faella (Boralus)
+						or npcID == "143004" 	-- Larold Kyne (Boralus)
+						or npcID == "143005" 	-- Liao (Boralus)
+						or npcID == "143007" 	-- Mae Wagglewand (Boralus)
+						or npcID == "143008" 	-- Norber Togglesprocket (Boralus)
+						or npcID == "142685" 	-- Paymaster Vauldren (Boralus)
+						or npcID == "142700" 	-- Quartermaster Peregrin (Boralus)
+						or npcID == "142997" 	-- Senedras (Boralus)
+						-- Wartime Donations (Horde)
+						or npcID == "142970" 	-- Kuma Longhoof (Dazar'alor)
+						or npcID == "142969" 	-- Logarr (Dazar'alor)
+						or npcID == "142973" 	-- Mai-Lu (Dazar'alor)
+						or npcID == "142977" 	-- Meredith Swane (Dazar'alor)
+						or npcID == "142981" 	-- Merill Redgrave (Dazar'alor)
+						or npcID == "142157" 	-- Paymaster Grintooth (Dazar'alor)
+						or npcID == "142158" 	-- Quartermaster Rauka (Dazar'alor)
+						or npcID == "142975" 	-- Seamstress Vessa (Dazar'alor)
+						or npcID == "142983" 	-- Swizzle Fizzcrank (Dazar'alor)
+						or npcID == "142992" 	-- Uma'wi (Dazar'alor)
+						or npcID == "142159" 	-- Zen'kin (Dazar'alor)
 						then
 							return true
 						end
-						-- Ignore specific NPCs for selecting quests only (required if incomplete quest turn-ins are selected automatically)
+						-- Ignore specific NPCs for selecting quests only (only used for items that have no other purpose)
 						if actionType == "Select" then
-							if npcID == "15192" 	-- Anachronos (Caverns of Time)
-							or npcID == "111243" 	-- Archmage Lan'dalock (Seal quest, Dalaran)
-							or npcID == "119388" 	-- Chieftain Hatuun (Krokul Hovel, Krokuun)
-							or npcID == "87391" 	-- Fate-Twister Seress (Seal quest, Stormshield)
-							or npcID == "88570"		-- Fate-Twister Tiklal (Seal quest, Horde)
-							or npcID == "87706" 	-- Gazmolf Futzwangler (Reputation quests, Nagrand, Draenor)
-							or npcID == "55402" 	-- Korgol Crushskull (Darkmoon Faire, Pit Master)
+							if npcID == "87706" 	-- Gazmolf Futzwangler (Reputation quests, Nagrand, Draenor)
 							or npcID == "70022" 	-- Ku'ma (Isle of Giants, Pandaria)
 							or npcID == "12944" 	-- Lokhtos Darkbargainer (Thorium Brotherhood, Blackrock Depths)
-							or npcID == "109227" 	-- Meliah Grayfeather (Tradewind Roost, Highmountain)
-							or npcID == "99183" 	-- Renegade Ironworker (Tanaan Jungle, repeatable quest)
 							or npcID == "87393" 	-- Sallee Silverclamp (Reputation quests, Nagrand, Draenor)
 							then
 								return true
@@ -1470,12 +1497,28 @@
 				end
 			end
 
-			-- Function to check if quest requires currency
+			-- Function to check if quest requires currency or a crafting reagent
 			local function QuestRequiresCurrency()
 				for i = 1, 6 do
 					local progItem = _G["QuestProgressItem" ..i] or nil
-					if progItem and progItem:IsShown() and progItem.type == "required" and progItem.objectType == "currency" then
-						return true
+					if progItem and progItem:IsShown() and progItem.type == "required" then
+						if progItem.objectType == "currency" then
+							-- Quest requires currency so do nothing
+							return true
+						elseif progItem.objectType == "item" then
+							-- Quest requires an item
+							local name, texture, numItems = GetQuestItemInfo("required", i)
+							if name then
+								local itemID = GetItemInfoInstant(name)
+								if itemID then
+									local void, void, void, void, void, void, void, void, void, void, void, void, void, void, void, void, isCraftingReagent = GetItemInfo(itemID)
+									if isCraftingReagent then
+										-- Item is a crafting reagent so do nothing
+										return true
+									end
+								end
+							end
+						end
 					end
 				end
 			end
@@ -1608,12 +1651,14 @@
 								for i = 1, availableCount do
 									if _G["QuestTitleButton" .. i].isActive == 0 then
 										-- Select available quests
-										C_Timer.After(0.01, function() SelectAvailableQuest(_G["QuestTitleButton" .. i]:GetID()) end)
+										SelectAvailableQuest(_G["QuestTitleButton" .. i]:GetID())
+										break
 									else
 										-- Select completed quests
 										local void, isComplete = GetActiveTitle(i)
 										if isComplete then
 											SelectActiveQuest(_G["QuestTitleButton" .. i]:GetID())
+											break
 										end
 									end
 								end
@@ -1625,13 +1670,15 @@
 								for i = 1, availableCount do
 									if _G["GossipTitleButton" .. i].type == "Available" then
 										-- Select available quests
-										C_Timer.After(0.01, function() SelectGossipAvailableQuest(i) end)
+										SelectGossipAvailableQuest(i)
+										break
 									else
 										-- Select completed quests
 										local isComplete = select(i * 6 - 5 + 3, GetGossipActiveQuests()) -- 4th argument of 6 argument line
 										if isComplete then
 											if _G["GossipTitleButton" .. i].type == "Active" then
 												SelectGossipActiveQuest(_G["GossipTitleButton" .. i]:GetID())
+												break
 											end
 										end
 									end
@@ -1832,8 +1879,8 @@
 					-- Process repair
 					local RepairCost, CanRepair = GetRepairAllCost()
 					if CanRepair then -- If merchant is offering repair
-						if IsInGuild() then
-							-- Guilded character
+						if LeaPlusLC["AutoRepairGuildFunds"] == "On" and IsInGuild() then
+							-- Guilded character and guild repair option is enabled
 							if CanGuildBankRepair() then
 								-- Character has permission to repair so try guild funds but fallback on character funds (if daily gold limit is reached)
 								RepairAllItems(1)
@@ -1843,7 +1890,7 @@
 								RepairAllItems()
 							end
 						else
-							-- Unguilded character
+							-- Unguilded character or guild repair option is disabled
 							RepairAllItems()
 						end
 						-- Show cost summary
@@ -1870,6 +1917,43 @@
 
 			-- Event handler
 			RepairFrame:SetScript("OnEvent", RepairFunc)
+
+			-- Create configuration panel
+			local RepairPanel = LeaPlusLC:CreatePanel("Repair Automatically", "RepairPanel")
+
+			LeaPlusLC:MakeTx(RepairPanel, "Settings", 16, -72)
+			LeaPlusLC:MakeCB(RepairPanel, "AutoRepairGuildFunds", "Repair using guild funds if available", 16, -92, false, "If checked, repair costs will be taken from guild funds for characters that are guilded and have permission to repair.")
+
+			-- Help button hidden
+			RepairPanel.h:Hide()
+
+			-- Back button handler
+			RepairPanel.b:SetScript("OnClick", function() 
+				RepairPanel:Hide(); LeaPlusLC["PageF"]:Show(); LeaPlusLC["Page1"]:Show();
+				return
+			end)
+
+			-- Reset button handler
+			RepairPanel.r:SetScript("OnClick", function()
+
+				-- Reset checkboxes
+				LeaPlusLC["AutoRepairGuildFunds"] = "On"
+
+				-- Refresh panel
+				RepairPanel:Hide(); RepairPanel:Show()
+
+			end)
+
+			-- Show panal when options panel button is clicked
+			LeaPlusCB["AutoRepairBtn"]:SetScript("OnClick", function()
+				if IsShiftKeyDown() and IsControlKeyDown() then
+					-- Preset profile
+					LeaPlusLC["AutoRepairGuildFunds"] = "On"
+				else
+					RepairPanel:Show()
+					LeaPlusLC:HideFrames()
+				end
+			end)
 
 		end
 
@@ -4512,6 +4596,9 @@
 					-- Embedded item tooltip (as used in PVP UI)
 					if EmbeddedItemTooltip then EmbeddedItemTooltip:SetScale(LeaPlusLC["LeaPlusTipSize"]) end
 
+					-- Nameplate tooltip
+					if NamePlateTooltip then NamePlateTooltip:SetScale(LeaPlusLC["LeaPlusTipSize"]) end
+
 					-- Leatrix Plus
 					TipDrag:SetScale(LeaPlusLC["LeaPlusTipSize"])
 
@@ -4769,14 +4856,15 @@
 
 				-- Get guild information
 				if LT["TipIsPlayer"] then
-					if GetGuildInfo(LT["Unit"]) then
+					local unitGuild, unitRank = GetGuildInfo(LT["Unit"])
+					if unitGuild and unitRank then
 						-- Unit is guilded
 						if LT["ColorBlind"] == "1" then
 							LT["GuildLine"], LT["InfoLine"] = 2, 4
 						else
 							LT["GuildLine"], LT["InfoLine"] = 2, 3
 						end
-						LT["GuildName"], LT["GuildRank"] = GetGuildInfo(LT["Unit"])
+						LT["GuildName"], LT["GuildRank"] = unitGuild, unitRank
 					else
 						-- Unit is not guilded
 						LT["GuildName"] = nil
@@ -5624,18 +5712,23 @@
 			-- Various
 			Zn(L["Various"], L["Various"], "|cffffd800" .. L["Various"], {""})
 			Zn(L["Various"], L["Various"], L["Allied Races"], {	"|cffffd800" .. L["Various"] .. ": " .. L["Allied Races"], prefol, 
-				"|cffffd800", "|cffffd800" .. L["Dark Iron Dwarves"], "|Cffffffaa" .. L["Dark Iron Dwarves"] .. "|r " .. "MUS_80_AlliedRace_DarkIronDwarf_Intro#117230", "|Cffffffaa" .. L["Dark Iron Dwarves"] .. "|r " .. "MUS_80_AlliedRace_DarkIronDwarf_Intro02#117258", "|Cffffffaa" .. L["Dark Iron Dwarves"] .. "|r " .. "MUS_80_AlliedRace_DarkIronDwarf_Intro03#117261", "|Cffffffaa" .. L["Dark Iron Dwarves"] .. "|r " .. "MUS_80_AlliedRace_DarkIronDwarf01_Start#117245", "|Cffffffaa" .. L["Dark Iron Dwarves"] .. "|r " .. "MUS_80_AlliedRace_DarkIronDwarf02_Start#117246", "|Cffffffaa" .. L["Dark Iron Dwarves"] .. "|r " .. "MUS_80_AlliedRace_DarkIronDwarf_Scenario_SFC#117250", "|Cffffffaa" .. L["Dark Iron Dwarves"] .. "|r " .. "MUS_80_AlliedRace_DarkIronDwarf_Scenario_Firelands#117260",
-				"|cffffd800", "|cffffd800" .. L["Highmountain Tauren"], "|Cffffffaa" .. L["Highmountain Tauren"] .. "|r " .. "MUS_735_AR_RTC_HighmountainTauren_Flythrough#98204",
-				"|cffffd800", "|cffffd800" .. L["Lightforged Draenei"], "|Cffffffaa" .. L["Lightforged Draenei"] .. "|r " .. "MUS_735_AR_RTC_LightforgedDraenei_Flythrough#98201", "|Cffffffaa" .. L["Lightforged Draenei"] .. "|r " .. "MUS_735_AlliedRace_LightforgedDraenei_Vindicaar_01#97314", "|Cffffffaa" .. L["Lightforged Draenei"] .. "|r " .. "MUS_735_AlliedRace_LightforgedDraenei_ForgeofAeons#97316", "|Cffffffaa" .. L["Lightforged Draenei"] .. "|r " .. "MUS_735_AR_RTC_LightforgedDraenei_PreScenario_01#98199", "|Cffffffaa" .. L["Lightforged Draenei"] .. "|r " .. "MUS_735_AR_RTC_LightforgedDraenei_PreScenario_02#98200",
-				"|cffffd800", "|cffffd800" .. L["Mag'har Orcs"], "|Cffffffaa" .. L["Mag'har Orcs"] .. "|r " .. "MUS_80_AlliedRace_Mag'harOrc_Intro#117279", "|Cffffffaa" .. L["Mag'har Orcs"] .. "|r " .. "MUS_80_AlliedRace_Mag'harOrc02_Intro#117436", "|Cffffffaa" .. L["Mag'har Orcs"] .. "|r " .. "MUS_80_AlliedRace_Mag'harOrc01#117280", "|Cffffffaa" .. L["Mag'har Orcs"] .. "|r " .. "MUS_80_AlliedRace_Mag'harOrc02#117281", "|Cffffffaa" .. L["Mag'har Orcs"] .. "|r " .. "MUS_80_AlliedRace_Mag'harOrc_Light#117286", "|Cffffffaa" .. L["Mag'har Orcs"] .. "|r " .. "MUS_80_AlliedRace_Mag'harOrc_Light_Intro#117441",
-				"|cffffd800", "|cffffd800" .. L["Nightborne"], "|Cffffffaa" .. L["Nightborne"] .. "|r " .. "MUS_735_AR_RTC_Nightborne_Flythrough#98205", "|Cffffffaa" .. L["Nightborne"] .. "|r " .. "MUS_735_AR_RTC_Nightborne_Silvermoon_01#98214", "|Cffffffaa" .. L["Nightborne"] .. "|r " .. "MUS_735_AR_RTC_Nightborne_Silvermoon_03#98215", "|Cffffffaa" .. L["Nightborne"] .. "|r " .. "MUS_735_AR_RTC_Nightborne_ThalyssraEstate_01#98195", "|Cffffffaa" .. L["Nightborne"] .. "|r " .. "MUS_735_AR_RTC_Nightborne_ThalyssraEstate_02#98196", "|Cffffffaa" .. L["Nightborne"] .. "|r " .. "MUS_735_AR_RTC_Nightborne_ThalyssraEstate_03#98197",
-				"|cffffd800", "|cffffd800" .. L["Void Elves"], "|Cffffffaa" .. L["Void Elves"] .. "|r " .. "MUS_735_AR_RTC_VoidElf_Flythrough#98206", "|Cffffffaa" .. L["Void Elves"] .. "|r " .. "MUS_735_AlliedRace_VoidElf_01#97311", "|Cffffffaa" .. L["Void Elves"] .. "|r " .. "MUS_735_AlliedRace_VoidElf_02#97312", "|Cffffffaa" .. L["Void Elves"] .. "|r " .. "MUS_735_AlliedRace_VoidElf_Scenario_01#97782", "|Cffffffaa" .. L["Void Elves"] .. "|r " .. "MUS_735_AlliedRace_VoidElf_Scenario_02#97783", "|Cffffffaa" .. L["Void Elves"] .. "|r " .. "MUS_735_AlliedRace_VoidElf_Scenario_03#97784", "|Cffffffaa" .. L["Void Elves"] .. "|r " .. "MUS_735_AR_ThunderBluff_VoidAttack#97785",
-				"|cffffd800", "|cffffd800" .. L["Embassies"], "|Cffffffaa" .. L["Embassies"] .. "|r " .. "MUS_735_AlliedRace_EmbassyAlliance_01#97594", "|Cffffffaa" .. L["Embassies"] .. "|r " .. "MUS_735_AlliedRace_EmbassyHorde_01#97593",
+				"|cffffd800", "|cffffd800" .. L["Dark Iron Dwarves"], "MUS_80_AlliedRace_DarkIronDwarf_Intro#117230", "MUS_80_AlliedRace_DarkIronDwarf_Intro02#117258", "MUS_80_AlliedRace_DarkIronDwarf_Intro03#117261", "MUS_80_AlliedRace_DarkIronDwarf01_Start#117245", "MUS_80_AlliedRace_DarkIronDwarf02_Start#117246", "MUS_80_AlliedRace_DarkIronDwarf_Scenario_SFC#117250", "MUS_80_AlliedRace_DarkIronDwarf_Scenario_Firelands#117260",
+				"|cffffd800", "|cffffd800" .. L["Highmountain Tauren"], "MUS_735_AR_RTC_HighmountainTauren_Flythrough#98204",
+				"|cffffd800", "|cffffd800" .. L["Lightforged Draenei"], "MUS_735_AR_RTC_LightforgedDraenei_Flythrough#98201", "MUS_735_AlliedRace_LightforgedDraenei_Vindicaar_01#97314", "MUS_735_AlliedRace_LightforgedDraenei_ForgeofAeons#97316", "MUS_735_AR_RTC_LightforgedDraenei_PreScenario_01#98199", "MUS_735_AR_RTC_LightforgedDraenei_PreScenario_02#98200",
+				"|cffffd800", "|cffffd800" .. L["Mag'har Orcs"], "MUS_80_AlliedRace_Mag'harOrc_Intro#117279", "MUS_80_AlliedRace_Mag'harOrc02_Intro#117436", "MUS_80_AlliedRace_Mag'harOrc01#117280", "MUS_80_AlliedRace_Mag'harOrc02#117281", "MUS_80_AlliedRace_Mag'harOrc_Light#117286", "MUS_80_AlliedRace_Mag'harOrc_Light_Intro#117441",
+				"|cffffd800", "|cffffd800" .. L["Nightborne"], "MUS_735_AR_RTC_Nightborne_Flythrough#98205", "MUS_735_AR_RTC_Nightborne_Silvermoon_01#98214", "MUS_735_AR_RTC_Nightborne_Silvermoon_03#98215", "MUS_735_AR_RTC_Nightborne_ThalyssraEstate_01#98195", "MUS_735_AR_RTC_Nightborne_ThalyssraEstate_02#98196", "MUS_735_AR_RTC_Nightborne_ThalyssraEstate_03#98197",
+				"|cffffd800", "|cffffd800" .. L["Void Elves"], "MUS_735_AR_RTC_VoidElf_Flythrough#98206", "MUS_735_AlliedRace_VoidElf_01#97311", "MUS_735_AlliedRace_VoidElf_02#97312", "MUS_735_AlliedRace_VoidElf_Scenario_01#97782", "MUS_735_AlliedRace_VoidElf_Scenario_02#97783", "MUS_735_AlliedRace_VoidElf_Scenario_03#97784", "MUS_735_AR_ThunderBluff_VoidAttack#97785",
+				"|cffffd800", "|cffffd800" .. L["Embassies"], "MUS_735_AlliedRace_EmbassyAlliance_01#97594", "MUS_735_AlliedRace_EmbassyHorde_01#97593",
 			})
 			Zn(L["Various"], L["Various"], L["Arenas"]									, {	"|cffffd800" .. L["Various"] .. ": " .. L["Arenas"], prefol, "Intro-NagrandDimond#10623", "MUS_50_Scenario_ArenaofAnnihilation#34019", "MUS_51_PVP_BrawlersGuild_Horde#34967", --[["MUS_80_PVP_ZandalarArena#117041", "MUS_80_PVP_KulTirasArena#114680",--]] "PVP-Battle Grounds#8233", "Zone-BladesEdge#9002",})
 			Zn(L["Various"], L["Various"], L["Battlegrounds"]							, {	"|cffffd800" .. L["Various"] .. ": " .. L["Battlegrounds"], prefol, "Altervac Valley_PVP#8014", "MUS_50_Scenario_TempleofKotmogu#33978", "MUS_BattleForGilneas_BG#23612", "MUS_TwinPeaks_BG#23613", "PVP-Battle Grounds#8233", "PVP-Battle Grounds--DeepwindGorge#37659", "PVP-Battle Grounds-Pandaria#33714", "PVP-Battle Grounds-SilvershardMines#33713", "Zone-WintergraspContested#14912",})
 			Zn(L["Various"], L["Various"], L["Class Trials"]							, {	"|cffffd800" .. L["Various"] .. ": " .. L["Class Trials"], prefol, "MUS_70_ClassTrial_Horde_BattleWalk#71954", "MUS_70_ClassTrial_Alliance_BattleWalk#71959",})
 			Zn(L["Various"], L["Various"], L["Credits"]									, {	"|cffffd800" .. L["Various"] .. ": " .. L["Credits"], prefol, "Menu-Credits01#10763", "Menu-Credits02#10804", "Menu-Credits03#13822", "Menu-Credits04#23812", "Menu-Credits05#32015", "Menu-Credits06#34020", "Menu-Credits07#56354", "Menu-Credits08#113560"})
+			Zn(L["Various"], L["Various"], L["Island Expeditions"]						, {	"|cffffd800" .. L["Various"] .. ": " .. L["Island Expeditions"], prefol,
+				"|cffffd800", "|cffffd800" .. L["Adventure"], "MUS_80_Islands_Adventure_Walk#115050", "MUS_80_Islands_Adventure_Invasion_Walk#115414", "MUS_80_Islands_Adventure_Victory#115053",
+				"|cffffd800", "|cffffd800" .. L["Mystical"], "MUS_80_Islands_Mystical_Walk#115689", "MUS_80_Islands_Mystical_Invasion_Walk#117352",
+				"|cffffd800", "|cffffd800" .. L["Winter"], "MUS_80_Islands_Winter_Walk#117377", "MUS_80_Islands_Winter_Invasion_Walk#117378",
+			})
 			Zn(L["Various"], L["Various"], L["Main Titles"]								, {	"|cffffd800" .. L["Various"] .. ": " .. L["Main Titles"], prefol, "GS_Retail#10924", "GS_BurningCrusade#10925", "GS_LichKing#12765", "GS_Cataclysm#23640", "MUS_50_HeartofPandaria_MainTitle#28509", "MUS_60_MainTitle#40169", "MUS_70_MainTitle#56353", "MUS_80_MainTitle#113559"}) -- "MUS_1.0_MainTitle_Original#47598"
 			Zn(L["Various"], L["Various"], L["Music Rolls"]								, {	"|cffffd800" .. L["Various"] .. ": " .. L["Music Rolls"], prefol, "MUS_61_GarrisonMusicBox_01#49511", "MUS_61_GarrisonMusicBox_02#49512", "MUS_61_GarrisonMusicBox_03#49513", "MUS_61_GarrisonMusicBox_04#49514", "MUS_61_GarrisonMusicBox_05#49515", "MUS_61_GarrisonMusicBox_06#49516", "MUS_61_GarrisonMusicBox_07#49529", "MUS_61_GarrisonMusicBox_08#49530", "MUS_61_GarrisonMusicBox_09#49531", "MUS_61_GarrisonMusicBox_10#49533", "MUS_61_GarrisonMusicBox_11#49535", "MUS_61_GarrisonMusicBox_12#49536", "MUS_61_GarrisonMusicBox_13#49538", "MUS_61_GarrisonMusicBox_14#49539", "MUS_61_GarrisonMusicBox_15#49540", "MUS_61_GarrisonMusicBox_16#49541", "MUS_61_GarrisonMusicBox_17#49543", "MUS_61_GarrisonMusicBox_18#49544", "MUS_61_GarrisonMusicBox_19#49545", "MUS_61_GarrisonMusicBox_20#49546", "MUS_61_GarrisonMusicBox_21#49526", "MUS_61_GarrisonMusicBox_22#49528", "MUS_61_GarrisonMusicBox_23_Alliance#49517", "MUS_61_GarrisonMusicBox_24_Alliance#49518", "MUS_61_GarrisonMusicBox_25_Alliance#49519", "MUS_61_GarrisonMusicBox_26_Alliance#49520", "MUS_61_GarrisonMusicBox_27_Alliance#49521", "MUS_61_GarrisonMusicBox_28_Alliance#49522", "MUS_61_GarrisonMusicBox_29_Alliance#49523", "MUS_61_GarrisonMusicBox_30_Alliance#49524", "MUS_61_GarrisonMusicBox_31_Alliance#49525", "MUS_61_GarrisonMusicBox_23_Horde#49555", "MUS_61_GarrisonMusicBox_24_Horde#49554", "MUS_61_GarrisonMusicBox_25_Horde#49553", "MUS_61_GarrisonMusicBox_26_Horde#49552", "MUS_61_GarrisonMusicBox_27_Horde#49551", "MUS_61_GarrisonMusicBox_28_Horde#49550", "MUS_61_GarrisonMusicBox_29_Horde#49549", "MUS_61_GarrisonMusicBox_30_Horde#49548", "MUS_61_GarrisonMusicBox_31_Horde#49547",})
 			Zn(L["Various"], L["Various"], L["Themes"]									, {	"|cffffd800" .. L["Various"] .. ": " .. L["Themes"], prefol, "MUS_70_Zone_Stormwind_PostBrokenShore_Funeral_01#75552", "MUS_70_Zone_Stormwind_LionsRest_Day#73345", "MUS_70_BrokenShore_ShipIntro#73387", "MUS_72_BrokenShore_Wyrnnfall_Intro#85166", "MUS_60_Proudmoore_01#49356", "MUS_60_Proudmoore_02#49357", "MUS_60_Proudmoore_03#49358", "MUS_71_Event_DiabloAnniversary_TristramGuitar (Everything)#78803",})
@@ -5924,6 +6017,7 @@
 				end
 				-- Traverse music listing and populate ListData
 				if searchText ~= "" then
+					local word1, word2, word3, word4, word5 = strsplit(" ", (strtrim(searchText):gsub("%s+", " ")))
 					RunScript('LeaPlusGlobalHash = {}')
 					local hash = LeaPlusGlobalHash
 					local trackCount = 0
@@ -5932,23 +6026,31 @@
 							for a, b in pairs(LeaPlusLC.ZoneList[e]) do
 								if b.tracks then
 									for k, v in pairs(b.tracks) do
-										if (strfind(v, "#") or strfind(v, "|r")) and (strfind(strlower(v), searchText) or strfind(strlower(b.zone), searchText) or strfind(strlower(b.category), searchText)) then
-											-- Show category
-											if not hash[b.category] then
-												tinsert(ListData, "|cffffffff")
-												if b.category == e then
-													-- No category so just show ZoneList entry (such as Various)
-													tinsert(ListData, "|cffffd800" .. e)
-												else
-													-- Category exists so show that
-													tinsert(ListData, "|cffffd800" .. e .. ": " .. b.category)
+										if (strfind(v, "#") or strfind(v, "|r")) and (strfind(strlower(v), word1) or strfind(strlower(b.zone), word1) or strfind(strlower(b.category), word1)) then
+											if not word2 or word2 ~= "" and (strfind(strlower(v), word2) or strfind(strlower(b.zone), word2) or strfind(strlower(b.category), word2)) then
+												if not word3 or word3 ~= "" and (strfind(strlower(v), word3) or strfind(strlower(b.zone), word3) or strfind(strlower(b.category), word3)) then
+													if not word4 or word4 ~= "" and (strfind(strlower(v), word4) or strfind(strlower(b.zone), word4) or strfind(strlower(b.category), word4)) then
+														if not word5 or word5 ~= "" and (strfind(strlower(v), word5) or strfind(strlower(b.zone), word5) or strfind(strlower(b.category), word5)) then
+															-- Show category
+															if not hash[b.category] then
+																tinsert(ListData, "|cffffffff")
+																if b.category == e then
+																	-- No category so just show ZoneList entry (such as Various)
+																	tinsert(ListData, "|cffffd800" .. e)
+																else
+																	-- Category exists so show that
+																	tinsert(ListData, "|cffffd800" .. e .. ": " .. b.category)
+																end
+																hash[b.category] = true
+															end
+															-- Show track
+															tinsert(ListData, "|Cffffffaa" .. b.zone .. " |r" .. v)
+															trackCount = trackCount + 1
+															hash[v] = true
+														end
+													end
 												end
-												hash[b.category] = true
 											end
-											-- Show track
-											tinsert(ListData, "|Cffffffaa" .. b.zone .. " |r" .. v)
-											trackCount = trackCount + 1
-											hash[v] = true
 										end
 									end
 								end
@@ -6602,6 +6704,7 @@
 
 				LeaPlusLC:LoadVarChk("AutoSellJunk", "Off")					-- Sell junk automatically
 				LeaPlusLC:LoadVarChk("AutoRepairGear", "Off")				-- Repair automatically
+				LeaPlusLC:LoadVarChk("AutoRepairGuildFunds", "On")			-- Repair using guild funds
 
 				-- Social
 				LeaPlusLC:LoadVarChk("NoDuelRequests", "Off")				-- Block duels
@@ -6761,6 +6864,7 @@
 
 			LeaPlusDB["AutoSellJunk"] 			= LeaPlusLC["AutoSellJunk"]
 			LeaPlusDB["AutoRepairGear"] 		= LeaPlusLC["AutoRepairGear"]
+			LeaPlusDB["AutoRepairGuildFunds"] 	= LeaPlusLC["AutoRepairGuildFunds"]
 
 			-- Social
 			LeaPlusDB["NoDuelRequests"] 		= LeaPlusLC["NoDuelRequests"]
@@ -8382,6 +8486,30 @@
 				SetCVar("autoLootDefault", "1")
 				LeaPlusLC:Print("Auto loot is now enabled.")
 				return
+			elseif str == "ql" then
+				-- Print quest title by ID (for known quests)
+				if not arg1 or not tonumber(arg1) then
+					LeaPlusLC:Print("Invalid quest ID.")
+				else
+					local qTicker
+					local function GetLinkFunc()
+						local qLink = GetQuestLink(arg1)
+						if qLink then
+							if qTicker then qTicker:Cancel() end
+							local newstring = gsub(qLink, "|Hquest:", "")
+							local void, newstring = strsplit("[", newstring)
+							local newstring, void = strsplit("]", newstring)
+							print(newstring)
+							return newstring
+						elseif qTicker and qTicker._remainingIterations == 1 then
+							print("Not found.")
+							if qTicker then qTicker:Cancel() end
+						end
+					end
+					local qLink = GetLinkFunc(arg1)
+					if not qLink then qTicker = C_Timer.NewTicker(0.5, GetLinkFunc, 3) end
+				end
+				return
 			elseif str == "admin" then
 				-- Preset profile (used for testing)
 				LpEvt:UnregisterAllEvents()						-- Prevent changes
@@ -8524,20 +8652,14 @@
 				LeaPlusDB["EnableHotkey"] = "On"				-- Enable hotkey
 
 				-- Function to assign cooldowns
-				local function setIcon(pclass, pspec, sp1, st1, pt1, sp2, st2, pt2, sp3, st3, pt3, sp4, st4, pt4, sp5, st5, pt5)
+				local function setIcon(pclass, pspec, sp1, pt1, sp2, pt2, sp3, pt3, sp4, pt4, sp5, pt5)
 					-- Set spell ID
 					if sp1 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R1Idn"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R1Idn"] = sp1 end
 					if sp2 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R2Idn"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R2Idn"] = sp2 end
 					if sp3 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R3Idn"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R3Idn"] = sp3 end
 					if sp4 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R4Idn"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R4Idn"] = sp4 end
 					if sp5 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R5Idn"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R5Idn"] = sp5 end
-					-- Set stack
-					if st1 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R1Stk"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R1Stk"] = st1 end
-					if st2 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R2Stk"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R2Stk"] = st2 end
-					if st3 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R3Stk"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R3Stk"] = st3 end
-					if st4 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R4Stk"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R4Stk"] = st4 end
-					if st5 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R5Stk"] = "" else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R5Stk"] = st5 end
-					-- Set pet
+					-- Set pet checkbox
 					if pt1 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R1Pet"] = false else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R1Pet"] = true end
 					if pt2 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R2Pet"] = false else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R2Pet"] = true end
 					if pt3 == 0 then LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R3Pet"] = false else LeaPlusDB["Cooldowns"][pclass]["S" .. pspec .. "R3Pet"] = true end
@@ -8555,53 +8677,53 @@
 				end
 
 				-- Assign cooldowns
-				setIcon("WARRIOR", 		1, --[[Arms]] 		 	--[[1]] 32216, 0, 0, 	--[[2]] 209574, 0, 0, 	--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Victory Rush, Shattered Defences
-				setIcon("WARRIOR", 		2, --[[Fury]]  			--[[1]] 32216, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Victory Rush
-				setIcon("WARRIOR", 		3, --[[Protection]]  	--[[1]] 32216, 0, 0, 	--[[2]] 190456, 0, 0, 	--[[3]] 132404, 0, 0, 	--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Victory Rush, Ignore Pain, Shield Block
+				setIcon("WARRIOR", 		1, --[[Arms]] 		 	--[[1]] 32216, 0, 	--[[2]] 209574, 0, 	--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Victory Rush, Shattered Defences
+				setIcon("WARRIOR", 		2, --[[Fury]]  			--[[1]] 32216, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Victory Rush
+				setIcon("WARRIOR", 		3, --[[Protection]]  	--[[1]] 32216, 0, 	--[[2]] 190456, 0, 	--[[3]] 132404, 0, 	--[[4]] 0, 0, 		--[[5]] 0, 0) -- Victory Rush, Ignore Pain, Shield Block
 
-				setIcon("PALADIN", 		1, --[[Holy]]  			--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 203539, 0, 0, 	--[[4]] 203528, 0, 0, 	--[[5]] 203538, 0, 0) -- nil, nil, Wisdom, Might, Kings
-				setIcon("PALADIN", 		2, --[[Protection]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 203539, 0, 0, 	--[[4]] 203528, 0, 0, 	--[[5]] 203538, 0, 0) -- nil, nil, Wisdom, Might, Kings
-				setIcon("PALADIN", 		3, --[[Retribution]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 203539, 0, 0, 	--[[4]] 203528, 0, 0, 	--[[5]] 203538, 0, 0) -- nil, nil, Wisdom, Might, Kings
+				setIcon("PALADIN", 		1, --[[Holy]]  			--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 203539, 0, 	--[[5]] 203538, 0) -- nil, nil, nil, Wisdom, Kings
+				setIcon("PALADIN", 		2, --[[Protection]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 203539, 0, 	--[[5]] 203538, 0) -- nil, nil, nil, Wisdom, Kings
+				setIcon("PALADIN", 		3, --[[Retribution]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 203539, 0, 	--[[5]] 203538, 0) -- nil, nil, nil, Wisdom, Kings
 
-				setIcon("SHAMAN", 		1, --[[Elemental]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 215864, 0, 0, 	--[[5]] 546, 0, 0) -- nil, nil, nil, Rainfall, Water Walking
-				setIcon("SHAMAN", 		2, --[[Enhancement]]  	--[[1]] 194084, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 215864, 0, 0, 	--[[5]] 546, 0, 0) -- Flametongue, nil, nil, Rainfall, Water Walking
-				setIcon("SHAMAN", 		3, --[[Resto]]  		--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 215864, 0, 0, 	--[[5]] 546, 0, 0) -- nil, nil, nil, Rainfall, Water Walking
+				setIcon("SHAMAN", 		1, --[[Elemental]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 215864, 0, 	--[[5]] 546, 0) -- nil, nil, nil, Rainfall, Water Walking
+				setIcon("SHAMAN", 		2, --[[Enhancement]]  	--[[1]] 194084, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 215864, 0, 	--[[5]] 546, 0) -- Flametongue, nil, nil, Rainfall, Water Walking
+				setIcon("SHAMAN", 		3, --[[Resto]]  		--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 215864, 0, 	--[[5]] 546, 0) -- nil, nil, nil, Rainfall, Water Walking
 
-				setIcon("ROGUE", 		1, --[[Assassination]]  --[[1]] 1784, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 2823, 0, 0, 	--[[5]] 3408, 0, 0) -- Stealth, nil, nil, Deadly Poison, Crippling Poison
-				setIcon("ROGUE", 		2, --[[Outlaw]]  		--[[1]] 1784, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 2823, 0, 0, 	--[[5]] 3408, 0, 0) -- Stealth, nil, nil, Deadly Poison, Crippling Poison
-				setIcon("ROGUE", 		3, --[[Subtetly]]  		--[[1]] 1784, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 2823, 0, 0, 	--[[5]] 3408, 0, 0) -- Stealth, nil, nil, Deadly Poison, Crippling Poison
+				setIcon("ROGUE", 		1, --[[Assassination]]  --[[1]] 1784, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 2823, 0, 	--[[5]] 3408, 0) -- Stealth, nil, nil, Deadly Poison, Crippling Poison
+				setIcon("ROGUE", 		2, --[[Outlaw]]  		--[[1]] 1784, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 2823, 0, 	--[[5]] 3408, 0) -- Stealth, nil, nil, Deadly Poison, Crippling Poison
+				setIcon("ROGUE", 		3, --[[Subtetly]]  		--[[1]] 1784, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 2823, 0, 	--[[5]] 3408, 0) -- Stealth, nil, nil, Deadly Poison, Crippling Poison
 
-				setIcon("DRUID", 		1, --[[Balance]]  		--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("DRUID", 		2, --[[Feral]]  		--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("DRUID", 		3, --[[Guardian]]  		--[[1]] 192081, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Ironfur
-				setIcon("DRUID", 		4, --[[Resto]]			--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
+				setIcon("DRUID", 		1, --[[Balance]]  		--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("DRUID", 		2, --[[Feral]]  		--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("DRUID", 		3, --[[Guardian]]  		--[[1]] 192081, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Ironfur
+				setIcon("DRUID", 		4, --[[Resto]]			--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
 
-				setIcon("MONK", 		1, --[[Brewmaster]]  	--[[1]] 125359, 0, 0,	--[[2]] 115307, 0, 0, 	--[[3]] 124274, 0, 0, 	--[[4]] 124273, 0, 0, 	--[[5]] 116781, 0, 0) -- Tiger Power, Shuffle, Moderate Stagger, Heavy Stagger, Legacy of the White Tiger
-				setIcon("MONK", 		2, --[[Mistweaver]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("MONK", 		3, --[[Windwalker]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
+				setIcon("MONK", 		1, --[[Brewmaster]]  	--[[1]] 125359, 0,	--[[2]] 115307, 0, 	--[[3]] 124274, 0, 	--[[4]] 124273, 0, 	--[[5]] 116781, 0) -- Tiger Power, Shuffle, Moderate Stagger, Heavy Stagger, Legacy of the White Tiger
+				setIcon("MONK", 		2, --[[Mistweaver]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("MONK", 		3, --[[Windwalker]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
 
-				setIcon("MAGE", 		1, --[[Arcane]]  		--[[1]] 235450, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Prismatic Barrier
-				setIcon("MAGE", 		2, --[[Fire]]  			--[[1]] 235313, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Blazing Barrier
-				setIcon("MAGE", 		3, --[[Frost]]  		--[[1]] 11426, 0, 0, 	--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Ice Barrier
+				setIcon("MAGE", 		1, --[[Arcane]]  		--[[1]] 235450, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Prismatic Barrier
+				setIcon("MAGE", 		2, --[[Fire]]  			--[[1]] 235313, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Blazing Barrier
+				setIcon("MAGE", 		3, --[[Frost]]  		--[[1]] 11426, 0, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Ice Barrier
 
-				setIcon("WARLOCK", 		1, --[[Affliction]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("WARLOCK", 		2, --[[Demonology]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("WARLOCK", 		3, --[[Destruction]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
+				setIcon("WARLOCK", 		1, --[[Affliction]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("WARLOCK", 		2, --[[Demonology]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("WARLOCK", 		3, --[[Destruction]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
 
-				setIcon("PRIEST", 		1, --[[Discipline]]  	--[[1]] 17, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Power Word: Shield
-				setIcon("PRIEST", 		2, --[[Holy]]  			--[[1]] 17, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Power Word: Shield
-				setIcon("PRIEST", 		3, --[[Shadow]]  		--[[1]] 17, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0) -- Power Word: Shield
+				setIcon("PRIEST", 		1, --[[Discipline]]  	--[[1]] 17, 0, 		--[[2]] 194384, 0, 	--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Power Word: Shield
+				setIcon("PRIEST", 		2, --[[Holy]]  			--[[1]] 17, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Power Word: Shield
+				setIcon("PRIEST", 		3, --[[Shadow]]  		--[[1]] 17, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0) -- Power Word: Shield
 
-				setIcon("HUNTER", 		1, --[[Beast Mastery]]  --[[1]] 136, 0, 1, 		--[[2]] 118455, 0, 1, 	--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 5384, 0, 0) -- Mend Pet, nil, nil, nil, Feign Death
-				setIcon("HUNTER", 		2, --[[Marksmanship]]  	--[[1]] 136, 0, 1, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 5384, 0, 0) -- Mend Pet, nil, nil, nil, Feign Death
-				setIcon("HUNTER", 		3, --[[Survival]]  		--[[1]] 136, 0, 1, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 5384, 0, 0) -- Mend Pet, nil, nil, nil, Feign Death
+				setIcon("HUNTER", 		1, --[[Beast Mastery]]  --[[1]] 136, 1, 	--[[2]] 118455, 1, 	--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 5384, 0) -- Mend Pet, nil, nil, nil, Feign Death
+				setIcon("HUNTER", 		2, --[[Marksmanship]]  	--[[1]] 136, 1, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 5384, 0) -- Mend Pet, nil, nil, nil, Feign Death
+				setIcon("HUNTER", 		3, --[[Survival]]  		--[[1]] 136, 1, 	--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 5384, 0) -- Mend Pet, nil, nil, nil, Feign Death
 
-				setIcon("DEATHKNIGHT", 	1, --[[Blood]]  		--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("DEATHKNIGHT", 	2, --[[Frost]]  		--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("DEATHKNIGHT", 	3, --[[Unholy]]  		--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
+				setIcon("DEATHKNIGHT", 	1, --[[Blood]]  		--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("DEATHKNIGHT", 	2, --[[Frost]]  		--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("DEATHKNIGHT", 	3, --[[Unholy]]  		--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
 
-				setIcon("DEMONHUNTER", 	1, --[[Havoc]]  		--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
-				setIcon("DEMONHUNTER", 	2, --[[Vengeance]]  	--[[1]] 0, 0, 0, 		--[[2]] 0, 0, 0, 		--[[3]] 0, 0, 0, 		--[[4]] 0, 0, 0, 		--[[5]] 0, 0, 0)
+				setIcon("DEMONHUNTER", 	1, --[[Havoc]]  		--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
+				setIcon("DEMONHUNTER", 	2, --[[Vengeance]]  	--[[1]] 0, 0, 		--[[2]] 0, 0, 		--[[3]] 0, 0, 		--[[4]] 0, 0, 		--[[5]] 0, 0)
 
 				-- Reload
 				ReloadUI()
@@ -8761,7 +8883,9 @@
 
 	LeaPlusLC:MakeTx(LeaPlusLC[pg], "Vendors"					, 	340, -72);
 	LeaPlusLC:MakeCB(LeaPlusLC[pg], "AutoSellJunk"				,	"Sell junk automatically"		,	340, -92, 	false,	"If checked, all grey items in your bags will be sold automatically when you visit a merchant.|n|nYou can hold the shift key down when you talk to a merchant to override this setting.")
-	LeaPlusLC:MakeCB(LeaPlusLC[pg], "AutoRepairGear"			, 	"Repair automatically"			,	340, -112, 	false,	"If checked, your gear will be repaired automatically when you visit a suitable merchant.|n|nGuild funds will be used if possible otherwise character funds will be used.|n|nYou can hold the shift key down when you talk to a merchant to override this setting.")
+	LeaPlusLC:MakeCB(LeaPlusLC[pg], "AutoRepairGear"			, 	"Repair automatically"			,	340, -112, 	false,	"If checked, your gear will be repaired automatically when you visit a suitable merchant.|n|nYou can hold the shift key down when you talk to a merchant to override this setting.")
+
+ 	LeaPlusLC:CfgBtn("AutoRepairBtn", LeaPlusCB["AutoRepairGear"])
 
 ----------------------------------------------------------------------
 -- 	LC2: Social

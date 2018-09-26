@@ -1,0 +1,3 @@
+VER 3 0100000000000001 "1111" "INV_MISC_QUESTIONMARK"
+/script T,F=T or 0,F or CreateFrame("frame")if X then X=nil print("停止.")else print("開啟.") X=function()local t=GetTime()if t-T>1 then StaticPopup1Button1:Click()T=t end end end F:SetScript("OnUpdate",X) 
+END

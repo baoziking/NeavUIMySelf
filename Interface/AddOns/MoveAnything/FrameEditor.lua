@@ -220,7 +220,7 @@ function MovAny:CreateFrameEditor(id, name)
 	displayNameLabel:SetSize(leftColumnWidth, 20)
 	displayNameLabel:SetJustifyH("LEFT")
 	displayNameLabel:SetPoint("TOPLEFT", fe, "TOPLEFT", 12, -8)
-	displayNameLabel:SetText("框架:")
+	displayNameLabel:SetText("Frame:")
 
 	local displayName = fe:CreateFontString(fn.."HelpfulName")
 	displayName:SetFontObject("GameFontHighlightSmall")
@@ -234,7 +234,7 @@ function MovAny:CreateFrameEditor(id, name)
 	realNameLabel:SetSize(leftColumnWidth, 20)
 	realNameLabel:SetJustifyH("LEFT")
 	realNameLabel:SetPoint("TOPLEFT", displayNameLabel, "BOTTOMLEFT", 0, -2)
-	realNameLabel:SetText("名稱:")
+	realNameLabel:SetText("Name:")
 
 	local realName = fe:CreateFontString(fn.."RealName")
 	realName:SetFontObject("GameFontHighlightSmall")
@@ -248,7 +248,7 @@ function MovAny:CreateFrameEditor(id, name)
 	enabledCheck:SetScript("OnClick", function(self)
 		MovAny:ToggleEnableFrame(fe.e.name, fe.opt)
 	end)
-	_G[enabledCheck:GetName().."Text"]:SetText("啟用")
+	_G[enabledCheck:GetName().."Text"]:SetText("Enabled")
 
 	local hideCheck = CreateFrame("CheckButton", fn.."Hide", fe, "MACheckButtonTemplate")
 	hideCheck:SetPoint("TOPLEFT", enabledCheck, "TOPRIGHT", 50, 0)
@@ -262,7 +262,7 @@ function MovAny:CreateFrameEditor(id, name)
 		end
 		MovAny:UpdateGUIIfShown(true)
 	end)
-	_G[hideCheck:GetName().."Text"]:SetText("隱藏")
+	_G[hideCheck:GetName().."Text"]:SetText("Hidden")
 
 	local clampToScreenCheck = CreateFrame("CheckButton", fn.."ClampToScreenButton", fe, "MACheckButtonTemplate")
 	clampToScreenCheck:SetPoint("TOPLEFT", hideCheck, "TOPRIGHT", 50, 0)
@@ -283,7 +283,7 @@ function MovAny:CreateFrameEditor(id, name)
 		end
 		MovAny:UpdateGUIIfShown(true)
 	end)
-	_G[clampToScreenCheck:GetName().."Text"]:SetText("超出畫面")
+	_G[clampToScreenCheck:GetName().."Text"]:SetText("Clamp to screen")
 
 
 	local groupTooltipFunc = function(self)
@@ -380,7 +380,7 @@ function MovAny:CreateFrameEditor(id, name)
 	groupLabel:SetSize(leftColumnWidth, 18)
 	groupLabel:SetJustifyH("LEFT")
 	groupLabel:SetPoint("TOPLEFT", enabledCheck, "BOTTOMLEFT", -3, -6)
-	groupLabel:SetText("群組")
+	groupLabel:SetText("Groups")
 
 	local groupCheck1 = CreateFrame("CheckButton", fn.."Group1", fe, "MACheckButtonTemplate")
 	groupCheck1:SetPoint("TOPLEFT", groupLabel, "TOPRIGHT", 8, 0)
@@ -479,16 +479,16 @@ function MovAny:CreateFrameEditor(id, name)
 	positionHeading:SetSize(50, 20)
 	positionHeading:SetJustifyH("LEFT")
 	positionHeading:SetPoint("TOPLEFT", groupLabel, "BOTTOMLEFT", 0, 10)
-	positionHeading:SetText("位置")
+	positionHeading:SetText("Position")
 
 	local posResetButton = CreateFrame("Button", fn.."PositionResetButton", fe, "MAButtonTemplate")
-	posResetButton:SetSize(100, 20)
+	posResetButton:SetSize(20, 20)
 	posResetButton:SetPoint("LEFT", positionHeading, "RIGHT", 0, 0)
-	posResetButton:SetText("重置 (R)")
+	posResetButton:SetText("R")
 
 
 	--[[local dropDownClickFunc = function(self)
-		ToggleDropDownMenu(1, nil, self, self, 6, 7, nil, self)
+		Lib_ToggleDropDownMenu(1, nil, self, self, 6, 7, nil, self)
 	end]]
 
 	local pointLabel = fe:CreateFontString()
@@ -496,7 +496,7 @@ function MovAny:CreateFrameEditor(id, name)
 	pointLabel:SetSize(leftColumnWidth, 18)
 	pointLabel:SetJustifyH("LEFT")
 	pointLabel:SetPoint("TOPLEFT", positionHeading, "BOTTOMLEFT", 0, -10)
-	pointLabel:SetText("對齊")
+	pointLabel:SetText("Attach")
 
 	pointDropDownButton:SetID(1)
 	--pointDropDownButton:SetScript("OnClick", dropDownClickFunc)
@@ -535,7 +535,7 @@ function MovAny:CreateFrameEditor(id, name)
 	relPointLabel:SetSize(30, 18)
 	--relPointLabel:SetJustifyH("LEFT")
 	relPointLabel:SetPoint("TOPLEFT", pointResetButton, "TOPRIGHT", 10, 0)
-	relPointLabel:SetText("到")
+	relPointLabel:SetText("to")
 
 	relPointDropDownButton:SetID(2)
 	--relPointDropDownButton:SetScript("OnClick", dropDownClickFunc)
@@ -576,7 +576,7 @@ function MovAny:CreateFrameEditor(id, name)
 	relToLabel:SetSize(40, 18)
 	--relToLabel:SetJustifyH("LEFT")
 	relToLabel:SetPoint("TOPLEFT", pointLabel, "BOTTOMLEFT", 0, -14)
-	relToLabel:SetText("依附")
+	relToLabel:SetText("of")
 
 	local relToFunc = function(self)
 		self = self or relToEdit
@@ -677,7 +677,7 @@ function MovAny:CreateFrameEditor(id, name)
 	xLabel:SetSize(leftColumnWidth, 18)
 	xLabel:SetJustifyH("LEFT")
 	xLabel:SetPoint("TOPLEFT", relToLabel, "BOTTOMLEFT", 0, -13)
-	xLabel:SetText("水平:")
+	xLabel:SetText("X offset")
 
 
 	local xEdit = CreateFrame("EditBox", fn.."XEdit", fe, "InputBoxTemplate")
@@ -853,7 +853,7 @@ function MovAny:CreateFrameEditor(id, name)
 	yLabel:SetSize(leftColumnWidth, 18)
 	yLabel:SetJustifyH("LEFT")
 	yLabel:SetPoint("TOPLEFT", xLabel, "BOTTOMLEFT", 0, -13)
-	yLabel:SetText("垂直:")
+	yLabel:SetText("Y offset")
 
 
 	local yEdit = CreateFrame("EditBox", fn.."YEdit", fe, "InputBoxTemplate")
@@ -1030,7 +1030,7 @@ function MovAny:CreateFrameEditor(id, name)
 	widthLabel:SetSize(leftColumnWidth, 18)
 	widthLabel:SetJustifyH("LEFT")
 	widthLabel:SetPoint("TOPLEFT", yLabel, "BOTTOMLEFT", 0, -13)
-	widthLabel:SetText("寬度")
+	widthLabel:SetText("Width")
 
 
 	local widthEdit = CreateFrame("EditBox", fn.."WidthEdit", fe, "InputBoxTemplate")
@@ -1196,7 +1196,7 @@ function MovAny:CreateFrameEditor(id, name)
 	heightLabel:SetSize(leftColumnWidth, 18)
 	heightLabel:SetJustifyH("LEFT")
 	heightLabel:SetPoint("TOPLEFT", widthLabel, "BOTTOMLEFT", 0, -13)
-	heightLabel:SetText("高度")
+	heightLabel:SetText("Height")
 
 
 	local heightEdit = CreateFrame("EditBox", fn.."HeightEdit", fe, "InputBoxTemplate")
@@ -1359,7 +1359,7 @@ function MovAny:CreateFrameEditor(id, name)
 	scaleLabel:SetSize(leftColumnWidth, 20)
 	scaleLabel:SetJustifyH("LEFT")
 	scaleLabel:SetPoint("TOPLEFT", heightLabel, "BOTTOMLEFT", 0, -20)
-	scaleLabel:SetText("縮放:")
+	scaleLabel:SetText("Scale:")
 
 	local scaleEdit = CreateFrame("EditBox", fn.."ScaleEdit", fe, "InputBoxTemplate")
 
@@ -1497,7 +1497,7 @@ function MovAny:CreateFrameEditor(id, name)
 	alphaLabel:SetSize(leftColumnWidth, 20)
 	alphaLabel:SetJustifyH("LEFT")
 	alphaLabel:SetPoint("TOPLEFT", scaleLabel, "BOTTOMLEFT", 0, -2)
-	alphaLabel:SetText("透明:")
+	alphaLabel:SetText("Alpha:")
 
 	local alphaEdit = CreateFrame("EditBox", fn.."AlphaEdit", fe, "InputBoxTemplate")
 
@@ -1665,7 +1665,7 @@ function MovAny:CreateFrameEditor(id, name)
 	hideLayersHeading:SetSize(85, 20)
 	hideLayersHeading:SetJustifyH("LEFT")
 	hideLayersHeading:SetPoint("TOPLEFT", alphaLabel, "BOTTOMLEFT", 0, -10)
-	hideLayersHeading:SetText("隱藏圖層")
+	hideLayersHeading:SetText("Hide Layer")
 
 	local layersResetButton = CreateFrame("Button", fn.."PointResetButton", fe, "MAButtonTemplate")
 	layersResetButton:SetSize(20, 20)
@@ -1695,31 +1695,31 @@ function MovAny:CreateFrameEditor(id, name)
 
 	hideArtworkCheck:SetPoint("TOPLEFT", hideLayersHeading, "BOTTOMLEFT", 4, -2)
 	hideArtworkCheck:SetScript("OnClick", hideLayerFunc)
-	_G[hideArtworkCheck:GetName().."Text"]:SetText("圖案")
+	_G[hideArtworkCheck:GetName().."Text"]:SetText("Artwork")
 
 	hideBackgroundCheck:SetPoint("TOPLEFT", hideArtworkCheck, "BOTTOMLEFT", 0, -1)
 	hideBackgroundCheck:SetScript("OnClick", hideLayerFunc)
-	_G[hideBackgroundCheck:GetName().."Text"]:SetText("背景")
+	_G[hideBackgroundCheck:GetName().."Text"]:SetText("Background")
 
 	hideBorderCheck:SetPoint("TOPLEFT", hideBackgroundCheck, "BOTTOMLEFT", 0, -1)
 	hideBorderCheck:SetScript("OnClick", hideLayerFunc)
-	_G[hideBorderCheck:GetName().."Text"]:SetText("邊框")
+	_G[hideBorderCheck:GetName().."Text"]:SetText("Border")
 
 	hideHighlightCheck:SetPoint("TOPLEFT", hideBorderCheck, "BOTTOMLEFT", 0, -1)
 	hideHighlightCheck:SetScript("OnClick", hideLayerFunc)
-	_G[hideHighlightCheck:GetName().."Text"]:SetText("顯著標示")
+	_G[hideHighlightCheck:GetName().."Text"]:SetText("Highlight")
 
 	hideOverlayCheck:SetPoint("TOPLEFT", hideHighlightCheck, "BOTTOMLEFT", 0, -1)
 	hideOverlayCheck:SetScript("OnClick", hideLayerFunc)
-	_G[hideOverlayCheck:GetName().."Text"]:SetText("疊層")
+	_G[hideOverlayCheck:GetName().."Text"]:SetText("Overlay")
 
 
 	local strataLabel = fe:CreateFontString()
 	strataLabel:SetFontObject("GameFontNormalSmall")
-	strataLabel:SetSize(45, 20)
+	strataLabel:SetSize(35, 20)
 	strataLabel:SetJustifyH("LEFT")
 	strataLabel:SetPoint("TOPLEFT", layersResetButton, "TOPRIGHT", 30, 0)
-	strataLabel:SetText("框架層級:")
+	strataLabel:SetText("Strata:")
 
 	local strataDropDownButton = CreateFrame("Button", fn.."Strata", fe, "Lib_UIDropDownMenuTemplate")
 	strataDropDownButton:SetID(3)
@@ -1841,7 +1841,7 @@ function MovAny:CreateFrameEditor(id, name)
 			end
 			self.confirm = nil
 			MovAny:UpdateGUIIfShown(true)
-		else 
+		else
 			self.confirm = time()
 			maPrint(MOVANY.FE_UNREGISTER_ALL_EVENTS_CONFIRM)
 
@@ -1849,7 +1849,7 @@ function MovAny:CreateFrameEditor(id, name)
 		end
 	end)
 	unregisterAllEventsCheck.tooltipText = MOVANY.FE_UNREGISTER_ALL_EVENTS_TOOLTIP
-	_G[unregisterAllEventsCheck:GetName().."Text"]:SetText("註銷所有事件")
+	_G[unregisterAllEventsCheck:GetName().."Text"]:SetText("Unregister all events")
 
 
 	local forcedLockPointCheck = CreateFrame("CheckButton", fn.."ForcedLockCheckButton", fe, "MACheckButtonTemplate")
@@ -1870,7 +1870,7 @@ function MovAny:CreateFrameEditor(id, name)
 			end
 			self.confirm = nil
 			MovAny:UpdateGUIIfShown(true)
-		else 
+		else
 			self.confirm = time()
 			maPrint(MOVANY.FE_FORCED_LOCK_POSITION_CONFIRM)
 
@@ -1878,14 +1878,14 @@ function MovAny:CreateFrameEditor(id, name)
 		end
 	end)
 	forcedLockPointCheck.tooltipText = MOVANY.FE_FORCED_LOCK_POSITION_TOOLTIP
-	_G[forcedLockPointCheck:GetName().."Text"]:SetText("強制鎖定位置")
+	_G[forcedLockPointCheck:GetName().."Text"]:SetText("Force lock position")
 
 
 	local revertButton = CreateFrame("Button", fn.."RevertButton", fe, "MAButtonTemplate")
 	revertButton:SetSize(75, 22)
 	revertButton:SetPoint("TOPLEFT", fe, "BOTTOMRIGHT", -180, 140)
-	revertButton:SetText("還原")
-	revertButton.tooltipText = "開啟編輯器時恢復這個元素所做的修改"
+	revertButton:SetText("Revert")
+	revertButton.tooltipText = "Revert to the modifications this element had when this editor was opened"
 	revertButton:SetScript("OnClick", function()
 		if fe.editFrame and (InCombatLockdown() and MovAny:IsProtected(fe.editFrame)) then
 			maPrint(string.format(MOVANY.FRAME_PROTECTED_DURING_COMBAT, fe.e.name))
@@ -1914,8 +1914,8 @@ function MovAny:CreateFrameEditor(id, name)
 	local resetButton = CreateFrame("Button", fn.."ResetButton", fe, "MAButtonTemplate")
 	resetButton:SetSize(75, 22)
 	resetButton:SetPoint("TOPLEFT", revertButton, "BOTTOMLEFT", 0, -10)
-	resetButton:SetText("重置")
-	resetButton.tooltipText = "重置元素"
+	resetButton:SetText("Reset")
+	resetButton.tooltipText = "Reset element"
 	resetButton:SetScript("OnClick", function()
 		if not fe.editFrame then
 			return
@@ -1927,16 +1927,16 @@ function MovAny:CreateFrameEditor(id, name)
 	local exportButton = CreateFrame("Button", fn.."ExportButton", fe, "MAButtonTemplate")
 	exportButton:SetSize(75, 22)
 	exportButton:SetPoint("TOPLEFT", resetButton, "BOTTOMLEFT", 0, -10)
-	exportButton:SetText("匯出")
+	exportButton:SetText("Export")
 	exportButton:SetScript("OnClick", function() MovAny:PortDialog(2, fe.fn) end)
 
 
 	local syncButton = CreateFrame("Button", fn.."SyncButton", fe, "MAButtonTemplate")
 	syncButton:SetSize(75, 22)
 	syncButton:SetPoint("TOPLEFT", exportButton, "BOTTOMLEFT", 0, -10)
-	syncButton:SetText("同步")
+	syncButton:SetText("Sync")
 	syncButton:Disable()
-	syncButton.tooltipText = "同步所做的變更"
+	syncButton.tooltipText = "Synchronize all modifications"
 	syncButton:SetScript("OnClick", function()
 		if fe.editFrame then
 			fe.e:Sync()
@@ -1947,8 +1947,8 @@ function MovAny:CreateFrameEditor(id, name)
 	local moverButton = CreateFrame("Button", fn.."MoverButton", fe, "MAButtonTemplate")
 	moverButton:SetSize(75, 22)
 	moverButton:SetPoint("TOPLEFT", revertButton, "TOPRIGHT", 10, 0)
-	moverButton:SetText("移動")
-	moverButton.tooltipText = "開啟/關閉此框架的移動控制項"
+	moverButton:SetText("Mover")
+	moverButton.tooltipText = "Toggles a mover on/off for the frame"
 	moverButton:SetScript("OnClick", function(self)
 		MovAny:ToggleMove(fe.e.name)
 		fe:UpdateButtons()
@@ -1958,8 +1958,8 @@ function MovAny:CreateFrameEditor(id, name)
 	local showButton = CreateFrame("Button", fn.."ShowButton", fe, "MAButtonTemplate")
 	showButton:SetSize(75, 22)
 	showButton:SetPoint("TOPLEFT", moverButton, "BOTTOMLEFT", 0, -10)
-	showButton:SetText("顯示")
-	showButton.tooltipText = "暫時的切換顯示框架。要永久的隱藏請使用 \"隱藏\" 核取方塊"
+	showButton:SetText("Show")
+	showButton.tooltipText = "Toggles visibility of the frame, any change is not permanent. For permanent hiding use the \"Hidden\" checkbox"
 	showButton:SetScript("OnClick", function(self)
 		local opt = fe.opt
 		local f = fe.editFrame
@@ -1990,7 +1990,7 @@ function MovAny:CreateFrameEditor(id, name)
 	local importButton = CreateFrame("Button", fn.."ImportButton", fe, "MAButtonTemplate")
 	importButton:SetSize(75, 22)
 	importButton:SetPoint("TOPLEFT", showButton, "BOTTOMLEFT", 0, -10)
-	importButton:SetText("匯入")
+	importButton:SetText("Import")
 	importButton:SetScript("OnClick", function() MovAny:PortDialog(1, fe.fn) end)
 
 
@@ -2000,14 +2000,14 @@ function MovAny:CreateFrameEditor(id, name)
 	actualsHeading:SetSize(140, 20)
 	actualsHeading:SetJustifyH("LEFT")
 	actualsHeading:SetPoint("TOPRIGHT", fe, "TOPRIGHT", -25, -4)
-	actualsHeading:SetText("絕對數值")
+	actualsHeading:SetText("Absolute values")
 
 	local infoTextWidthLabel = fe:CreateFontString()
 	infoTextWidthLabel:SetFontObject("GameFontNormalSmall")
 	infoTextWidthLabel:SetSize(leftColumnWidth, 16)
 	infoTextWidthLabel:SetJustifyH("RIGHT")
 	infoTextWidthLabel:SetPoint("TOPLEFT", actualsHeading, "BOTTOMLEFT", -55, -1)
-	infoTextWidthLabel:SetText("寬度:")
+	infoTextWidthLabel:SetText("Width:")
 
 	local infoTextWidth = fe:CreateFontString()
 	infoTextWidth:SetFontObject("GameFontNormalSmall")
@@ -2035,7 +2035,7 @@ function MovAny:CreateFrameEditor(id, name)
 	infoTextAlphaLabel:SetSize(leftColumnWidth, 16)
 	infoTextAlphaLabel:SetJustifyH("RIGHT")
 	infoTextAlphaLabel:SetPoint("TOPLEFT", infoTextXLabel, "BOTTOMLEFT", 0, -1)
-	infoTextAlphaLabel:SetText("透明:")
+	infoTextAlphaLabel:SetText("Alpha:")
 
 	local infoTextAlpha = fe:CreateFontString()
 	infoTextAlpha:SetFontObject("GameFontNormalSmall")
@@ -2049,7 +2049,7 @@ function MovAny:CreateFrameEditor(id, name)
 	infoTextHeightLabel:SetSize(leftColumnWidth, 16)
 	infoTextHeightLabel:SetJustifyH("RIGHT")
 	infoTextHeightLabel:SetPoint("TOPLEFT", actualsHeading, "BOTTOMLEFT", 55, -1)
-	infoTextHeightLabel:SetText("高度:")
+	infoTextHeightLabel:SetText("Height:")
 
 	local infoTextHeight = fe:CreateFontString()
 	infoTextHeight:SetFontObject("GameFontNormalSmall")
@@ -2077,7 +2077,7 @@ function MovAny:CreateFrameEditor(id, name)
 	infoTextScaleLabel:SetSize(leftColumnWidth, 16)
 	infoTextScaleLabel:SetJustifyH("RIGHT")
 	infoTextScaleLabel:SetPoint("TOPLEFT", infoTextYLabel, "BOTTOMLEFT", 0, -1)
-	infoTextScaleLabel:SetText("縮放:")
+	infoTextScaleLabel:SetText("Scale:")
 
 	local infoTextScale = fe:CreateFontString()
 	infoTextScale:SetFontObject("GameFontNormalSmall")
@@ -2333,7 +2333,7 @@ function MovAny:CreateFrameEditor(id, name)
 		if fe.editFrame then
 			local mover = MovAny:GetMoverByFrame(fe.editFrame)
 			moverButton:Enable()
-			moverButton:SetText(mover and "關閉" or "移動")
+			moverButton:SetText(mover and "Detach" or "Attach")
 			if mover then
 				syncButton:Disable()
 			else
@@ -2346,7 +2346,7 @@ function MovAny:CreateFrameEditor(id, name)
 
 		if fe.editFrame then
 			showButton:Enable()
-			showButton:SetText(fe.editFrame:IsShown() and "隱藏" or "顯示")
+			showButton:SetText(fe.editFrame:IsShown() and "Hide" or "Show")
 		else
 			showButton:Disable()
 		end

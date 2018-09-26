@@ -8,5 +8,5 @@ BonusRollPreviewDB = {
 		0, -- [5]
 	},
 	["fillDirection"] = "UP",
-	["alwaysShow"] = false,
+	["alwaysShow"] = true,
 }

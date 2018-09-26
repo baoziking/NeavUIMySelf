@@ -1,7 +1,7 @@
 
 GladiatorlosSADB = {
 	["profileKeys"] = {
-		["Juanjuan - 泰兰德"] = "Default",
+		["橡皮糖糖 - 泰兰德"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {

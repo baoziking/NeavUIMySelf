@@ -1,35 +1,35 @@
 <Bindings>
-	<Binding name="切換版面配置插件視窗" header="MOVEANYTHING" category="ADDONS">
+	<Binding name="Toggle MA window" header="MOVEANYTHING" category="ADDONS">
 		MovAny:ToggleGUI()
 	</Binding>
-	<Binding name="移動框架 - 安全" category="ADDONS">
+	<Binding name="Move frame - Safe" category="ADDONS">
 		MovAny:SafeMoveFrameAtCursor()
 	</Binding>
-	<Binding name="編輯框架 - 安全" category="ADDONS">
+	<Binding name="Edit frame - Safe" category="ADDONS">
 		MovAny:SafeMAFEFrameAtCursor()
 	</Binding>
-	<Binding name="隱藏框架 - 安全" category="ADDONS">
+	<Binding name="Hide frame - Safe" category="ADDONS">
 		MovAny:SafeHideFrameAtCursor()
 	</Binding>
-	<Binding name="重置框架 - 安全" category="ADDONS">
+	<Binding name="Reset frame - Safe" category="ADDONS">
 		MovAny:SafeResetFrameAtCursor()
 	</Binding>
-	<Binding name="移動框架 - 精確" category="ADDONS">
+	<Binding name="Move frame - Exact" category="ADDONS">
 		MovAny:MoveFrameAtCursor()
 	</Binding>
-	<Binding name="編輯框架 - 精確" category="ADDONS">
+	<Binding name="Edit frame - Exact" category="ADDONS">
 		MovAny:MAFEFrameAtCursor()
 	</Binding>
-	<Binding name="隱藏框架 - 精確" category="ADDONS">
+	<Binding name="Hide frame - Exact" category="ADDONS">
 		MovAny:HideFrameAtCursor()
 	</Binding>
-	<Binding name="重置框架 - 精確" category="ADDONS">
+	<Binding name="Reset frame - Exact" category="ADDONS">
 		MovAny:ResetFrameAtCursor()
 	</Binding>
-	<Binding name="同步所有元素" category="ADDONS">
+	<Binding name="Synchronize all elements" category="ADDONS">
 		MovAny:SyncAllFrames()
 	</Binding>
-	<Binding name="顯示框架資訊" category="ADDONS">
+	<Binding name="Show frame info" category="ADDONS">
 		MovAny:DebugFrameAtCursor()
 	</Binding>
 </Bindings>

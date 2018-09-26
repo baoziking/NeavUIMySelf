@@ -1,4 +1,4 @@
-﻿
+
 local AddonName, HubData = ...;
 local LocalVars = TidyPlatesContHubDefaults
 
@@ -19,35 +19,35 @@ local CreateThreatPercentageWidget = WidgetLib.CreateThreatPercentageWidget
 
 TidyPlatesContHubDefaults.WidgetRangeMode = 1
 TidyPlatesContHubMenus.RangeModes = {
-				{ text = "9 码"} ,
-				{ text = "15 码" } ,
-				{ text = "28 码" } ,
-				{ text = "40 码" } ,
+				{ text = "9码"} ,
+				{ text = "15码" } ,
+				{ text = "28码" } ,
+				{ text = "40码" } ,
 			}
 
 TidyPlatesContHubDefaults.WidgetAbsorbMode = 1
 TidyPlatesContHubMenus.AbsorbModes = {
-				{ text = "Blizzlike"} ,
-				{ text = "Overlay" } ,
+				{ text = "Blizz模式"} ,
+				{ text = "覆盖模式" } ,
 			}
 
 TidyPlatesContHubDefaults.WidgetAbsorbUnits = 1
 TidyPlatesContHubMenus.AbsorbUnits = {
 				{ text = "仅目标"} ,
-				{ text = "所有单位" } ,
+				{ text = "所有单位"} ,
 			}
 
 TidyPlatesContHubDefaults.WidgetDebuffStyle = 1
 TidyPlatesContHubMenus.DebuffStyles = {
 				{ text = "宽松",  } ,
-				{ text = "紧凑(可能需要重载UI)",  } ,
+				{ text = "紧凑(重载UI生效)",  } ,
 			}
 
 TidyPlatesContHubDefaults.WidgetComboPointsStyle = 2
 TidyPlatesContHubMenus.ComboPointsStyles = {
-				{ text = "Blizzlike",  } ,
-				{ text = "TidyPlates",  } ,
-				{ text = "TidyPlatesTraditional",  } ,
+				{ text = "Blizz风格",  } ,
+				{ text = "TidyPlates风格",  } ,
+				{ text = "TidyPlates传统风格",  } ,
 			}
 
 ------------------------------------------------------------------------------
@@ -101,10 +101,10 @@ local AURA_TYPE = { "Buff", "Curse", "Disease", "Magic", "Poison", "Debuff", }
 -- local AURA_TYPE_COLORS = { nil, {1,0,1}, {.5, .2, 0}, {0,.4,1}, {0,1,0}, nil, }
 local AURA_TYPE_COLORS = {
 	["Buff"] = nil,
-	["诅咒"] = {1,0,1},
-	["疾病"] = {.5, .2, 0},
-	["魔法"] = {0,.4,1},
-	["中毒"] = {0,1,0},
+	["Curse"] = {1,0,1},
+	["Disease"] = {.5, .2, 0},
+	["Magic"] = {0,.4,1},
+	["Poison"] = {0,1,0},
 	["Debuff"] = nil,
 }
 
@@ -189,19 +189,19 @@ end
 
 local DispelTypeHandlers = {
 	-- Curse
-	["诅咒"] = function()
+	["Curse"] = function()
 		return LocalVars.WidgetAuraTrackCurse
 	end,
 	-- Disease
-	["疾病"] = function()
+	["Disease"] = function()
 		return LocalVars.WidgetAuraTrackDisease
 	end,
 	-- Magic
-	["魔法"] = function()
+	["Magic"] = function()
 		return LocalVars.WidgetAuraTrackMagic
 	end,
 	-- Poison
-	["中毒"] = function()
+	["Poison"] = function()
 		return LocalVars.WidgetAuraTrackPoison
 	end,
 	}
@@ -215,7 +215,7 @@ end
 
 local function DebuffFilter(aura)
 	-- Purgeable Buff
-	if LocalVars.WidgetBuffPurgeable and aura.effect == "HELPFUL" and aura.type == "魔法" and aura.reaction == 1 then
+	if LocalVars.WidgetBuffPurgeable and aura.effect == "HELPFUL" and aura.type == "Magic" and aura.reaction == 1 then
 		local color = LocalVars.ColorBuffPurgeable
 		return true, 10, color.r, color.g, color.b, color.a
 	end
@@ -355,6 +355,10 @@ local function OnVariableChange(vars)
 
 	if LocalVars.WidgetComboPoints then
 		TidyPlatesContWidgets.SetComboPointsStyle(LocalVars.WidgetComboPointsStyle);
+	end
+
+	if LocalVars.WidgetPandemic then
+		TidyPlatesContWidgets.SetPandemic(LocalVars.WidgetPandemic, LocalVars.ColorPandemic)
 	end
 end
 HubData.RegisterCallback(OnVariableChange)

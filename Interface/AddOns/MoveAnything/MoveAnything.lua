@@ -289,25 +289,25 @@ local MovAny = {
 	movers = { },
 	frameEditors = { },
 	DDMPointList = {
-		{"左上", "TOPLEFT"},
-		{"上", "TOP"},
-		{"右上", "TOPRIGHT"},
-		{"左", "LEFT"},
-		{"中", "CENTER"},
-		{"右", "RIGHT"},
-		{"左下", "BOTTOMLEFT"},
-		{"下", "BOTTOM"},
-		{"右下", "BOTTOMRIGHT"},
+		{"Top Left", "TOPLEFT"},
+		{"Top", "TOP"},
+		{"Top Right", "TOPRIGHT"},
+		{"Left", "LEFT"},
+		{"Center", "CENTER"},
+		{"Right", "RIGHT"},
+		{"Bottom Left", "BOTTOMLEFT"},
+		{"Bottom", "BOTTOM"},
+		{"Bottom Right", "BOTTOMRIGHT"},
 	},
 	DDMStrataList = {
-		{"背景", "BACKGROUND"},
-		{"低", "LOW"},
-		{"中", "MEDIUM"},
-		{"高", "HIGH"},
-		{"對話框", "DIALOG"},
-		{"全螢幕", "FULLSCREEN"},
-		{"全螢幕對話框", "FULLSCREEN_DIALOG"},
-		{"滑鼠提示", "TOOLTIP"},
+		{"Background", "BACKGROUND"},
+		{"Low", "LOW"},
+		{"Medium", "MEDIUM"},
+		{"High", "HIGH"},
+		{"Dialog", "DIALOG"},
+		{"Fullscreen", "FULLSCREEN"},
+		{"Fullscreen Dialog", "FULLSCREEN_DIALOG"},
+		{"Tooltip", "TOOLTIP"},
 	},
 	DetachFromParent = {
 		MainMenuBarPerformanceBarFrame = "UIParent",
@@ -744,7 +744,7 @@ end)
 
 _G.MovAny = MovAny
 
-BINDING_HEADER_MOVEANYTHING = "版面配置"
+BINDING_HEADER_MOVEANYTHING = "MoveAnything"
 
 StaticPopupDialogs["MOVEANYTHING_RESET_ALL_CONFIRM"] = {
 	preferredIndex = 3,
@@ -1442,7 +1442,7 @@ function MovAny.hSetPoint(f, ...)
 	if not f then
 		return
 	end
-	--[[if MovAny.lForceProtected[f:GetName()] then 
+	--[[if MovAny.lForceProtected[f:GetName()] then
 		print(f:GetName())
 		return
 	end]]
@@ -4609,7 +4609,7 @@ function maPrint(msgKey, msgHighlight, msgAdditional, r, g, b, frame)
 		msgAdditional = " "
 	end
 	if msgOutput then
-		msgOutput:AddMessage("|caaff0000版面配置|r|caaffff00>|r "..msgKey.." |caaaaddff"..msgHighlight.."|r"..msgAdditional, r, g, b)
+		msgOutput:AddMessage("|caaff0000MoveAnything|r|caaffff00>|r "..msgKey.." |caaaaddff"..msgHighlight.."|r"..msgAdditional, r, g, b)
 	end
 end
 
@@ -4819,14 +4819,14 @@ function MovAny:GetFrameTooltipLines(fn)
 	end
 	if o and o.displayName and o.displayName ~= fn and fn ~= nil then
 		tinsert(msgs, " ")
-		tinsert(msgs, "框架: "..fn)
+		tinsert(msgs, "Frame: "..fn)
 	end
 	if opts then
 		if opts.pos then
 			if not added then
 				tinsert(msgs, " ")
 			end
-			tinsert(msgs, "位置: "..MANumFor(opts.pos[4])..", "..MANumFor(opts.pos[5]))
+			tinsert(msgs, "Position: "..MANumFor(opts.pos[4])..", "..MANumFor(opts.pos[5]))
 			enough = true
 			added = true
 		end
@@ -4834,7 +4834,7 @@ function MovAny:GetFrameTooltipLines(fn)
 			if not added then
 				tinsert(msgs, " ")
 			end
-			tinsert(msgs, "縮放: "..MANumFor(opts.scale))
+			tinsert(msgs, "Scale: "..MANumFor(opts.scale))
 			enough = true
 			added = true
 		end
@@ -4842,7 +4842,7 @@ function MovAny:GetFrameTooltipLines(fn)
 			if not added then
 				tinsert(msgs, " ")
 			end
-			tinsert(msgs, "透明度: "..MANumFor(opts.alpha))
+			tinsert(msgs, "Alpha: "..MANumFor(opts.alpha))
 			enough = true
 			added = true
 		end
@@ -4851,7 +4851,7 @@ function MovAny:GetFrameTooltipLines(fn)
 			if not added then
 				tinsert(msgs, " ")
 			end
-			tinsert(msgs, "原始縮放: "..MANumFor(opts.orgScale or 1))
+			tinsert(msgs, "Original Scale: "..MANumFor(opts.orgScale or 1))
 			enough = true
 			added = true
 		end
@@ -4859,7 +4859,7 @@ function MovAny:GetFrameTooltipLines(fn)
 			if not added then
 				tinsert(msgs, " ")
 			end
-			tinsert(msgs, "原始透明度: "..MANumFor(opts.orgAlpha))
+			tinsert(msgs, "Original Alpha: "..MANumFor(opts.orgAlpha))
 			enough = true
 			added = true
 		end
@@ -4938,51 +4938,51 @@ function MovAny:Dump(o)
 		maPrint(string.format(MOVANY.UNSUPPORTED_TYPE, type(o)))
 		return
 	end
-	local s = " 名稱: "..o:GetName()
+	local s = " Name: "..o:GetName()
 	if o.GetObjectType then
-		s = s.."  類型: "..o:GetObjectType()
+		s = s.."  Type: "..o:GetObjectType()
 	end
 	local p = o:GetParent()
 	if p == nil then
 		p = UIParent
 	end
 	if o ~= p then
-		s = s.."  上一層: "..(p:GetName() or "unnamed")
+		s = s.."  Parent: "..(p:GetName() or "unnamed")
 	end
 	if o.MAParent then
-		s = s.." 版面配置上一層: "..((type(o.MAParent) == "table" and o.MAParent:GetName()) or (type(o.MAParent) == "string" and o.MAParent) or "unnamed")
+		s = s.." MA Parent: "..((type(o.MAParent) == "table" and o.MAParent:GetName()) or (type(o.MAParent) == "string" and o.MAParent) or "unnamed")
 	end
 	if s ~= "" then
 		maPrint(s)
 	end
 	if o.IsProtected and o:IsProtected() then
-		maPrint(" 受保護: true")
+		maPrint(" Protected: true")
 	elseif o.MAProtected then
-		maPrint(" 可見性受保護: true")
+		maPrint(" Virtually protected: true")
 	end
 	s = ""
 	if o.IsShown then
 		if o:IsShown() then
-			s = s.." 顯示: true"
+			s = s.." Shown: true"
 		else
-			s = s.." 顯示: false"
+			s = s.." Shown: false"
 		end
 		if o.IsVisible then
 			if o:IsVisible() then
-				s = s.." 可見性: true"
+				s = s.." Visible: true"
 			else
-				s = s.." 可見性: false"
+				s = s.." Visible: false"
 			end
 		end
 	end
 	if o.IsTopLevel and o:IsToplevel() then
-		s = s.." 最上層: true"
+		s = s.." Top Level: true"
 	end
 	if o.GetFrameLevel then
-		s = s.." 階層: "..o:GetFrameLevel()
+		s = s.." Level: "..o:GetFrameLevel()
 	end
 	if o.GetFrameStrata then
-		s = s.." 層級: "..o:GetFrameStrata()
+		s = s.." Strata: "..o:GetFrameStrata()
 	end
 	if s ~= "" then
 		maPrint(s)
@@ -4992,50 +4992,50 @@ function MovAny:Dump(o)
 		if not point[2] then
 			point[2] = UIParent
 		end
-		maPrint(" 定位點: "..point[1]..", "..point[2]:GetName()..", "..point[3]..", "..point[4]..", "..point[5])
+		maPrint(" Point: "..point[1]..", "..point[2]:GetName()..", "..point[3]..", "..point[4]..", "..point[5])
 	end
 	s = ""
 	if o:GetTop() then
-		s = " 上: "..o:GetTop()
+		s = " Top: "..o:GetTop()
 	end
 	if o:GetRight() then
-		s = s.." 右: "..o:GetRight()
+		s = s.." Right: "..o:GetRight()
 	end
 	if o:GetBottom() then
-		s = s.." 下: "..o:GetBottom()
+		s = s.." Bottom: "..o:GetBottom()
 	end
 	if o:GetLeft() then
-		s = s.." 左: "..o:GetLeft()
+		s = s.." Left: "..o:GetLeft()
 	end
 	if s ~= "" then
 		maPrint(s)
 	end
 	s = ""
 	if o:GetHeight() then
-		s = " 高: "..o:GetHeight()
+		s = " Height: "..o:GetHeight()
 	end
 	if o:GetWidth() then
-		s = s.." 寬: "..o:GetWidth()
+		s = s.." Width: "..o:GetWidth()
 	end
 	if s ~= "" then
 		maPrint(s)
 	end
 	s = ""
 	if o.GetScale then
-		s = s.." 縮放: "..o:GetScale()
+		s = s.." Scale: "..o:GetScale()
 	end
 	if o.GetEffectiveScale then
-		s = s.." 實際: "..o:GetEffectiveScale()
+		s = s.." Effective: "..o:GetEffectiveScale()
 	end
 	if s ~= "" then
 		maPrint(s)
 	end
 	s = ""
 	if o.GetAlpha then
-		s = s.." 透明度: "..o:GetAlpha()
+		s = s.." Alpha: "..o:GetAlpha()
 	end
 	if o.GetEffectiveAlpha then
-		s = s.." 實際: "..o:GetEffectiveAlpha()
+		s = s.." Effective: "..o:GetEffectiveAlpha()
 	end
 	if s ~= "" then
 		maPrint(s)
@@ -5043,23 +5043,23 @@ function MovAny:Dump(o)
 	s = ""
 	if o.IsUserPlaced then
 		if o:IsUserPlaced() then
-			s = s.." 使用者配置: true"
+			s = s.." UserPlaced: true"
 		else
-			s = s.." 使用者配置: false"
+			s = s.." UserPlaced: false"
 		end
 	end
 	if o.IsMovable then
 		if o:IsMovable() then
-			s = s.." 可移動: true"
+			s = s.." Movable: true"
 		else
-			s = s.." 可移動: false"
+			s = s.." Movable: false"
 		end
 	end
 	if o.IsResizable then
 		if o:IsResizable() then
-			s = s.." 可縮放: true"
+			s = s.." Resizable: true"
 		else
-			s = s.." 可縮放: false"
+			s = s.." Resizable: false"
 		end
 	end
 	if s ~= "" then
@@ -5068,23 +5068,23 @@ function MovAny:Dump(o)
 	s = ""
 	if o.IsKeyboardEnabled then
 		if o:IsKeyboardEnabled() then
-			s = s.." 使用鍵盤: true"
+			s = s.." KeyboardEnabled: true"
 		else
-			s = s.." 使用鍵盤: false"
+			s = s.." KeyboardEnabled: false"
 		end
 	end
 	if o.IsMouseEnabled then
 		if o:IsMouseEnabled() then
-			s = s.." 使用滑鼠: true"
+			s = s.." MouseEnabled: true"
 		else
-			s = s.." 使用滑鼠: false"
+			s = s.." MouseEnabled: false"
 		end
 	end
 	if o.IsMouseWheelEnabled then
 		if o:IsMouseWheelEnabled() then
-			s = s.." 使用滑鼠滾輪: true"
+			s = s.." MouseWheelEnabled: true"
 		else
-			s = s.." 使用滑鼠滾輪: false"
+			s = s.." MouseWheelEnabled: false"
 		end
 	end
 	if s ~= "" then
@@ -5092,7 +5092,7 @@ function MovAny:Dump(o)
 	end
 	local opts = self:GetUserData(o:GetName())
 	if opts ~= nil then
-		maPrint(" 版面配置插件儲存的變數:")
+		maPrint(" MA stored variables:")
 		for i, v in pairs(opts) do
 			if i ~= "cat" and i ~= "name" then
 				if v == nil then
@@ -5228,15 +5228,14 @@ function MovAny:SetDefaultOptions()
 end
 
 function MovAny_OptionsOnLoad(f)
-	-- f.name = GetAddOnMetadata("MoveAnything", "Title")
-	f.name = "版面配置"
+	f.name = GetAddOnMetadata("MoveAnything", "Title")
 	f.okay = MovAny.SetOptions
 	f.default = MovAny.SetDefaultOptions
 	InterfaceOptions_AddCategory(f)
 end
 
 function MovAny_OptionsOnShow()
-	MAOptVersion:SetText("MoveAnything 版本: |cffeeeeee"..GetAddOnMetadata("MoveAnything", "Version").."|r")
+	MAOptVersion:SetText("Version: |cffeeeeee"..GetAddOnMetadata("MoveAnything", "Version").."|r")
 	MAOptAlwaysShowNudger:SetChecked(MADB.alwaysShowNudger)
 	MAOptNoBags:SetChecked(MADB.noBags)
 	MAOptPlaySound:SetChecked(MADB.playSound)
@@ -5548,7 +5547,7 @@ function MovAny_OnEvent(self, event, arg1)
 						self:ma_Show()
 					end
 				end]]
-				ArenaPrepFrames.Hide = function() 
+				ArenaPrepFrames.Hide = function()
 					ArenaPrepFrames.ma_isshown = false
 					ArenaPrepFrames_UpdateWatchFrame()
 				end
@@ -5580,7 +5579,7 @@ function MovAny_OnEvent(self, event, arg1)
 				else
 					ArenaPrepFrames:Hide()
 				end
-				ArenaPrepFrames.Show = function() 
+				ArenaPrepFrames.Show = function()
 						ArenaPrepFrames.ma_isshown = true
 						ArenaPrepFrames_UpdateWatchFrame()
 					end
@@ -5588,7 +5587,7 @@ function MovAny_OnEvent(self, event, arg1)
 				--[[ArenaPrepFrames.Hide = function(self)
 					if not InCombatLockdown() then
 						self:ma_Hide()
-					end 
+					end
 				end]]
 				ArenaPrepFrames.clear_all_points = ArenaPrepFrames.ClearAllPoints
 				ArenaPrepFrames.ClearAllPoints = function(self)
@@ -5640,9 +5639,9 @@ function MovAny_OnEvent(self, event, arg1)
 						self:ma_Hide()
 					end
 				end]]
-				ArenaEnemyFrames.Hide = function() 
+				ArenaEnemyFrames.Hide = function()
 					ArenaEnemyFrames.ma_isshown = false
-					ArenaEnemyFrames_UpdateWatchFrame() 
+					ArenaEnemyFrames_UpdateWatchFrame()
 				end
 				if GetCVarBool("showArenaEnemyFrames") then
 					ArenaEnemyFrames:Show()
@@ -6415,32 +6414,32 @@ end
 function GetParentInfo(f)
 	local fn = f:GetName()
 	print("|cFF50C0FF".."<---------------------------------------------->".."|r")
-	print("|cFF50C0FF".."框架:".."|r", fn)
+	print("|cFF50C0FF".."Frame:".."|r", fn)
 	local p = f:GetParent()
-	print("|cFF50C0FF".."上一層:".."|r", p:GetName())
+	print("|cFF50C0FF".."Parent:".."|r", p:GetName())
 	for i = 1, f:GetNumPoints() do
 		local point, relativeTo, relativePoint, xOfs, yOfs = f:GetPoint(i)
 		if relativeTo then
 			print(i..".", "|cFF50C0FF".."p:".."|r", point, "|cFF50C0FF".."rfn:".."|r", relativeTo:GetName(), "|cFF50C0FF".."rp:".."|r", relativePoint, "|cFF50C0FF".."x:".."|r", xOfs, "|cFF50C0FF".."y:".."|r", yOfs)
 		end
 	end
-	print("|cFF50C0FF".."寬:".."|r", f:GetWidth())
-	print("|cFF50C0FF".."高:".."|r", f:GetHeight())
+	print("|cFF50C0FF".."Width:".."|r", f:GetWidth())
+	print("|cFF50C0FF".."Height:".."|r", f:GetHeight())
 end
 
 function GetParentInfoFromCursor()
 	local fn = GetMouseFocus():GetName()
 	local f = _G[fn]
 	print("|cFF50C0FF".."<---------------------------------------------->".."|r")
-	print("|cFF50C0FF".."框架:".."|r", fn)
+	print("|cFF50C0FF".."Frame:".."|r", fn)
 	local p = f:GetParent()
-	print("|cFF50C0FF".."上一層:".."|r", p:GetName())
+	print("|cFF50C0FF".."Parent:".."|r", p:GetName())
 	for i = 1, f:GetNumPoints() do
 		local point, relativeTo, relativePoint, xOfs, yOfs = f:GetPoint(i)
 		if relativeTo then
 			print(i..".", "|cFF50C0FF".."p:".."|r", point, "|cFF50C0FF".."rfn:".."|r", relativeTo:GetName(), "|cFF50C0FF".."rp:".."|r", relativePoint, "|cFF50C0FF".."x:".."|r", xOfs, "|cFF50C0FF".."y:".."|r", yOfs)
 		end
 	end
-	print("|cFF50C0FF".."寬:".."|r", f:GetWidth())
-	print("|cFF50C0FF".."高:".."|r", f:GetHeight())
+	print("|cFF50C0FF".."Width:".."|r", f:GetWidth())
+	print("|cFF50C0FF".."Height:".."|r", f:GetHeight())
 end

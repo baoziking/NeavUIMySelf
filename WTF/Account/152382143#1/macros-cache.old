@@ -28,7 +28,8 @@ VER 3 0000000000000008 " " "INV_MISC_QUESTIONMARK"
 END
 VER 3 000000000000000B " " "INV_MISC_QUESTIONMARK"
 #showtooltip
-/use [nocombat,outdoors,flyable]熊猫人风筝; [nocombat,outdoors,noflyable]拳手的健壮穆山兽
+/cancelaura 坐在阿薯中
+/use [nocombat,outdoors,flyable]熊猫人风筝; [nocombat,outdoors,noflyable]勇猛的作战淡水兽
 END
 VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
 #showtooltip

@@ -1,0 +1,96 @@
+VER 3 0100000000000001 " " "INV_MISC_QUESTIONMARK"
+#showtooltip 冲锋
+/startattack 
+/cancelaura 剑刃风暴 
+/cast 冲锋
+END
+VER 3 0100000000000002 " " "INV_MISC_QUESTIONMARK"
+#showtooltip 
+/cancelaura 剑刃风暴
+/cast [@focus]风暴之锤
+END
+VER 3 0100000000000003 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [@focus]破胆怒吼
+END
+VER 3 0100000000000008 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast 巨人打击
+/cast 怒火聚焦
+/use 11
+END
+VER 3 0100000000000004 " " "INV_MISC_QUESTIONMARK"
+#showtooltip 冲锋
+/cancelaura 剑刃风暴
+/cancelaura 保护之手
+/cast [@focus,harm]冲锋
+/cast [@focus,harm]断筋
+/cast [@focus,harm]拦截
+END
+VER 3 0100000000000005 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/stopattack
+/cancelaura 剑刃风暴
+/cast 拳击
+END
+VER 3 0100000000000006 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/stopattack
+/cancelaura 剑刃风暴
+/cast [@focus]拳击
+END
+VER 3 0100000000000009 " " "INV_MISC_QUESTIONMARK"
+#showtooltip 
+/cancelaura 剑刃风暴
+/cast 风暴之锤
+END
+VER 3 0100000000000010 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/focus arena2
+/cast 致死打击
+END
+VER 3 010000000000000B " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast 灭战者
+/cast 巨人打击
+END
+VER 3 010000000000000D " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast 斩杀
+/cast 怒火聚焦
+/use 11
+END
+VER 3 010000000000000E " " "INV_MISC_QUESTIONMARK"
+#showtooltip 狂暴之怒
+/use 13
+/cast 狂暴之怒
+END
+VER 3 010000000000000F " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast 英勇投掷
+/cast 断筋
+END
+VER 3 0100000000000011 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast 剑刃风暴
+END
+VER 3 010000000000000A " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [talent:6/2] 天神下凡; [talent:6/3] 致命平静;
+/use 14
+END
+VER 3 0100000000000012 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast [talent:3/2] 旋风斩; 猛击
+END
+VER 3 0100000000000013 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast 缴械(PvP天赋)
+END
+VER 3 0100000000000014 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴 
+/cast [@focus]缴械(PvP天赋)
+END

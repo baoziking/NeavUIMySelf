@@ -1,10 +1,16 @@
-lightweight tag 1a4a504151e6195fcd3db5f5ed24e3e4ccc92a95 1.1.1
+lightweight tag 5abcb560c0e4a8f25a192e92e2904cff699d15b3 1.1.2
 Author:	vendethiel <vendethiel@hotmail.fr>
-Date:	Mon Sep 3 00:02:55 2018 +0200
+Date:	Mon Sep 10 21:27:16 2018 +0200
 
-commit 1a4a504151e6195fcd3db5f5ed24e3e4ccc92a95
+commit 5abcb560c0e4a8f25a192e92e2904cff699d15b3
 Author: vendethiel <vendethiel@hotmail.fr>
-Date:   Mon Sep 3 00:02:55 2018 +0200
+Date:   Mon Sep 10 21:27:16 2018 +0200
 
-    fake change
+    further fixes to unitbar
+
+commit 972ea305b2db4b62cb30c690fa40463ef480336e
+Author: vendethiel <vendethiel@hotmail.fr>
+Date:   Mon Sep 10 20:37:11 2018 +0200
+
+    fix #13, fix #16, fix #17
 

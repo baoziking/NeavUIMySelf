@@ -1,0 +1,382 @@
+2018-09-01
+----------
+v: 3.12
+----------
+
+Added yell support
+
+A custom recovery message of "-" now disables the recovery announcement
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2018-07-20
+----------
+v: 3.11
+----------
+
+Fixed bug following game API update
+
+Updated interface number to remove 'out of date addon' warnings
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2018-05-12
+----------
+v: 3.10
+----------
+
+Changed default chat channels away from party
+
+Improved detection of spell school locking
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2017-12-14
+----------
+v: 3.9.1
+----------
+
+Updated interface number to remove 'out of date addon' warnings
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2017-08-12
+----------
+v: 3.9
+----------
+
+Changed how the debuff watch checkboxes have their config saved
+
+Airborne message now uses same player role config as other messages
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2017-07-16
+----------
+v: 3.8
+----------
+
+Fixed bug that meant the first report of a problem ignored your min debuff time configuration
+
+Fixed bug that meant the recovery message could be sent when the initial message wasn't
+
+Fixed bug that meant some debug messages ended up in chat
+
+Improved logic around when to say the recovery message
+
+Added spec & role updates to a couple of game events to ensure I'm working with the correct role
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2017-07-05
+----------
+v: 3.7
+----------
+
+Fixed bug with 'player is airborne' alert introduced by an API change at some point
+
+Added ability to toggle the falling message in the options panel
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2017-06-03
+----------
+v: 3.6
+----------
+
+Updated interface number to remove 'out of date addon' warnings
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2015-10-07
+----------
+v: 3.5
+----------
+
+Minor change - reduced sensitivity of "player is airborne" message and updated interface number to stop the addon seeming out of date
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2015-01-03
+----------
+v: 3.4
+----------
+
+Made it possible to customise the whole announcement message, not just the second part
+
+(If you have already customised the second part of the message, to make it look like before start the message with "%REF ")
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2015-01-01
+----------
+v: 3.3
+----------
+
+Fixed possible error in messaging code
+
+Moved Charge as a named debuff from stun to root
+
+Fixed detection of phrases disoriented and sapped under incap
+
+Fixed usage of the min debuff time config
+
+Added ability to customise the second part of the announcements (i.e. The healer (Shamlot) {your text here})
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-12-30
+----------
+v: 3.2
+----------
+
+Fixed numerous messaging issues, including requiring a group to use the SAY channel and missing/repeated callouts
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-12-29
+----------
+v: 3.1
+----------
+
+Stopped messages appearing too close to each other near the end (avoids "1 second remaining", "no longer..." chat spam)
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-12-29
+----------
+v: 3.0
+----------
+
+Added support for multiple languages (translations require completion)
+
+Changed storage of configs, so that they are now not only per character, but also per role (dps/healer/tank)
+
+Fixed a bug introduced in v2.6 with the 'say' channel
+
+Some behind-the-scenes improvements
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-11-09
+----------
+v: 2.6
+----------
+
+Added detection of charm effects
+
+Changed the time between callouts to dynamically increase for longer debuffs
+
+Added the 'say' channel
+
+Some behind-the-scenes improvements
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-08-24
+----------
+v: 2.5
+----------
+
+Major bugfix: Fixed issue wherein the addon was incorrectly detecting a player's status regarding instances
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-04-17
+----------
+v: 2.4
+----------
+
+Some behind-the-scenes improvements and tidy ups
+
+Fixed a recurring bug with improperly procced "player falling" message when spamming jump
+
+Added this changelog, for those who might be interested
+
+Added separate lua file (debuffDB.lua) for managing additions to the matched names/descriptions.
+The idea behind this is to potentially set up a separate database update for this one file, rather than updating the whole addon via Curse just to add a new description
+Feel free to modify this yourself, but be aware that it will be overwritten when the addon updates
+
+[Future changes]
+I am hoping to add a custom debuff name and description matcher in the options panel at some point.
+This will mean that if a debuff doesn't get noticed by the addon, you can hover over the debuff and manually add it's name/description to your player's config
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-02-22
+----------
+v: 2.3.1
+----------
+
+Fixed bug introduced in last update, blocking messages.
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-02-01
+----------
+v: 2.3
+----------
+
+Added 'sleep' debuff
+
+Made debuff list in config panel show in alphabetical order.
+
+Fixed bug wherein excessive jumping could proc either the 'airborne' or 'landed' message
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-02-01
+----------
+v: 2.2
+----------
+
+Reformatted some of the config page elements.
+
+Added config for "min debuff time" - current choices are "any", "2 sec", "3 sec" - this allows you to stop particularly short debuffs from being mentioned.
+
+Some behind-the-scenes improvements.
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-25
+----------
+v: 2.1
+----------
+
+Added GUI options in the Interface > Addons menu.
+
+There are now easy checkboxes to toggle certain debuff types, and selection boxes to choose what channel the messages should be broadcast to when in a 5-man instance or a raid
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-24
+----------
+v: 1.5
+----------
+
+Increased time airborne required to proc the "Player airborne" message
+
+Added ability to enable/disable certain debuff types
+
+Added ability to select whether you want the warnings to be broadcast to your party, or the instance/raid you are in (separate settings for instances and raids)
+
+Added ability to check the current status of specific or all debuff checks
+
+New commands:
+
+"/lsctrl disable fear" = Stops the addon looking for and alerting for fear related debuffs
+"/lsctrl enable slow" = Tells the addon to also check for slow effects (slow is disabled by default)
+"/lsctrl status root" = Tells you whether root effects are currently being watched or not
+"/lsctrl status" = Tells you the watch status of all debuff types
+"/lsctrl instchan i" = Broadcast to the /instance channel when you are in a 5-man instance
+"/lsctrl raidchan p" = Broadcast to the /party channel (the default for raid and instance)
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-11
+----------
+v: 1.3
+----------
+
+Fixed 'player been sent flying' announcement. No longer procs for short falls, message also changed to "is airborne"
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-11
+----------
+v: 1.2
+----------
+
+Bug fix for spell links in channel messages
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-11
+----------
+v: 1.1
+----------
+
+Major bug fix regarding follow up announcements from the same debuff/debuff category.
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-11
+----------
+v: 1
+----------
+
+Improved rooting detection and a slightly larger delay between repeated announcements.
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-10
+----------
+v: 0.8a
+----------
+
+Improved debuff detection accuracy
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+
+
+2014-01-10
+----------
+
+First version
+
+
+-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+

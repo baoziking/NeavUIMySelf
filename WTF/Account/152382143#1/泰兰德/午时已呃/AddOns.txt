@@ -1,7 +1,7 @@
 oUF_NeavRaid: enabled
 Immersion: disabled
 SimpleChat: enabled
-!KalielsTracker: enabled
+!KalielsTracker: disabled
 ObeliskQuest: enabled
 !Beautycase: enabled
 !Colorz: enabled
@@ -72,3 +72,14 @@ DBM-DMF: enabled
 DBM-DefaultSkin: enabled
 TMW_Script_Tools: enabled
 nChat: disabled
+AdiBags: enabled
+AdiBags_Config: enabled
+AnyFont: enabled
+AutoBar: enabled
+LoseControl: enabled
+Postal: enabled
+TinyCharacterStats: enabled
+TinyInspect: enabled
+TinyUntitled: enabled
+nMinimap: enabled
+Rematch: enabled

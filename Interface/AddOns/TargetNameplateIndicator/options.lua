@@ -42,10 +42,6 @@ local TEXTURE_NAMES = {
 	"Q_RedTarget",
 	"Q_WhiteTarget",
 	"Hunters_Mark",
-	"whitearrow1",
-	"greenarrow1",
-	"redarrow1",
-	"NeonWhiteArrow",
 }
 
 -- Add the directory prefix to the texture names and localise the descriptions
@@ -303,7 +299,7 @@ local function CreateUnitConfigTable(unit)
 end
 
 local options = {
-	name = L["Target Nameplate Indicator"],
+	name = "Target Nameplate Indicator",
 	type = "group",
 	args = {
 		indicators = {
@@ -332,7 +328,6 @@ local slash = slashes[1]
 function TNI:HandleChatCommand(input)
 	if input:trim() == "" then
 		InterfaceOptionsFrame_OpenToCategory(frameref)
-		InterfaceOptionsFrame_OpenToCategory(frameref)
 	else
 		self:ACC_HandleCommand(slash, addon, input)
 	end
@@ -341,7 +336,7 @@ end
 function TNI:RegisterOptions()
 	options.args.profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
 	ACR:RegisterOptionsTable(addon, options)
-	frameref = ACD:AddToBlizOptions(addon, L[addon])
+	frameref = ACD:AddToBlizOptions(addon)
 	for _, cmd in ipairs(slashes) do
 		self:RegisterChatCommand(cmd, "HandleChatCommand")
 	end

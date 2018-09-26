@@ -112,7 +112,7 @@ function MovAny:CreatePortDialog()
 	profileLabel:SetHeight(20)
 	profileLabel:SetJustifyH("LEFT")
 	profileLabel:SetPoint("TOPLEFT", profileCheck, "TOPRIGHT", 1, 2)
-	profileLabel:SetText("設定檔")
+	profileLabel:SetText("Profile")
 
 
 	textCheck:SetPoint("TOPLEFT", profileLabel, "TOPRIGHT", 9, -2)
@@ -147,7 +147,7 @@ function MovAny:CreatePortDialog()
 	textLabel:SetHeight(20)
 	textLabel:SetJustifyH("LEFT")
 	textLabel:SetPoint("TOPLEFT", textCheck, "TOPRIGHT", 1, 2)
-	textLabel:SetText("文字字串")
+	textLabel:SetText("Text String")
 
 	profileDropDownButton:SetID(1)
 	profileDropDownButton:SetScript("OnClick", function(self) 
@@ -160,7 +160,7 @@ function MovAny:CreatePortDialog()
 	profileNoneLabel:SetHeight(20)
 	profileNoneLabel:SetJustifyH("LEFT")
 	profileNoneLabel:SetPoint("TOPLEFT", dirLabel, "BOTTOMLEFT", 0, -10)
-	profileNoneLabel:SetText("沒有設定檔調整過這個框架")
+	profileNoneLabel:SetText("No profiles has modified this frame")
 
 	textEditBox:SetFontObject("GameFontHighlightSmall")
 	textEditBox:SetSize(311, 20)
@@ -260,26 +260,26 @@ function MovAny:CreatePortDialog()
 		local s = ""
 		local dir = ""
 		if mode == 1 then
-			s = "匯入"
-			dir = "來源"
+			s = "Import"
+			dir = "From"
 		else
-			s = "匯出"
-			dir = "成為"
+			s = "Export"
+			dir = "To"
 		end
 		actionButton:SetText(s)
 		if fn then
 			s = s..":"
 		else
-			s = s.." 設定檔"
+			s = s.." profile"
 		end
 		actionLabel:SetText(s)
 		if fn then
 			frameNameLabel:SetText(fn)
 			frameNameLabel:Show()
-			profileNoneLabel:SetText("沒有設定檔調整過這個框架")
+			profileNoneLabel:SetText("No profile has modified this frame")
 		else
 			frameNameLabel:Hide()
-			profileNoneLabel:SetText("沒有可用的設定檔")
+			profileNoneLabel:SetText("No profiles available")
 		end
 
 		dirLabel:SetText(dir..":")

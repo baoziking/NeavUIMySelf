@@ -78,114 +78,9 @@ do
 
 	defaults = {
 		profile = {
-			target = {
-				enable = true,
-				self = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\NeonWhiteArrow",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = -5,
-				},
-				friendly = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\NeonGreenArrow",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = -5,
-				},
-				hostile = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\NeonRedArrow",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = 22,
-				}
-			},
-			mouseover = {
-				enable = true,
-				self = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\whitearrow1",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = -10,
-				},
-				friendly = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\greenarrow1",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = -10,
-				},
-				hostile = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\redarrow1",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = 5,
-				}
-			},
-			focus = {
-				enable = true,
-				self = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\Q_WhiteTarget",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = -10,
-				},
-				friendly = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\Q_GreenTarget",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = -12,
-				},
-				hostile = {
-					enable = true,
-					texture = "Interface\\AddOns\\TargetNameplateIndicator\\Textures\\Q_RedTarget",
-					height = 50,
-					width = 50,
-					opacity = 1,
-					texturePoint = "BOTTOM",
-					anchorPoint = "TOP",
-					xOffset = 0,
-					yOffset = 16,
-				}
-			}
+			target = CreateUnitDefaults(),
+			mouseover = CreateUnitDefaults(),
+			focus = CreateUnitDefaults(),
 		}
 	}
 end
@@ -238,8 +133,6 @@ function Indicator:Update(nameplate)
 	self.Texture:ClearAllPoints()
 
 	local unitConfig = TNI.db.profile[self.unit]
-	-- 暫時修正
-	if not unitConfig then return end
 	local config = UnitIsUnit("player", self.unit) and unitConfig.self or UnitIsFriend("player", self.unit) and unitConfig.friendly or unitConfig.hostile
 
 	self:SetShown(unitConfig.enable)

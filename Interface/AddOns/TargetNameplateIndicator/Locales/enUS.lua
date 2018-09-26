@@ -83,9 +83,5 @@ L["Usage.AnyNumber"] = "Must be a number"
 L["Usage.FractionalNumber"] = "Must be a number between 0 and 1"
 L["Usage.PositiveNumber"] = "Must be a positive number"
 
-L["TargetNameplateIndicator"] = "TargetNameplateIndicator"
-L["Target Nameplate Indicator"] = "Target Nameplate Indicator"
-L["Dropdown.Texture.whitearrow1.Desc"] = "Abstract style white arrow pointing downwards"
-L["Dropdown.Texture.greenarrow1.Desc"] = "Abstract style green arrow pointing downwards"
-L["Dropdown.Texture.redarrow1.Desc"] = "Abstract style red arrow pointing downwards"
-L["Dropdown.Texture.NeonWhiteArrow.Desc"] = "White version of the neon red arrow"
+
+
