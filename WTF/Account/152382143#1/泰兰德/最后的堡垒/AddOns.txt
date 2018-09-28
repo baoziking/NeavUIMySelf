@@ -1,7 +1,7 @@
 oUF_NeavRaid: enabled
 Immersion: disabled
 SimpleChat: enabled
-!KalielsTracker: disabled
+!KalielsTracker: enabled
 ObeliskQuest: enabled
 !Beautycase: enabled
 !Colorz: enabled

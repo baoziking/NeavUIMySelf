@@ -16,7 +16,7 @@ CustomFonts-Fonter: enabled
 GladiusEx: enabled
 HandyNotes: enabled
 HandyNotes_Arathi: enabled
-!KalielsTracker: disabled
+!KalielsTracker: enabled
 Leatrix_Plus: enabled
 LoseControl: enabled
 MoveAnything: enabled

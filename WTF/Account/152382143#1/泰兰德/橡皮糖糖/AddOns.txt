@@ -3,7 +3,7 @@ nMainbar: enabled
 Bartender4: disabled
 Immersion: disabled
 SimpleChat: enabled
-!KalielsTracker: disabled
+!KalielsTracker: enabled
 ObeliskQuest: enabled
 !Beautycase: enabled
 !Colorz: enabled

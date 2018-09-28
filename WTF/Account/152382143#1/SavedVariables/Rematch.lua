@@ -24,13 +24,13 @@ RematchSettings = {
 		["BattlePet-0-000004C3F5E1"] = true,
 		["BattlePet-0-000004C3F60D"] = true,
 		["BattlePet-0-000004C3F613"] = true,
-		["BattlePet-0-000004C3F610"] = true,
+		["BattlePet-0-000004C3F633"] = true,
 		["BattlePet-0-000004C3F635"] = true,
 		["BattlePet-0-000004C3F5AA"] = true,
-		["BattlePet-0-000004C3F633"] = true,
+		["BattlePet-0-000004C3F610"] = true,
 	},
 	["PreferredMode"] = 1,
-	["Width"] = 295.999816894531,
+	["ActivePanel"] = 1,
 	["Sanctuary"] = {
 	},
 	["YPos"] = 297.999969482422,
@@ -57,10 +57,11 @@ RematchSettings = {
 			"-- 拥有三个或以上非自身宠物类型的攻击型技能的宠物。\n\nlocal count = 0\nfor _,abilityID in ipairs(abilityList) do\n  local abilityType,noHints = select(7, C_PetBattles.GetAbilityInfoByID(abilityID) )\n  if not noHints and abilityType~=petType then\n    count = count + 1\n  end\nend\n\nreturn count>=3\n", -- [2]
 		}, -- [5]
 	},
-	["QueueSortOrder"] = 1,
+	["SpecialSlots"] = {
+	},
 	["XPos"] = 781.666687011719,
-	["ShowSideBar"] = false,
-	["LevelingQueue"] = {
+	["NewTeamFormat"] = true,
+	["FavoriteFilters"] = {
 	},
 	["TeamGroups"] = {
 		{
@@ -73,13 +74,13 @@ RematchSettings = {
 		},
 		["Script"] = {
 		},
-		["Moveset"] = {
+		["Types"] = {
 		},
-		["Tough"] = {
+		["Favorite"] = {
 		},
-		["Level"] = {
+		["Collected"] = {
 		},
-		["Sources"] = {
+		["Strong"] = {
 		},
 		["Similar"] = {
 		},
@@ -87,39 +88,38 @@ RematchSettings = {
 		},
 		["Rarity"] = {
 		},
-		["Strong"] = {
+		["Sources"] = {
 		},
-		["Collected"] = {
+		["Level"] = {
 		},
-		["Favorite"] = {
+		["Tough"] = {
 		},
-		["Types"] = {
-		},
-	},
-	["loginFilters"] = {
-		["sortOrder"] = {
-			["order"] = 3,
-		},
-		["collected"] = false,
-		["notCollected"] = false,
-		["types"] = {
+		["Moveset"] = {
 		},
 	},
+	["Width"] = 295.999816894531,
 	["CollapsedOptHeaders"] = {
 	},
-	["JournalPanel"] = 1,
-	["NewTeamFormat"] = true,
-	["SpecialSlots"] = {
+	["LevelingQueue"] = {
 	},
+	["ShowSideBar"] = false,
+	["QueueSortOrder"] = 1,
 	["Y"] = 290.333435058594,
 	["X"] = 1353.66638183594,
 	["CornerPos"] = "BOTTOMLEFT",
 	["LevelingTimeline"] = {
 	},
 	["Height"] = 450,
-	["FavoriteFilters"] = {
+	["JournalPanel"] = 1,
+	["loginFilters"] = {
+		["collected"] = false,
+		["sortOrder"] = {
+			["order"] = 3,
+		},
+		["notCollected"] = false,
+		["types"] = {
+		},
 	},
-	["ActivePanel"] = 1,
 	["PetNotes"] = {
 	},
 }

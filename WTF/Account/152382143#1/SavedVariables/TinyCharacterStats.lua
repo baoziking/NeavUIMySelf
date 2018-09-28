@@ -954,7 +954,7 @@ TinyCharacterStatsDB = {
 		}, -- [34]
 		["uniqueKey"] = "最后的堡垒:泰兰德:1",
 	},
-	["大魔王一号:泰兰德:1"] = {
+	["大魔王三号:泰兰德:3"] = {
 		{
 			["statKey"] = "ItemLevelFrame",
 		}, -- [1]
@@ -1058,7 +1058,7 @@ TinyCharacterStatsDB = {
 		{
 			["statKey"] = "SPEED",
 		}, -- [34]
-		["uniqueKey"] = "大魔王一号:泰兰德:1",
+		["uniqueKey"] = "大魔王三号:泰兰德:3",
 	},
 	["大魔王二号:泰兰德:1"] = {
 		{
@@ -1166,7 +1166,7 @@ TinyCharacterStatsDB = {
 		}, -- [34]
 		["uniqueKey"] = "大魔王二号:泰兰德:1",
 	},
-	["大魔王三号:泰兰德:3"] = {
+	["大魔王一号:泰兰德:1"] = {
 		{
 			["statKey"] = "ItemLevelFrame",
 		}, -- [1]
@@ -1270,6 +1270,6 @@ TinyCharacterStatsDB = {
 		{
 			["statKey"] = "SPEED",
 		}, -- [34]
-		["uniqueKey"] = "大魔王三号:泰兰德:3",
+		["uniqueKey"] = "大魔王一号:泰兰德:1",
 	},
 }
