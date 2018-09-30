@@ -36,6 +36,10 @@ VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
 /cancelaura 剑刃风暴 
 /cast [@focus]断筋
 END
+VER 3 000000000000000E " " "INV_MISC_QUESTIONMARK"
+/use 重振雄风药水
+/use 治疗石
+END
 VER 3 000000000000000A " P2" "INV_MISC_QUESTIONMARK"
 /cast 战旗(PvP天赋)
 /cast 法术反射(PvP天赋)

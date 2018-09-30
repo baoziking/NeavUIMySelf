@@ -29,7 +29,7 @@ END
 VER 3 000000000000000B " " "INV_MISC_QUESTIONMARK"
 #showtooltip
 /cancelaura 坐在阿薯中
-/use [nocombat,outdoors,flyable]熊猫人风筝; [nocombat,outdoors,noflyable]勇猛的作战淡水兽
+/use [nocombat,outdoors,flyable]熊猫人风筝; [nocombat,outdoors,noflyable]邪恶战熊
 END
 VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
 #showtooltip

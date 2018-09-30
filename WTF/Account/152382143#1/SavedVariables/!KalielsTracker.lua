@@ -1,25 +1,28 @@
 
 KalielsTrackerDB = {
 	["char"] = {
-		["大魔王一号 - 泰兰德"] = {
-			["collapsed"] = true,
-		},
 		["大魔王五号 - 泰兰德"] = {
 			["collapsed"] = true,
 		},
-		["天降正义额 - 泰兰德"] = {
+		["大魔王一号 - 泰兰德"] = {
 			["collapsed"] = true,
 		},
 		["大黄虎 - 泰兰德"] = {
 			["collapsed"] = true,
 		},
-		["大魔王的爹 - 泰兰德"] = {
+		["天降正义额 - 泰兰德"] = {
 			["collapsed"] = true,
 		},
 		["大魔王四号 - 泰兰德"] = {
 			["collapsed"] = true,
 		},
+		["大魔王的爹 - 泰兰德"] = {
+			["collapsed"] = true,
+		},
 		["大魔王三号 - 泰兰德"] = {
+			["collapsed"] = true,
+		},
+		["橡皮糖糖 - 泰兰德"] = {
 			["collapsed"] = true,
 		},
 	},

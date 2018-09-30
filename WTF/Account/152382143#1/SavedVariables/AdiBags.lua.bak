@@ -1,8 +1,5 @@
 
 AdiBagsDB = {
-	["global"] = {
-		["muteBugGrabber"] = true,
-	},
 	["namespaces"] = {
 		["ItemLevel"] = {
 		},
@@ -21,11 +18,11 @@ AdiBagsDB = {
 		},
 		["MoneyFrame"] = {
 		},
-		["CurrencyFrame"] = {
-		},
 		["DataSource"] = {
 		},
 		["ItemSets"] = {
+		},
+		["CurrencyFrame"] = {
 		},
 		["Junk"] = {
 		},
@@ -45,6 +42,9 @@ AdiBagsDB = {
 		["大魔王的爹 - 泰兰德"] = "Default",
 		["大魔王五号 - 泰兰德"] = "Default",
 		["橡皮糖糖 - 泰兰德"] = "Default",
+	},
+	["global"] = {
+		["muteBugGrabber"] = true,
 	},
 	["profiles"] = {
 		["Default"] = {
