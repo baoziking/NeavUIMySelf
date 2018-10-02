@@ -18,16 +18,19 @@ AdiBagsDB = {
 		},
 		["MoneyFrame"] = {
 		},
+		["CurrencyFrame"] = {
+		},
 		["DataSource"] = {
 		},
 		["ItemSets"] = {
-		},
-		["CurrencyFrame"] = {
 		},
 		["Junk"] = {
 		},
 		["Equipment"] = {
 		},
+	},
+	["global"] = {
+		["muteBugGrabber"] = true,
 	},
 	["profileKeys"] = {
 		["大魔王一号 - 泰兰德"] = "Default",
@@ -43,9 +46,6 @@ AdiBagsDB = {
 		["大魔王五号 - 泰兰德"] = "Default",
 		["橡皮糖糖 - 泰兰德"] = "Default",
 	},
-	["global"] = {
-		["muteBugGrabber"] = true,
-	},
 	["profiles"] = {
 		["Default"] = {
 			["virtualStacks"] = {
@@ -60,6 +60,13 @@ AdiBagsDB = {
 			["bagFont"] = {
 				["name"] = "聊天",
 			},
+			["positions"] = {
+				["anchor"] = {
+					["xOffset"] = -42.000244140625,
+					["yOffset"] = 144.16633605957,
+				},
+			},
+			["rightClickConfig"] = false,
 			["sectionFont"] = {
 				["name"] = "聊天",
 			},

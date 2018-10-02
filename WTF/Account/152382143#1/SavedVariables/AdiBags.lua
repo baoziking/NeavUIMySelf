@@ -1,18 +1,7 @@
 
 AdiBagsDB = {
-	["profileKeys"] = {
-		["大魔王一号 - 泰兰德"] = "Default",
-		["最后的堡垒 - 泰兰德"] = "Default",
-		["午时已呃 - 泰兰德"] = "Default",
-		["大黄虎 - 泰兰德"] = "Default",
-		["橡皮糖糖 - 泰兰德"] = "Default",
-		["大魔王五号 - 泰兰德"] = "Default",
-		["猪猪胖 - 泰兰德"] = "Default",
-		["天降正义额 - 泰兰德"] = "Default",
-		["大魔王二号 - 泰兰德"] = "Default",
-		["大魔王的爹 - 泰兰德"] = "Default",
-		["大魔王四号 - 泰兰德"] = "Default",
-		["大魔王三号 - 泰兰德"] = "Default",
+	["global"] = {
+		["muteBugGrabber"] = true,
 	},
 	["namespaces"] = {
 		["ItemLevel"] = {
@@ -32,19 +21,30 @@ AdiBagsDB = {
 		},
 		["Equipment"] = {
 		},
+		["DataSource"] = {
+		},
 		["ItemSets"] = {
 		},
 		["CurrencyFrame"] = {
-		},
-		["DataSource"] = {
 		},
 		["Junk"] = {
 		},
 		["MoneyFrame"] = {
 		},
 	},
-	["global"] = {
-		["muteBugGrabber"] = true,
+	["profileKeys"] = {
+		["大魔王一号 - 泰兰德"] = "Default",
+		["最后的堡垒 - 泰兰德"] = "Default",
+		["午时已呃 - 泰兰德"] = "Default",
+		["大黄虎 - 泰兰德"] = "Default",
+		["橡皮糖糖 - 泰兰德"] = "Default",
+		["大魔王五号 - 泰兰德"] = "Default",
+		["猪猪胖 - 泰兰德"] = "Default",
+		["天降正义额 - 泰兰德"] = "Default",
+		["大魔王二号 - 泰兰德"] = "Default",
+		["大魔王的爹 - 泰兰德"] = "Default",
+		["大魔王四号 - 泰兰德"] = "Default",
+		["大魔王三号 - 泰兰德"] = "Default",
 	},
 	["profiles"] = {
 		["Default"] = {
@@ -60,6 +60,13 @@ AdiBagsDB = {
 			["bagFont"] = {
 				["name"] = "聊天",
 			},
+			["positions"] = {
+				["anchor"] = {
+					["xOffset"] = -42.000244140625,
+					["yOffset"] = 144.16633605957,
+				},
+			},
+			["rightClickConfig"] = false,
 			["sectionFont"] = {
 				["name"] = "聊天",
 			},

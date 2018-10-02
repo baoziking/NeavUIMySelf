@@ -1,3 +1,10 @@
+09/30/2018 version 4.8.9
+- MacOS users will get a one-time popup that says:
+
+Attention MacOS users:
+If the game occasionally crashes when you open Rematch, and you'd like to help troubleshoot, an experimental version of the addon is available at the URL below for testing solutions. Thank you for your patience!
+http://www.wowinterface.com/downloads/info24832-Rematch-Experimental.html
+
 09/23/2018 version 4.8.8
 - Fix for checkbutton missing on default journal to enable rematch+journal integration.
 - deDE localization updated by Huk (EU-Thrall)

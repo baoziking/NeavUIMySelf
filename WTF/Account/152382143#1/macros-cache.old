@@ -36,9 +36,40 @@ VER 3 0000000000000005 " " "INV_MISC_QUESTIONMARK"
 /cancelaura 剑刃风暴 
 /cast [@focus]断筋
 END
+VER 3 000000000000000E " " "INV_MISC_QUESTIONMARK"
+/use 重振雄风药水
+/use 治疗石
+END
+VER 3 0000000000000012 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cancelaura 剑刃风暴
+/cast 破胆怒吼
+END
+VER 3 0000000000000013 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/cast 鲁莽
+/use 14
+END
+VER 3 000000000000000F " " "INV_MISC_QUESTIONMARK"
+/use 13
+END
+VER 3 0000000000000014 " " "INV_MISC_QUESTIONMARK"
+#showtooltip
+/focus arena2
+/cast 嗜血
+END
 VER 3 000000000000000A " P2" "INV_MISC_QUESTIONMARK"
 /cast 战旗(PvP天赋)
 /cast 法术反射(PvP天赋)
+END
+VER 3 0000000000000011 "EQUIP1" "INV_MISC_QUESTIONMARK"
+/unequip 悚然角斗士的巨剑
+/unequip 悚然角斗士的碾骨锤
+/equip 悚然角斗士的巨剑
+END
+VER 3 0000000000000010 "EQUIP2" "INV_MISC_QUESTIONMARK"
+/equip 悚然角斗士的巨剑
+/equip 悚然角斗士的碾骨锤
 END
 VER 3 000000000000000D "fp3" "INV_MISC_QUESTIONMARK"
 /cast [@focus]缴械(PvP天赋)
@@ -60,4 +91,14 @@ VER 3 0000000000000002 "play" "INV_MISC_QUESTIONMARK"
 END
 VER 3 0000000000000001 "WQL" "1495827"
 /wql
+END
+VER 3 0000000000000016 "武器" "INV_MISC_QUESTIONMARK"
+#show
+/equipset 武器
+/run SetSpecialization(1)
+END
+VER 3 0000000000000015 "狂暴" "INV_MISC_QUESTIONMARK"
+#show
+/equipset 狂暴
+/run SetSpecialization(2)
 END

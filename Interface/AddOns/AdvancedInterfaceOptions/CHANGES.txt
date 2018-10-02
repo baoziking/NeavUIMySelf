@@ -1,26 +1,10 @@
-lightweight tag 9f6512cbc8e136791b6f506f23935f3b9b467e2a 1.2.4
+tag b559853a670a77d50234c761043d8b5d40bc3bde 1.2.6
 Author:	semlar <teslagraafs@gmail.com>
-Date:	Wed Jul 18 19:31:13 2018 -0400
+Date:	Sun Sep 30 17:28:52 2018 -0400
 
-commit 9f6512cbc8e136791b6f506f23935f3b9b467e2a
+commit 412b71dbd7f8f1057d2a29e5e9b99069f4214536
 Author: semlar <teslagraafs@gmail.com>
-Date:   Wed Jul 18 19:31:13 2018 -0400
+Date:   Sun Sep 30 17:10:40 2018 -0400
 
-    Visibly disabled "enforce settings" checkbox
-
-commit c3e3b2550c7853cda93007135f3089c883434f7a
-Author: semlar <teslagraafs@gmail.com>
-Date:   Wed Jul 18 19:28:12 2018 -0400
-
-    Removed entire Status Text page
-    
-    This is causing too many taint-related problems in its current form and needs to be cut, might come back later.
-
-commit 4d45e2f50a1b1d2e4c14593a177c8f97e06a48ab
-Author: semlar <teslagraafs@gmail.com>
-Date:   Wed Jul 18 19:22:57 2018 -0400
-
-    Disabled "enforce settings" setting
-    
-    Disabling "enforce settings" to keep the addon from showing the intro cinematic every time the character select screen is up
+    Wipe out old data, re-enable "enforce cvars" option, only record values which were manually modified through AIO
 

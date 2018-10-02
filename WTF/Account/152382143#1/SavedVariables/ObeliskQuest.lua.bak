@@ -10,10 +10,10 @@ OQ = {
 	},
 	["userTrackedQuests"] = {
 		[51149] = true,
-		[49036] = true,
+		[50026] = true,
 		[48504] = true,
 		[52948] = true,
-		[50026] = true,
+		[49036] = true,
 		[50349] = true,
 		[50544] = true,
 		[49225] = true,
