@@ -2,13 +2,13 @@
 AdvancedInterfaceOptionsSaved = {
 	["CustomVars"] = {
 	},
-	["DBVersion"] = 2,
+	["DBVersion"] = 3,
 	["ModifiedCVars"] = {
 		["lasttransmogoutfitidspec2"] = "...ce\\AddOns\\Blizzard_Collections\\Blizzard_Wardrobe.lua:469",
 		["camerapitchmovespeed"] = "Interface\\FrameXML\\OptionsPanelTemplates.lua:468",
 		["lasttransmogoutfitidspec3"] = "...ce\\AddOns\\Blizzard_Collections\\Blizzard_Wardrobe.lua:469",
 		["nameplateverticalscale"] = "Interface\\FrameXML\\InterfaceOptionsPanels.lua:1322",
-		["threatwarning"] = "...ce\\AddOns\\TidyPlatesContinuedHub\\functions\\Color.lua:557",
+		["threatwarning"] = "...ce\\AddOns\\TidyPlatesContinuedHub\\functions\\Scale.lua:170",
 		["raidgraphicsgroundclutter"] = "Interface\\SharedXML\\VideoOptionsPanels.lua:361",
 		["sound_outputdriverindex"] = "Interface\\FrameXML\\OptionsPanelTemplates.lua:204",
 		["raidgraphicsviewdistance"] = "Interface\\SharedXML\\VideoOptionsPanels.lua:361",
@@ -37,7 +37,7 @@ AdvancedInterfaceOptionsSaved = {
 		["miniworldmap"] = "Interface\\FrameXML\\QuestLogOwnerMixin.lua:78",
 		["camerayawmovespeed"] = "Interface\\FrameXML\\OptionsPanelTemplates.lua:468",
 		["activecufprofile"] = "...rd_CUFProfiles\\Blizzard_CompactUnitFrameProfiles.lua:264",
-		["petjournaltab"] = "...AddOns\\Blizzard_Collections\\Blizzard_Collections.lua:6",
+		["petjournaltab"] = "Interface\\FrameXML\\UIParent.lua:1936",
 		["minicommunitiesframe"] = "Interface\\SharedXML\\SharedUIPanelTemplates.lua:834",
 		["showquesttrackingtooltips"] = "Interface\\AddOns\\ObeliskQuest\\nameplates.lua:32",
 		["graphicsgroundclutter"] = "Interface\\SharedXML\\VideoOptionsPanels.lua:361",

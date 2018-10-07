@@ -2,7 +2,7 @@
 AdvancedInterfaceOptionsSaved = {
 	["CustomVars"] = {
 	},
-	["DBVersion"] = 2,
+	["DBVersion"] = 3,
 	["ModifiedCVars"] = {
 		["lasttransmogoutfitidspec2"] = "...ce\\AddOns\\Blizzard_Collections\\Blizzard_Wardrobe.lua:469",
 		["camerapitchmovespeed"] = "Interface\\FrameXML\\OptionsPanelTemplates.lua:468",
@@ -34,7 +34,7 @@ AdvancedInterfaceOptionsSaved = {
 		["profanityfilter"] = "Interface\\AddOns\\!HeXie\\HeXie.lua:4",
 		["blocktrades"] = "Interface\\AddOns\\Postal\\Modules\\TradeBlock.lua:30",
 		["ffxglow"] = "Interface\\AddOns\\!HeXie\\HeXie.lua:3",
-		["petjournaltab"] = "...AddOns\\Blizzard_Collections\\Blizzard_Collections.lua:6",
+		["petjournaltab"] = "Interface\\FrameXML\\UIParent.lua:1936",
 		["camerayawmovespeed"] = "Interface\\FrameXML\\OptionsPanelTemplates.lua:468",
 		["activecufprofile"] = "...rd_CUFProfiles\\Blizzard_CompactUnitFrameProfiles.lua:264",
 		["miniworldmap"] = "Interface\\FrameXML\\QuestLogOwnerMixin.lua:78",

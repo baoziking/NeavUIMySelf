@@ -16,188 +16,8 @@ MasterPlanAG = {
 SV_GarrisonMissionManager = {
 }
 IPMDB = {
-	["enableGarrisonMissions"] = false,
-	["ignores"] = {
-	},
 	["profiles"] = {
 		["橡皮糖糖-泰兰德"] = {
-			{
-				["description"] = "",
-				["cost"] = 20,
-				["isZoneSupport"] = false,
-				["locPrefix"] = "GarrMissionLocation-Darkshore",
-				["followers"] = {
-					"0x000000000773B592", -- [1]
-					"0x0000000007709FA7", -- [2]
-					"0x0000000007BF35BE", -- [3]
-				},
-				["inProgress"] = true,
-				["overmaxRewards"] = {
-					{
-						["title"] = "货币奖励",
-						["quantity"] = 150,
-						["icon"] = 2065624,
-						["currencyID"] = 1553,
-					}, -- [1]
-				},
-				["hasBonusEffect"] = true,
-				["missionEndTime"] = 1538475800,
-				["isMaxLevel"] = true,
-				["name"] = "从泰达希尔撤离",
-				["canStart"] = false,
-				["typeAtlas"] = "BfAMission-Icon-Normal",
-				["successChance"] = 200,
-				["followerTypeID"] = 22,
-				["offeredGarrMissionTextureID"] = 0,
-				["durationSeconds"] = 14400,
-				["completed"] = false,
-				["missionID"] = 1882,
-				["duration"] = "4小时",
-				["offerTimeRemaining"] = "0秒",
-				["charText"] = "|cffc69b6d橡皮糖糖|r-泰兰德",
-				["timeLeft"] = "4小时",
-				["iLevel"] = 800,
-				["mapPosY"] = 0,
-				["type"] = "",
-				["followerInfo"] = {
-					["0x0000000007709FA7"] = {
-						["displayHeight"] = 0.5,
-						["followerTypeID"] = 22,
-						["iLevel"] = 800,
-						["scale"] = 0.699999988079071,
-						["classAtlas"] = "GarrMission_ClassIcon-Hunter-Survival",
-						["isTroop"] = false,
-						["displayIDs"] = {
-							{
-								["followerPageScale"] = 1,
-								["showWeapon"] = true,
-								["id"] = 33239,
-							}, -- [1]
-						},
-						["displayScale"] = 1,
-						["status"] = "正在执行任务",
-						["level"] = 120,
-						["quality"] = 4,
-						["portraitIconID"] = 2026470,
-						["isFavorite"] = false,
-						["abilities"] = {
-							1062, -- [1]
-							1091, -- [2]
-							1090, -- [3]
-							1100, -- [4]
-						},
-						["xp"] = 0,
-						["className"] = "独狼",
-						["classSpec"] = 188,
-						["isMaxLevel"] = true,
-						["name"] = "约翰·J·基沙恩",
-						["followerID"] = "0x0000000007709FA7",
-						["height"] = 1,
-						["levelXP"] = 0,
-						["isCollected"] = true,
-						["garrFollowerID"] = 1069,
-					},
-					["0x0000000007BF35BE"] = {
-						["displayHeight"] = 0.5,
-						["followerTypeID"] = 22,
-						["iLevel"] = 1,
-						["scale"] = 0.699999988079071,
-						["classAtlas"] = "GarrMission_ClassIcon-Alliance",
-						["isTroop"] = true,
-						["displayIDs"] = {
-							{
-								["followerPageScale"] = 1,
-								["showWeapon"] = true,
-								["id"] = 56347,
-							}, -- [1]
-							{
-								["followerPageScale"] = 0.699999988079071,
-								["showWeapon"] = true,
-								["id"] = 19872,
-							}, -- [2]
-						},
-						["displayScale"] = 1,
-						["status"] = "正在执行任务",
-						["level"] = 120,
-						["quality"] = 2,
-						["portraitIconID"] = 1984903,
-						["isFavorite"] = false,
-						["abilities"] = {
-							1085, -- [1]
-							1138, -- [2]
-						},
-						["maxDurability"] = 2,
-						["durability"] = 1,
-						["xp"] = 0,
-						["className"] = "联盟部队",
-						["classSpec"] = 193,
-						["isMaxLevel"] = true,
-						["name"] = "埃索达卫士",
-						["followerID"] = "0x0000000007BF35BE",
-						["height"] = 1.20000004768372,
-						["levelXP"] = 1500,
-						["isCollected"] = true,
-						["garrFollowerID"] = 1070,
-					},
-					["0x000000000773B592"] = {
-						["displayHeight"] = 0.5,
-						["followerTypeID"] = 22,
-						["iLevel"] = 800,
-						["scale"] = 0.800000011920929,
-						["classAtlas"] = "GarrMission_ClassIcon-Technician",
-						["isTroop"] = false,
-						["displayIDs"] = {
-							{
-								["followerPageScale"] = 1,
-								["showWeapon"] = true,
-								["id"] = 31159,
-							}, -- [1]
-						},
-						["displayScale"] = 1.20000004768372,
-						["status"] = "正在执行任务",
-						["level"] = 120,
-						["quality"] = 4,
-						["portraitIconID"] = 2026468,
-						["isFavorite"] = false,
-						["abilities"] = {
-							1042, -- [1]
-							1098, -- [2]
-							1100, -- [3]
-							1101, -- [4]
-						},
-						["xp"] = 0,
-						["className"] = "秘密部队技师",
-						["classSpec"] = 190,
-						["isMaxLevel"] = true,
-						["name"] = "凯尔希·钢烁",
-						["followerID"] = "0x000000000773B592",
-						["height"] = 1.14999997615814,
-						["levelXP"] = 0,
-						["isCollected"] = true,
-						["garrFollowerID"] = 1068,
-					},
-				},
-				["timeLeftSeconds"] = 14400,
-				["overmaxSucceeded"] = false,
-				["basecost"] = 20,
-				["level"] = 120,
-				["numFollowers"] = 3,
-				["requiredSuccessChance"] = 0,
-				["areaID"] = 21,
-				["rewards"] = {
-					{
-						["title"] = "货币奖励",
-						["quantity"] = 163,
-						["icon"] = 2065624,
-						["currencyID"] = 1553,
-					}, -- [1]
-				},
-				["costCurrencyTypesID"] = 1560,
-				["location"] = "洛达内尔",
-				["isRare"] = false,
-				["mapPosX"] = 0,
-				["requiredChampionCount"] = 1,
-			}, -- [1]
 			{
 				["description"] = "",
 				["cost"] = 150,
@@ -211,9 +31,9 @@ IPMDB = {
 				["inProgress"] = true,
 				["overmaxRewards"] = {
 					{
-						["title"] = "货币奖励",
-						["quantity"] = 10,
 						["icon"] = 236521,
+						["quantity"] = 10,
+						["title"] = "货币奖励",
 						["currencyID"] = 1533,
 					}, -- [1]
 				},
@@ -227,13 +47,13 @@ IPMDB = {
 				["followerTypeID"] = 4,
 				["offeredGarrMissionTextureID"] = 0,
 				["durationSeconds"] = 46080,
-				["completed"] = false,
-				["missionID"] = 1406,
+				["requiredChampionCount"] = 1,
 				["duration"] = "12小时48分钟",
+				["iLevel"] = 835,
 				["offerTimeRemaining"] = "0秒",
 				["charText"] = "|cffc69b6d橡皮糖糖|r-泰兰德",
 				["timeLeft"] = "0秒",
-				["iLevel"] = 835,
+				["overmaxSucceeded"] = false,
 				["mapPosY"] = 0,
 				["type"] = "7.0 职业大厅 - 一般任务",
 				["followerInfo"] = {
@@ -264,27 +84,27 @@ IPMDB = {
 						["displayScale"] = 0.699999988079071,
 						["status"] = "正在执行任务",
 						["level"] = 100,
+						["garrFollowerID"] = 867,
+						["quality"] = 2,
+						["portraitIconID"] = 1401874,
+						["maxDurability"] = 3,
+						["isFavorite"] = false,
+						["levelXP"] = 200,
+						["classSpec"] = 100,
+						["slotSoundKitID"] = 68923,
+						["xp"] = 0,
+						["followerID"] = "0x00000000032BBCF9",
+						["name"] = "瓦尔基拉女武神",
+						["isMaxLevel"] = false,
 						["abilities"] = {
 							600, -- [1]
 							601, -- [2]
 						},
-						["quality"] = 2,
-						["portraitIconID"] = 1401874,
-						["isCollected"] = true,
-						["isFavorite"] = false,
-						["maxDurability"] = 3,
-						["durability"] = 3,
-						["slotSoundKitID"] = 68923,
-						["xp"] = 0,
 						["className"] = "女武神",
-						["classSpec"] = 100,
-						["isMaxLevel"] = false,
-						["name"] = "瓦尔基拉女武神",
-						["followerID"] = "0x00000000032BBCF9",
 						["height"] = 1.04999995231628,
-						["levelXP"] = 200,
+						["durability"] = 3,
 						["flavorText"] = "瓦尔基拉会挑选最强大的女武神为泰坦监护者艾尔效力。如果瓦尔基拉女武神英勇战死，则将会被选为传说的瓦格里。",
-						["garrFollowerID"] = 867,
+						["isCollected"] = true,
 					},
 					["0x000000000176EC6D"] = {
 						["displayHeight"] = 0.5,
@@ -306,6 +126,12 @@ IPMDB = {
 						["quality"] = 4,
 						["portraitIconID"] = 1452591,
 						["isFavorite"] = false,
+						["garrFollowerID"] = 708,
+						["slotSoundKitID"] = 70582,
+						["xp"] = 0,
+						["isCollected"] = true,
+						["levelXP"] = 200000,
+						["isMaxLevel"] = true,
 						["abilities"] = {
 							344, -- [1]
 							450, -- [2]
@@ -313,17 +139,11 @@ IPMDB = {
 							677, -- [4]
 							718, -- [5]
 						},
-						["slotSoundKitID"] = 70582,
-						["xp"] = 0,
 						["className"] = "武器战士",
-						["classSpec"] = 136,
-						["isMaxLevel"] = true,
-						["name"] = "拉格瓦尔德·龙脉",
-						["followerID"] = "0x000000000176EC6D",
 						["height"] = 1,
-						["levelXP"] = 200000,
-						["isCollected"] = true,
-						["garrFollowerID"] = 708,
+						["followerID"] = "0x000000000176EC6D",
+						["name"] = "拉格瓦尔德·龙脉",
+						["classSpec"] = 136,
 					},
 					["0x0000000001AE2AFA"] = {
 						["displayHeight"] = 0.5,
@@ -345,6 +165,12 @@ IPMDB = {
 						["quality"] = 4,
 						["portraitIconID"] = 1396679,
 						["isFavorite"] = false,
+						["garrFollowerID"] = 711,
+						["slotSoundKitID"] = 70552,
+						["xp"] = 0,
+						["isCollected"] = true,
+						["levelXP"] = 200000,
+						["isMaxLevel"] = true,
 						["abilities"] = {
 							343, -- [1]
 							451, -- [2]
@@ -352,40 +178,37 @@ IPMDB = {
 							757, -- [4]
 							758, -- [5]
 						},
-						["slotSoundKitID"] = 70552,
-						["xp"] = 0,
 						["className"] = "狂怒战士",
-						["classSpec"] = 137,
-						["isMaxLevel"] = true,
-						["name"] = "海姆达尔",
-						["followerID"] = "0x0000000001AE2AFA",
 						["height"] = 1,
-						["levelXP"] = 200000,
-						["isCollected"] = true,
-						["garrFollowerID"] = 711,
+						["followerID"] = "0x0000000001AE2AFA",
+						["name"] = "海姆达尔",
+						["classSpec"] = 137,
 					},
 				},
 				["timeLeftSeconds"] = 0,
-				["overmaxSucceeded"] = false,
+				["costCurrencyTypesID"] = 1220,
 				["basecost"] = 150,
-				["level"] = 110,
-				["numFollowers"] = 3,
-				["requiredSuccessChance"] = 0,
-				["areaID"] = 7334,
 				["rewards"] = {
 					{
-						["title"] = "货币奖励",
-						["quantity"] = 11,
 						["icon"] = 236521,
+						["quantity"] = 11,
+						["title"] = "货币奖励",
 						["currencyID"] = 1533,
 					}, -- [1]
 				},
-				["costCurrencyTypesID"] = 1220,
+				["numFollowers"] = 3,
+				["completed"] = false,
+				["areaID"] = 7334,
+				["requiredSuccessChance"] = 0,
+				["level"] = 110,
 				["location"] = "阿苏纳",
 				["isRare"] = false,
 				["mapPosX"] = 0,
-				["requiredChampionCount"] = 1,
-			}, -- [2]
+				["missionID"] = 1406,
+			}, -- [1]
 		},
 	},
+	["ignores"] = {
+	},
+	["enableGarrisonMissions"] = false,
 }

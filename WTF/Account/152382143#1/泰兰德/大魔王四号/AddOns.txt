@@ -74,3 +74,4 @@ DBM-DefaultSkin: enabled
 Rematch: enabled
 TMW_Script_Tools: enabled
 GladiatorlosSA2: enabled
+WorldQuestsList: disabled

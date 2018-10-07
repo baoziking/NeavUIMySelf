@@ -263,6 +263,9 @@ PawnCommon = {
 		["\"MrRobot\":WARRIOR1"] = {
 			["IconTexturePath"] = 132355,
 			["PerCharacterOptions"] = {
+				["橡皮糖糖-泰兰德"] = {
+					["Visible"] = true,
+				},
 			},
 			["Color"] = "c69b6d",
 			["ClassID"] = 1,
@@ -428,9 +431,6 @@ PawnCommon = {
 		["\"MrRobot\":WARRIOR2"] = {
 			["IconTexturePath"] = 132347,
 			["PerCharacterOptions"] = {
-				["橡皮糖糖-泰兰德"] = {
-					["Visible"] = true,
-				},
 			},
 			["Color"] = "c69b6d",
 			["ClassID"] = 1,

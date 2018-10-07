@@ -1,6 +1,9 @@
 
 KalielsTrackerDB = {
 	["char"] = {
+		["橡皮糖糖 - 泰兰德"] = {
+			["collapsed"] = true,
+		},
 		["大魔王一号 - 泰兰德"] = {
 			["collapsed"] = true,
 		},

@@ -1,11 +1,4 @@
 Version: 1
-Frame: ChatEditBoxesLengthMover
-FrameLevel: 1
-Anchor: BOTTOMLEFT
-X: 30
-Y: 16
-W: 493
-H: 32
 Frame: CompactRaidMainFrame
 FrameLevel: 1
 Anchor: TOPLEFT
@@ -13,6 +6,13 @@ X: 55
 Y: -52
 W: 64
 H: 36
+Frame: ChatEditBoxesLengthMover
+FrameLevel: 1
+Anchor: BOTTOMLEFT
+X: 30
+Y: 16
+W: 493
+H: 32
 Frame: ObjectiveTrackerFrame
 FrameLevel: 29
 Anchor: TOPRIGHT

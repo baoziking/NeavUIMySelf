@@ -83,3 +83,4 @@ TinyInspect: enabled
 TinyUntitled: enabled
 nMinimap: enabled
 Rematch: enabled
+WorldQuestsList: disabled

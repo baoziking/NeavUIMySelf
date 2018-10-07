@@ -16,184 +16,11 @@ MasterPlanAG = {
 SV_GarrisonMissionManager = {
 }
 IPMDB = {
+	["enableGarrisonMissions"] = false,
+	["ignores"] = {
+	},
 	["profiles"] = {
 		["橡皮糖糖-泰兰德"] = {
-			{
-				["description"] = "",
-				["cost"] = 40,
-				["isZoneSupport"] = false,
-				["locPrefix"] = "GarrMissionLocation-Ashenvale",
-				["followers"] = {
-					"0x000000000773B592", -- [1]
-					"0x0000000007709FA7", -- [2]
-					"0x0000000007BF35BB", -- [3]
-				},
-				["inProgress"] = true,
-				["overmaxRewards"] = {
-					{
-						["title"] = "货币奖励",
-						["quantity"] = 400,
-						["icon"] = 2032592,
-						["currencyID"] = 1579,
-					}, -- [1]
-				},
-				["hasBonusEffect"] = true,
-				["missionEndTime"] = 1538440050,
-				["isMaxLevel"] = true,
-				["name"] = "重夺银风避难所",
-				["canStart"] = false,
-				["typeAtlas"] = "BfAMission-Icon-Normal",
-				["successChance"] = 200,
-				["followerTypeID"] = 22,
-				["offeredGarrMissionTextureID"] = 0,
-				["durationSeconds"] = 57600,
-				["completed"] = false,
-				["missionID"] = 1910,
-				["duration"] = "16小时",
-				["offerTimeRemaining"] = "0秒",
-				["charText"] = "|cffc69b6d橡皮糖糖|r-泰兰德",
-				["timeLeft"] = "16小时",
-				["iLevel"] = 800,
-				["mapPosY"] = 0,
-				["type"] = "",
-				["followerInfo"] = {
-					["0x0000000007709FA7"] = {
-						["displayHeight"] = 0.5,
-						["followerTypeID"] = 22,
-						["iLevel"] = 800,
-						["scale"] = 0.699999988079071,
-						["classAtlas"] = "GarrMission_ClassIcon-Hunter-Survival",
-						["isTroop"] = false,
-						["displayIDs"] = {
-							{
-								["followerPageScale"] = 1,
-								["showWeapon"] = true,
-								["id"] = 33239,
-							}, -- [1]
-						},
-						["displayScale"] = 1,
-						["status"] = "正在执行任务",
-						["level"] = 120,
-						["quality"] = 4,
-						["portraitIconID"] = 2026470,
-						["isFavorite"] = false,
-						["abilities"] = {
-							1062, -- [1]
-							1091, -- [2]
-							1090, -- [3]
-							1100, -- [4]
-						},
-						["xp"] = 0,
-						["className"] = "独狼",
-						["classSpec"] = 188,
-						["isMaxLevel"] = true,
-						["name"] = "约翰·J·基沙恩",
-						["followerID"] = "0x0000000007709FA7",
-						["height"] = 1,
-						["levelXP"] = 0,
-						["isCollected"] = true,
-						["garrFollowerID"] = 1069,
-					},
-					["0x0000000007BF35BB"] = {
-						["displayHeight"] = 0.5,
-						["followerTypeID"] = 22,
-						["iLevel"] = 1,
-						["scale"] = 0.699999988079071,
-						["classAtlas"] = "GarrMission_ClassIcon-Alliance",
-						["isTroop"] = true,
-						["displayIDs"] = {
-							{
-								["followerPageScale"] = 1.39999997615814,
-								["showWeapon"] = true,
-								["id"] = 31654,
-							}, -- [1]
-							{
-								["followerPageScale"] = 1,
-								["showWeapon"] = false,
-								["id"] = 31623,
-							}, -- [2]
-						},
-						["displayScale"] = 1.20000004768372,
-						["status"] = "正在执行任务",
-						["level"] = 120,
-						["quality"] = 1,
-						["portraitIconID"] = 1984897,
-						["isFavorite"] = false,
-						["abilities"] = {
-							1085, -- [1]
-						},
-						["maxDurability"] = 2,
-						["durability"] = 2,
-						["xp"] = 0,
-						["className"] = "联盟部队",
-						["classSpec"] = 193,
-						["isMaxLevel"] = true,
-						["name"] = "诺莫瑞根步行坦克",
-						["followerID"] = "0x0000000007BF35BB",
-						["height"] = 1.10000002384186,
-						["levelXP"] = 1000,
-						["isCollected"] = true,
-						["garrFollowerID"] = 1064,
-					},
-					["0x000000000773B592"] = {
-						["displayHeight"] = 0.5,
-						["followerTypeID"] = 22,
-						["iLevel"] = 800,
-						["scale"] = 0.800000011920929,
-						["classAtlas"] = "GarrMission_ClassIcon-Technician",
-						["isTroop"] = false,
-						["displayIDs"] = {
-							{
-								["followerPageScale"] = 1,
-								["showWeapon"] = true,
-								["id"] = 31159,
-							}, -- [1]
-						},
-						["displayScale"] = 1.20000004768372,
-						["status"] = "正在执行任务",
-						["level"] = 120,
-						["quality"] = 4,
-						["portraitIconID"] = 2026468,
-						["isFavorite"] = false,
-						["abilities"] = {
-							1042, -- [1]
-							1098, -- [2]
-							1100, -- [3]
-							1101, -- [4]
-						},
-						["xp"] = 0,
-						["className"] = "秘密部队技师",
-						["classSpec"] = 190,
-						["isMaxLevel"] = true,
-						["name"] = "凯尔希·钢烁",
-						["followerID"] = "0x000000000773B592",
-						["height"] = 1.14999997615814,
-						["levelXP"] = 0,
-						["isCollected"] = true,
-						["garrFollowerID"] = 1068,
-					},
-				},
-				["timeLeftSeconds"] = 57600,
-				["overmaxSucceeded"] = false,
-				["basecost"] = 40,
-				["level"] = 120,
-				["numFollowers"] = 3,
-				["requiredSuccessChance"] = 0,
-				["areaID"] = 21,
-				["rewards"] = {
-					{
-						["title"] = "货币奖励",
-						["quantity"] = 425,
-						["icon"] = 2032592,
-						["currencyID"] = 1579,
-					}, -- [1]
-				},
-				["costCurrencyTypesID"] = 1560,
-				["location"] = "银风避难所",
-				["isRare"] = false,
-				["mapPosX"] = 0,
-				["requiredChampionCount"] = 1,
-			}, -- [1]
 			{
 				["description"] = "",
 				["cost"] = 150,
@@ -381,10 +208,7 @@ IPMDB = {
 				["isRare"] = false,
 				["mapPosX"] = 0,
 				["requiredChampionCount"] = 1,
-			}, -- [2]
+			}, -- [1]
 		},
 	},
-	["ignores"] = {
-	},
-	["enableGarrisonMissions"] = false,
 }

@@ -1,5 +1,8 @@
 
 AdiBagsDB = {
+	["global"] = {
+		["muteBugGrabber"] = true,
+	},
 	["namespaces"] = {
 		["ItemLevel"] = {
 		},
@@ -18,19 +21,16 @@ AdiBagsDB = {
 		},
 		["MoneyFrame"] = {
 		},
-		["CurrencyFrame"] = {
-		},
 		["DataSource"] = {
 		},
 		["ItemSets"] = {
+		},
+		["CurrencyFrame"] = {
 		},
 		["Junk"] = {
 		},
 		["Equipment"] = {
 		},
-	},
-	["global"] = {
-		["muteBugGrabber"] = true,
 	},
 	["profileKeys"] = {
 		["大魔王一号 - 泰兰德"] = "Default",

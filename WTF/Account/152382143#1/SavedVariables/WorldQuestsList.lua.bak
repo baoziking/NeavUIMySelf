@@ -1,0 +1,31 @@
+
+VWQL = {
+	["Ignore"] = {
+	},
+	["DisableIconsGeneralMap947"] = true,
+	["Sort"] = 5,
+	["AzeriteFormat"] = 20,
+	["Scale"] = 0.8,
+	["橡皮糖糖-泰兰德"] = {
+		["VERSION"] = 81,
+		["FilterType"] = {
+		},
+		["Quests"] = {
+			[51108] = true,
+			[51667] = true,
+			[51638] = true,
+			[53189] = true,
+			[51429] = true,
+			[51157] = true,
+			[51528] = true,
+			[51839] = true,
+			[51561] = true,
+			[52355] = true,
+			[51379] = true,
+			[51783] = true,
+		},
+		["Filter"] = 63,
+	},
+	["VERSION"] = 81,
+	["HideLegion"] = true,
+}
